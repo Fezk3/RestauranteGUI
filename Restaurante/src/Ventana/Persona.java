@@ -33,5 +33,16 @@ public class Persona {
     public void setCelular(String celular) {
         this.celular = celular;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Persona{nombre=").append(nombre);
+        sb.append(", apellido=").append(apellido);
+        sb.append(", celular=").append(celular);
+        sb.append('}');
+        return sb.toString();
+    }
+    
     
 }
