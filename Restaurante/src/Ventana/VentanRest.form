@@ -62,11 +62,11 @@
                   <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panelBanner" max="32767" attributes="0"/>
                       <Component id="jSeparator5" max="32767" attributes="0"/>
-                      <Component id="panelMenu" alignment="0" max="32767" attributes="0"/>
                       <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelSubmenu" max="32767" attributes="0"/>
+                      <Component id="panelMenu" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelBanner" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -209,7 +209,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="465" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="488" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -231,7 +231,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="475" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
