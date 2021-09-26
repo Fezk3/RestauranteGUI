@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Ventana;
 
-/**
- *
- * @author manus
- */
+import java.util.ArrayList;
+
+
 public class Pedido {
+    ArrayList <Bebida> LBebida =new ArrayList <Bebida>();
+    //ArrayList <Comida> LComida =new ArrayList <Comida>();
+
+    public Pedido() {
+    }
+    public void agregarBebida(Bebida bebida){
+        LBebida.add(bebida);
+    }
     
+    /*public void agregarComida(Comida comida){
+        LComida.add(comida);
+    }*/
+    
+    public void eliminarBebida(Bebida bebida){
+        LBebida.remove(bebida);
+    }
+    
+    /*public void eliminarComida(Comida comida){
+        LComida.remove(comida);
+    }*/
 }
