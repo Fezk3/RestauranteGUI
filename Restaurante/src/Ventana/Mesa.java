@@ -58,6 +58,7 @@ public class Mesa {
         
         for(int i=0;i<clientes.size();i++){
          
+            // cambiar metodo a getPagado
             if(clientes.get(i).getTipoDePago().equals("pagado")){
                 
                 clientes.remove(i);
