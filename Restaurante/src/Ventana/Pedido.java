@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 
 public class Pedido {
-    ArrayList <Bebida> LBebida =new ArrayList <Bebida>();
-    //ArrayList <Comida> LComida =new ArrayList <Comida>();
+    private ArrayList <Bebida> LBebida =new ArrayList <Bebida>();
+    // private ArrayList <Comida> LComida =new ArrayList <Comida>();
 
     public Pedido() {
     }
@@ -25,4 +25,10 @@ public class Pedido {
     /*public void eliminarComida(Comida comida){
         LComida.remove(comida);
     }*/
+
+    public ArrayList<Bebida> getLBebida() {
+        return LBebida;
+    }
+    
+    
 }
