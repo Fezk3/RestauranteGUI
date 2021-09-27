@@ -56,6 +56,7 @@ public class Mesero extends Persona {
         sb.append(", apellido=").append(apellido);
         sb.append(", celular=").append(celular);
         sb.append(", salario=").append(salario);
+        sb.append(", Persona=").append(super.toString());
         sb.append('}');
         return sb.toString();
     }
