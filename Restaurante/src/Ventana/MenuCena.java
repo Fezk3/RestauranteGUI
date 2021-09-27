@@ -12,7 +12,7 @@ public class MenuCena {
         
     }
     
-    public void agegarBebida(Comida nueva){
+    public void agegarCena(Comida nueva){
         
         cenas.add(nueva);
         
