@@ -38,6 +38,7 @@ public class VentanRest extends javax.swing.JFrame {
         panelSubmenu = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelMesas.setBackground(new java.awt.Color(102, 102, 255));
 
