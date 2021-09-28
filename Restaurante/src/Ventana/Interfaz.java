@@ -9,7 +9,7 @@ public class Interfaz {
     public ArrayList<Cliente> clientes;
     public ArrayList<Factura> facturas;
     public MenuBebida menuBebida;
-    //public MenuDesayuno menuDesayuno;
+    public MenuDesayuno menuDesayuno;
     public MenuAlmuerzo menuAlmuerzo;
     public MenuCena menuCena;
 
@@ -26,10 +26,10 @@ public class Interfaz {
     }
 
     public void agregarComida(Comida nueva) {
-         /*
-        if(nueva.getTipo() == "Desayuno"){
         
-        }*/
+        if(nueva.getTipo().equals("Desayuno")){
+            menuDesayuno.agegarComida(nueva);
+        }
         if (nueva.equals("Almuerzo")) {
             menuAlmuerzo.agegarAlmuerzo(nueva);
         }
