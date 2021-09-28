@@ -30,10 +30,10 @@ public class Interfaz {
         if(nueva.getTipo().equals("Desayuno")){
             menuDesayuno.agegarComida(nueva);
         }
-        if (nueva.equals("Almuerzo")) {
+        if (nueva.getTipo().equals("Almuerzo")) {
             menuAlmuerzo.agegarAlmuerzo(nueva);
         }
-        if (nueva.equals("Cena")) {
+        if (nueva.getTipo().equals("Cena")) {
             menuCena.agegarCena(nueva);
         }
 
