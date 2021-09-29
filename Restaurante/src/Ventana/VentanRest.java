@@ -8,6 +8,7 @@ package Ventana;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,6 +44,7 @@ public class VentanRest extends javax.swing.JFrame {
     
     private void llenarModeloComboMesero(){
         
+        comboMese.addElement("");
         comboMese.addElement(new Mesero("Julio", "Perez", "85878986", 15000));
         comboMese.addElement(new Mesero("Jose", "Pereira", "85878986", 15000));
         comboMese.addElement(new Mesero("Mario", "Rodriguez", "85878986", 15000));
@@ -489,6 +491,8 @@ public class VentanRest extends javax.swing.JFrame {
         int num = Integer.parseInt(numFact.getText());
         num++;
         numFact.setText("" + num);
+        
+        JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
         
         // Debe aniadir la factura generada a la lista de facturas!!!
         
