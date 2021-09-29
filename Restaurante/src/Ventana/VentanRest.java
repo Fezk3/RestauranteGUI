@@ -14,16 +14,26 @@ import javax.swing.DefaultComboBoxModel;
 public class VentanRest extends javax.swing.JFrame {
 
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
+    private DefaultComboBoxModel comboS = new DefaultComboBoxModel();
     
     public VentanRest() {
         initComponents();
         this.setLocationRelativeTo(null);
         llenarComboI();
+        llenarModeloComboServicio();
     }
     private void llenarComboI(){
         for(int i=1;i<=15;i++){
             comboM.addElement(""+i);
         }
+    }
+    
+    private void llenarModeloComboServicio(){
+        
+        comboS.addElement("Comer aqui");
+        comboS.addElement("Para llevar");
+        comboS.addElement("Express");
+        
     }
 
     /**
@@ -52,7 +62,7 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaFecha = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaPedidos = new javax.swing.JTable();
         etiquetaTotal = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
         etiquetaIva = new javax.swing.JLabel();
@@ -116,7 +126,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         etiquetaServicio.setText("Servicio:");
 
-        comboServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboServicio.setModel(comboS);
 
         etiquetaNumFact.setText("Num Factura:");
 
@@ -133,7 +143,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         fecha.setText("29/09/2021");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -144,7 +154,7 @@ public class VentanRest extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaPedidos);
 
         etiquetaTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         etiquetaTotal.setText("Total: ");
@@ -192,8 +202,8 @@ public class VentanRest extends javax.swing.JFrame {
                                 .addGap(9, 9, 9)))
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cajaNombre)
-                            .addComponent(comboServicio, 0, 125, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(comboServicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, 125, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelFacturaLayout.createSequentialGroup()
@@ -502,7 +512,6 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel numFact;
     private javax.swing.JPanel panelBanner;
     private javax.swing.JPanel panelBotones;
@@ -512,6 +521,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelMesas;
     private javax.swing.JPanel panelSubmenu;
+    private javax.swing.JTable tablaPedidos;
     private javax.swing.JLabel total;
     private javax.swing.JLabel totalIva;
     // End of variables declaration//GEN-END:variables
