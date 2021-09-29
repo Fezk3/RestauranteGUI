@@ -5,17 +5,25 @@
  */
 package Ventana;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Admin
  */
 public class VentanRest extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanRest
-     */
+    private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
+    
     public VentanRest() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        llenarComboI();
+    }
+    private void llenarComboI(){
+        for(int i=1;i<=15;i++){
+            comboM.addElement(""+i);
+        }
     }
 
     /**
@@ -34,6 +42,10 @@ public class VentanRest extends javax.swing.JFrame {
         panelBotones = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
+        panelLogo = new javax.swing.JPanel();
+        etiquetaLogo = new javax.swing.JLabel();
+        comboCantidad = new javax.swing.JComboBox<>();
+        botonEliminar = new javax.swing.JButton();
         panelMenu = new javax.swing.JPanel();
         panelSubmenu = new javax.swing.JPanel();
 
@@ -92,17 +104,46 @@ public class VentanRest extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        panelBanner.setBackground(new java.awt.Color(51, 153, 255));
+        panelBanner.setBackground(new java.awt.Color(255, 255, 255));
+
+        etiquetaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo1.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout panelLogoLayout = new javax.swing.GroupLayout(panelLogo);
+        panelLogo.setLayout(panelLogoLayout);
+        panelLogoLayout.setHorizontalGroup(
+            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(etiquetaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelLogoLayout.setVerticalGroup(
+            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(etiquetaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        comboCantidad.setModel(comboM);
+
+        botonEliminar.setText("Eliminar Articulo");
 
         javax.swing.GroupLayout panelBannerLayout = new javax.swing.GroupLayout(panelBanner);
         panelBanner.setLayout(panelBannerLayout);
         panelBannerLayout.setHorizontalGroup(
             panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBannerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(botonEliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelBannerLayout.setVerticalGroup(
             panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 77, Short.MAX_VALUE)
+            .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBannerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonEliminar))
+                .addGap(28, 28, 28))
         );
 
         panelMenu.setBackground(new java.awt.Color(255, 153, 51));
@@ -115,7 +156,7 @@ public class VentanRest extends javax.swing.JFrame {
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 352, Short.MAX_VALUE)
         );
 
         panelSubmenu.setBackground(new java.awt.Color(255, 0, 51));
@@ -149,8 +190,8 @@ public class VentanRest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelSubmenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelBanner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelBanner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PanelPrincipalLayout.setVerticalGroup(
@@ -227,11 +268,15 @@ public class VentanRest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JComboBox<String> comboCantidad;
+    private javax.swing.JLabel etiquetaLogo;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPanel panelBanner;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JPanel panelFactura;
     private javax.swing.JPanel panelInfoMesas;
+    private javax.swing.JPanel panelLogo;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelMesas;
     private javax.swing.JPanel panelSubmenu;
