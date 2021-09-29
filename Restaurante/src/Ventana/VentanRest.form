@@ -183,7 +183,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="etiquetaFecha" min="-2" pref="45" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="fecha" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="fechaactual" min="-2" pref="76" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="etiquetaNumFact" min="-2" pref="83" max="-2" attributes="0"/>
@@ -237,7 +237,7 @@
                           <Component id="etiquetaServicio" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="comboServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="etiquetaFecha" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="fecha" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="fechaactual" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -340,10 +340,7 @@
                 <Property name="text" type="java.lang.String" value="Fecha:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="fecha">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="29/09/2021"/>
-              </Properties>
+            <Component class="javax.swing.JLabel" name="fechaactual">
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <AuxValues>

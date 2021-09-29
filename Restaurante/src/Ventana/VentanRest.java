@@ -5,6 +5,8 @@
  */
 package Ventana;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -23,6 +25,7 @@ public class VentanRest extends javax.swing.JFrame {
         llenarComboI();
         llenarModeloComboServicio();
         llenarModeloComboMesero();
+        setFechaActual();
     }
     private void llenarComboI(){
         for(int i=1;i<=15;i++){
@@ -44,6 +47,14 @@ public class VentanRest extends javax.swing.JFrame {
         comboMese.addElement(new Mesero("Jose", "Pereira", "85878986", 15000));
         comboMese.addElement(new Mesero("Mario", "Rodriguez", "85878986", 15000));
         comboMese.addElement(new Mesero("Marvin", "Calvo", "85878986", 15000));
+        
+    }
+    
+    private void setFechaActual(){
+        
+        Date actual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("MM/dd/Y");
+        fechaactual.setText(formato.format(actual));
         
     }
 
@@ -71,7 +82,7 @@ public class VentanRest extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         etiquetaOrdenes = new javax.swing.JLabel();
         etiquetaFecha = new javax.swing.JLabel();
-        fecha = new javax.swing.JLabel();
+        fechaactual = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPedidos = new javax.swing.JTable();
         etiquetaTotal = new javax.swing.JLabel();
@@ -152,8 +163,6 @@ public class VentanRest extends javax.swing.JFrame {
 
         etiquetaFecha.setText("Fecha:");
 
-        fecha.setText("29/09/2021");
-
         tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -220,7 +229,7 @@ public class VentanRest extends javax.swing.JFrame {
                             .addGroup(panelFacturaLayout.createSequentialGroup()
                                 .addComponent(etiquetaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fechaactual, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFacturaLayout.createSequentialGroup()
                                 .addComponent(etiquetaNumFact, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -260,7 +269,7 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(etiquetaServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiquetaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaactual, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -514,7 +523,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaTituloFact;
     private javax.swing.JLabel etiquetaTotal;
     private javax.swing.JLabel etiquetaTotalIva;
-    private javax.swing.JLabel fecha;
+    private javax.swing.JLabel fechaactual;
     private javax.swing.JLabel iva;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
