@@ -91,6 +91,7 @@ public class VentanRest extends javax.swing.JFrame {
         iva = new javax.swing.JLabel();
         etiquetaTotalIva = new javax.swing.JLabel();
         totalIva = new javax.swing.JLabel();
+        botonGeneraFact = new javax.swing.JButton();
         panelBotones = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
@@ -135,7 +136,7 @@ public class VentanRest extends javax.swing.JFrame {
         );
         panelInfoMesasLayout.setVerticalGroup(
             panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
+            .addGap(0, 256, Short.MAX_VALUE)
         );
 
         panelFactura.setBackground(new java.awt.Color(255, 255, 255));
@@ -194,6 +195,10 @@ public class VentanRest extends javax.swing.JFrame {
         totalIva.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         totalIva.setText("0.0");
 
+        botonGeneraFact.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonGeneraFact.setForeground(new java.awt.Color(0, 0, 0));
+        botonGeneraFact.setText("Generar");
+
         javax.swing.GroupLayout panelFacturaLayout = new javax.swing.GroupLayout(panelFactura);
         panelFactura.setLayout(panelFacturaLayout);
         panelFacturaLayout.setHorizontalGroup(
@@ -237,16 +242,22 @@ public class VentanRest extends javax.swing.JFrame {
                         .addGap(35, 35, 35))
                     .addGroup(panelFacturaLayout.createSequentialGroup()
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(etiquetaTotalIva)
+                            .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panelFacturaLayout.createSequentialGroup()
                                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiquetaTotalIva)
-                                    .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(totalIva, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(284, 284, 284))
+                            .addGroup(panelFacturaLayout.createSequentialGroup()
+                                .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonGeneraFact, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57))))
+                    .addGroup(panelFacturaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFacturaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -285,7 +296,8 @@ public class VentanRest extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonGeneraFact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaTotalIva, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
@@ -505,6 +517,7 @@ public class VentanRest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonGeneraFact;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JComboBox<String> comboCantidad;
     private javax.swing.JComboBox<String> comboServicio;
