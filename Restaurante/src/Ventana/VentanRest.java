@@ -198,6 +198,11 @@ public class VentanRest extends javax.swing.JFrame {
         botonGeneraFact.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonGeneraFact.setForeground(new java.awt.Color(0, 0, 0));
         botonGeneraFact.setText("Generar");
+        botonGeneraFact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGeneraFactActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFacturaLayout = new javax.swing.GroupLayout(panelFactura);
         panelFactura.setLayout(panelFacturaLayout);
@@ -478,6 +483,16 @@ public class VentanRest extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
+        
+        int num = Integer.parseInt(numFact.getText());
+        num++;
+        numFact.setText("" + num);
+        
+        // Debe aniadir la factura generada a la lista de facturas!!!
+        
+    }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     /**
      * @param args the command line arguments
