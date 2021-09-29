@@ -15,12 +15,14 @@ public class VentanRest extends javax.swing.JFrame {
 
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboS = new DefaultComboBoxModel();
+    private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
     
     public VentanRest() {
         initComponents();
         this.setLocationRelativeTo(null);
         llenarComboI();
         llenarModeloComboServicio();
+        llenarModeloComboMesero();
     }
     private void llenarComboI(){
         for(int i=1;i<=15;i++){
@@ -33,6 +35,15 @@ public class VentanRest extends javax.swing.JFrame {
         comboS.addElement("Comer aqui");
         comboS.addElement("Para llevar");
         comboS.addElement("Express");
+        
+    }
+    
+    private void llenarModeloComboMesero(){
+        
+        comboMese.addElement(new Mesero("Julio", "Perez", "85878986", 15000));
+        comboMese.addElement(new Mesero("Jose", "Pereira", "85878986", 15000));
+        comboMese.addElement(new Mesero("Mario", "Rodriguez", "85878986", 15000));
+        comboMese.addElement(new Mesero("Marvin", "Calvo", "85878986", 15000));
         
     }
 
@@ -134,7 +145,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         etiquetaMesero.setText("Mesero:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(comboMese);
 
         etiquetaOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaOrdenes.setText(" Ordenes");

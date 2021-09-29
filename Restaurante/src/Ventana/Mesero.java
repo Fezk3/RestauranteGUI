@@ -30,14 +30,9 @@ public class Mesero extends Persona {
     
         @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Persona{nombre=").append(super.getNombre());
-        sb.append(", apellido=").append(super.getApellido());
-        sb.append(", celular=").append(super.getCelular());
-        sb.append(", salario=").append(salario);
-        sb.append(", Persona=").append(super.toString());
-        sb.append('}');
-        return sb.toString();
+
+        return this.getNombre() + " " + this.getApellido();
+        
     }
     
 }
