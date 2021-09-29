@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,8 +20,10 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboS = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
+    private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     
     public VentanRest() {
+        agregarModeloTablaFactura();
         initComponents();
         this.setLocationRelativeTo(null);
         llenarComboI();
@@ -57,6 +60,17 @@ public class VentanRest extends javax.swing.JFrame {
         Date actual = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("MM/dd/Y");
         fechaactual.setText(formato.format(actual));
+        
+    }
+    
+    private void agregarModeloTablaFactura(){
+        
+        modeloTablaFact.addColumn("Producto");
+        modeloTablaFact.addColumn("Cantidad");
+        modeloTablaFact.addColumn("Precio");
+        modeloTablaFact.addColumn("Tipo");
+        
+        
         
     }
 
@@ -166,17 +180,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         etiquetaFecha.setText("Fecha:");
 
-        tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tablaPedidos.setModel(modeloTablaFact);
         jScrollPane1.setViewportView(tablaPedidos);
 
         etiquetaTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
