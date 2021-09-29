@@ -47,6 +47,14 @@ public class VentanRest extends javax.swing.JFrame {
         comboCantidad = new javax.swing.JComboBox<>();
         botonEliminar = new javax.swing.JButton();
         panelMenu = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        etiquetaBebida = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        etiquetaDesayuno = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        etiquetaAlmuerzo = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        etiquetaCena = new javax.swing.JLabel();
         panelSubmenu = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,17 +154,51 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        panelMenu.setBackground(new java.awt.Color(255, 153, 51));
+        panelMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        etiquetaBebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen bebida1.jpg"))); // NOI18N
+        jPanel1.add(etiquetaBebida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        etiquetaDesayuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen desayuno1.jpg"))); // NOI18N
+        jPanel2.add(etiquetaDesayuno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        etiquetaAlmuerzo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen almuerzo1.jpg"))); // NOI18N
+        jPanel3.add(etiquetaAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        etiquetaCena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen cena1.jpg"))); // NOI18N
+        jPanel4.add(etiquetaCena, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
         panelMenuLayout.setHorizontalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         panelSubmenu.setBackground(new java.awt.Color(255, 0, 51));
@@ -165,7 +207,7 @@ public class VentanRest extends javax.swing.JFrame {
         panelSubmenu.setLayout(panelSubmenuLayout);
         panelSubmenuLayout.setHorizontalGroup(
             panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panelSubmenuLayout.setVerticalGroup(
             panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +312,15 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton botonEliminar;
     private javax.swing.JComboBox<String> comboCantidad;
+    private javax.swing.JLabel etiquetaAlmuerzo;
+    private javax.swing.JLabel etiquetaBebida;
+    private javax.swing.JLabel etiquetaCena;
+    private javax.swing.JLabel etiquetaDesayuno;
     private javax.swing.JLabel etiquetaLogo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPanel panelBanner;
     private javax.swing.JPanel panelBotones;
