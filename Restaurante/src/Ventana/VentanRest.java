@@ -67,8 +67,9 @@ public class VentanRest extends javax.swing.JFrame {
         
         modeloTablaFact.addColumn("Producto");
         modeloTablaFact.addColumn("Cantidad");
-        modeloTablaFact.addColumn("Precio");
         modeloTablaFact.addColumn("Tipo");
+        modeloTablaFact.addColumn("Precio");
+
         
         
         
