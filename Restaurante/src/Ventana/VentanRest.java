@@ -5,7 +5,6 @@
  */
 package Ventana;
 
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -975,9 +974,11 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-
+            top-=1;
         }
-        llenarTablaSubMenuB();
+        if (top == 0) {
+            llenarTablaSubMenuB();
+        }
     }//GEN-LAST:event_etiquetaBebidaMouseClicked
 
     private void etiquetaDesayunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaDesayunoMouseClicked
@@ -986,7 +987,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-
+            top-=1;
         }
         llenarTablaSubMenuD();
     }//GEN-LAST:event_etiquetaDesayunoMouseClicked
@@ -997,7 +998,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-
+            top-=1;
         }
         llenarTablaSubMenuA();
     }//GEN-LAST:event_etiquetaAlmuerzoMouseClicked
@@ -1008,7 +1009,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-
+            top-=1;
         }
         llenarTablaSubMenuC();
     }//GEN-LAST:event_etiquetaCenaMouseClicked
