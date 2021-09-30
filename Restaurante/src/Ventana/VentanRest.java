@@ -372,7 +372,7 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaIva.setText(" IVA:");
 
         iva.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        iva.setText("0.0");
+        iva.setText("13%");
 
         etiquetaTotalIva.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         etiquetaTotalIva.setText("Total + IVA:");
