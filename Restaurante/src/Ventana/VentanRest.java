@@ -147,6 +147,18 @@ public class VentanRest extends javax.swing.JFrame {
         imagenMesa10 = new javax.swing.JLabel();
         imagenMesa11 = new javax.swing.JLabel();
         imagenMesa12 = new javax.swing.JLabel();
+        num1 = new javax.swing.JLabel();
+        num2 = new javax.swing.JLabel();
+        num3 = new javax.swing.JLabel();
+        num4 = new javax.swing.JLabel();
+        num5 = new javax.swing.JLabel();
+        num6 = new javax.swing.JLabel();
+        num7 = new javax.swing.JLabel();
+        num8 = new javax.swing.JLabel();
+        num9 = new javax.swing.JLabel();
+        num10 = new javax.swing.JLabel();
+        num11 = new javax.swing.JLabel();
+        num12 = new javax.swing.JLabel();
         panelInfoMesas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaInfoMesa = new javax.swing.JTable();
@@ -242,56 +254,148 @@ public class VentanRest extends javax.swing.JFrame {
 
         imagenMesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
 
+        num1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num1.setText("1");
+
+        num2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num2.setText("2");
+
+        num3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num3.setText("3");
+
+        num4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num4.setText("4");
+
+        num5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num5.setText("5");
+
+        num6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num6.setText("6");
+
+        num7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num7.setText("7");
+
+        num8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num8.setText("8");
+
+        num9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num9.setText("9");
+
+        num10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num10.setText("10");
+
+        num11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num11.setText("11");
+
+        num12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        num12.setText("12");
+
         javax.swing.GroupLayout panelMesasLayout = new javax.swing.GroupLayout(panelMesas);
         panelMesas.setLayout(panelMesasLayout);
         panelMesasLayout.setHorizontalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMesasLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
-                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imagenMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(etiquetaPanelMesas)
                 .addGap(151, 151, 151))
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelMesasLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(104, 104, 104)
+                        .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelMesasLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(num1)
+                        .addGap(162, 162, 162)
+                        .addComponent(num2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesasLayout.createSequentialGroup()
+                        .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imagenMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesasLayout.createSequentialGroup()
+                        .addComponent(num3)
+                        .addGap(60, 60, 60))))
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(num4)
+                .addGap(164, 164, 164)
+                .addComponent(num5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(num6)
+                .addGap(62, 62, 62))
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(num7)
+                .addGap(160, 160, 160)
+                .addComponent(num8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(num9)
+                .addGap(63, 63, 63))
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(num10)
+                .addGap(154, 154, 154)
+                .addComponent(num11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(num12)
+                .addGap(58, 58, 58))
         );
         panelMesasLayout.setVerticalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMesasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(etiquetaPanelMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(33, 33, 33)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num1)
+                    .addComponent(num2)
+                    .addComponent(num3))
+                .addGap(18, 18, 18)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(21, 21, 21)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num4)
+                    .addComponent(num5)
+                    .addComponent(num6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(17, 17, 17)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num8)
+                    .addComponent(num9)
+                    .addComponent(num7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(num10)
+                    .addComponent(num11)
+                    .addComponent(num12))
+                .addGap(12, 12, 12)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1005,6 +1109,18 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JLabel num1;
+    private javax.swing.JLabel num10;
+    private javax.swing.JLabel num11;
+    private javax.swing.JLabel num12;
+    private javax.swing.JLabel num2;
+    private javax.swing.JLabel num3;
+    private javax.swing.JLabel num4;
+    private javax.swing.JLabel num5;
+    private javax.swing.JLabel num6;
+    private javax.swing.JLabel num7;
+    private javax.swing.JLabel num8;
+    private javax.swing.JLabel num9;
     private javax.swing.JLabel numFact;
     private javax.swing.JLabel ocupantes;
     private javax.swing.JPanel panelBanner;
