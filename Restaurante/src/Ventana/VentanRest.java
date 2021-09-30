@@ -115,6 +115,13 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaDirec = new javax.swing.JLabel();
         cajaDirec = new javax.swing.JTextField();
         panelBotones = new javax.swing.JPanel();
+        panelBtns = new javax.swing.JLabel();
+        etiquetaAsigMesa = new javax.swing.JLabel();
+        comboMesa = new javax.swing.JComboBox<>();
+        botonCambioMesa = new javax.swing.JButton();
+        BotonDivCuenta = new javax.swing.JButton();
+        BotonMostrarMeseros = new javax.swing.JButton();
+        BotonSubMenu = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
         panelLogo = new javax.swing.JPanel();
@@ -145,7 +152,7 @@ public class VentanRest extends javax.swing.JFrame {
         );
         panelMesasLayout.setVerticalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         panelInfoMesas.setBackground(new java.awt.Color(255, 255, 51));
@@ -158,7 +165,7 @@ public class VentanRest extends javax.swing.JFrame {
         );
         panelInfoMesasLayout.setVerticalGroup(
             panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 251, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         panelFactura.setBackground(new java.awt.Color(255, 255, 255));
@@ -358,17 +365,77 @@ public class VentanRest extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelBotones.setBackground(new java.awt.Color(255, 153, 153));
+        panelBotones.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelBtns.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        panelBtns.setText("Administracion");
+
+        etiquetaAsigMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaAsigMesa.setText("  Asignar Mesa");
+
+        comboMesa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        botonCambioMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botonCambioMesa.setText("Cambiar Mesa");
+
+        BotonDivCuenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        BotonDivCuenta.setText("Div Cuenta");
+        BotonDivCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonDivCuentaActionPerformed(evt);
+            }
+        });
+
+        BotonMostrarMeseros.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        BotonMostrarMeseros.setText("Mostrar Meseros");
+
+        BotonSubMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BotonSubMenu.setText("Menu Admin");
 
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(panelBtns)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(BotonMostrarMeseros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonDivCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCambioMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelBtns, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 31, Short.MAX_VALUE)
+                        .addComponent(botonCambioMesa))
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonDivCuenta)
+                .addGap(12, 12, 12)
+                .addComponent(BotonMostrarMeseros)
+                .addGap(18, 18, 18))
         );
 
         panelBanner.setBackground(new java.awt.Color(255, 255, 255));
@@ -508,9 +575,9 @@ public class VentanRest extends javax.swing.JFrame {
                         .addComponent(panelSubmenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSeparator4)
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panelFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelInfoMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -548,6 +615,10 @@ public class VentanRest extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void BotonDivCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDivCuentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonDivCuentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -584,15 +655,21 @@ public class VentanRest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonDivCuenta;
+    private javax.swing.JButton BotonMostrarMeseros;
+    private javax.swing.JButton BotonSubMenu;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton botonCambioMesa;
     private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonGeneraFact;
     private javax.swing.JTextField cajaDirec;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaTel;
     private javax.swing.JComboBox<String> comboCantidad;
+    private javax.swing.JComboBox<String> comboMesa;
     private javax.swing.JComboBox<String> comboServicio;
     private javax.swing.JLabel etiquetaAlmuerzo;
+    private javax.swing.JLabel etiquetaAsigMesa;
     private javax.swing.JLabel etiquetaBebida;
     private javax.swing.JLabel etiquetaCena;
     private javax.swing.JLabel etiquetaDesayuno;
@@ -621,6 +698,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel numFact;
     private javax.swing.JPanel panelBanner;
     private javax.swing.JPanel panelBotones;
+    private javax.swing.JLabel panelBtns;
     private javax.swing.JPanel panelFactura;
     private javax.swing.JPanel panelInfoMesas;
     private javax.swing.JPanel panelLogo;
