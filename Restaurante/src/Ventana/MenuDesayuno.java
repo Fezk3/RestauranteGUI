@@ -9,6 +9,7 @@ public class MenuDesayuno {
 
     public MenuDesayuno() {
         this.comidas = new ArrayList<Comida>();
+        generarComidasBase();
     }
     
     public void agegarComida(Comida nueva){

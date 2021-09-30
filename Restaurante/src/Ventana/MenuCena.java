@@ -9,7 +9,7 @@ public class MenuCena {
     public MenuCena() {
 
         this.cenas = new ArrayList<Comida>();
-
+        generarCenasBase();
     }
 
     public void agegarCena(Comida nueva) {

@@ -8,6 +8,7 @@ public class MenuBebida {
 
     public MenuBebida() {
         this.bebidas = new ArrayList<Bebida>();
+        generarBebidasBase();
     }
     
     public void agegarBebida(Bebida nueva){
