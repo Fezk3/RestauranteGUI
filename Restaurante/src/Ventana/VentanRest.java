@@ -268,7 +268,7 @@ public class VentanRest extends javax.swing.JFrame {
         infoMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         etiquetaOcupantes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        etiquetaOcupantes.setText("Numero de Ocupantes");
+        etiquetaOcupantes.setText("Numero de Ocupantes:");
 
         ocupantes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         ocupantes.setText("0");
@@ -518,7 +518,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         panelBotones.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelBtns.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        panelBtns.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         panelBtns.setText("Administracion");
 
         etiquetaAsigMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
