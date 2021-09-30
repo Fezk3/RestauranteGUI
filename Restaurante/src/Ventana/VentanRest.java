@@ -101,6 +101,13 @@ public class VentanRest extends javax.swing.JFrame {
         imagenMesa11 = new javax.swing.JLabel();
         imagenMesa12 = new javax.swing.JLabel();
         panelInfoMesas = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaInfoMesa = new javax.swing.JTable();
+        etiquetaInfoMesero = new javax.swing.JLabel();
+        infoMesero = new javax.swing.JLabel();
+        etiquetaOcupantes = new javax.swing.JLabel();
+        ocupantes = new javax.swing.JLabel();
+        etiquetaDetallePedido = new javax.swing.JLabel();
         panelFactura = new javax.swing.JPanel();
         etiquetaNombre = new javax.swing.JLabel();
         cajaNombre = new javax.swing.JTextField();
@@ -242,17 +249,78 @@ public class VentanRest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelInfoMesas.setBackground(new java.awt.Color(255, 255, 51));
+        panelInfoMesas.setBackground(new java.awt.Color(255, 255, 255));
+
+        tablaInfoMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        tablaInfoMesa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaInfoMesa);
+
+        etiquetaInfoMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaInfoMesero.setText("Mesero Asignado: ");
+
+        infoMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+
+        etiquetaOcupantes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaOcupantes.setText("Numero de Ocupantes");
+
+        ocupantes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ocupantes.setText("0");
+
+        etiquetaDetallePedido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaDetallePedido.setText("Detalle de los Pedidos");
 
         javax.swing.GroupLayout panelInfoMesasLayout = new javax.swing.GroupLayout(panelInfoMesas);
         panelInfoMesas.setLayout(panelInfoMesasLayout);
         panelInfoMesasLayout.setHorizontalGroup(
             panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                        .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(etiquetaInfoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(infoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(etiquetaOcupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ocupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(etiquetaDetallePedido)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2)))
+                .addContainerGap())
         );
         panelInfoMesasLayout.setVerticalGroup(
             panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoMesasLayout.createSequentialGroup()
+                .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etiquetaInfoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(infoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etiquetaOcupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ocupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etiquetaDetallePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         panelFactura.setBackground(new java.awt.Color(255, 255, 255));
@@ -760,13 +828,16 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaBebida;
     private javax.swing.JLabel etiquetaCena;
     private javax.swing.JLabel etiquetaDesayuno;
+    private javax.swing.JLabel etiquetaDetallePedido;
     private javax.swing.JLabel etiquetaDirec;
     private javax.swing.JLabel etiquetaFecha;
+    private javax.swing.JLabel etiquetaInfoMesero;
     private javax.swing.JLabel etiquetaIva;
     private javax.swing.JLabel etiquetaLogo;
     private javax.swing.JLabel etiquetaMesero;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaNumFact;
+    private javax.swing.JLabel etiquetaOcupantes;
     private javax.swing.JLabel etiquetaOrdenes;
     private javax.swing.JLabel etiquetaPanelMesas;
     private javax.swing.JLabel etiquetaServicio;
@@ -787,6 +858,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel imagenMesa7;
     private javax.swing.JLabel imagenMesa8;
     private javax.swing.JLabel imagenMesa9;
+    private javax.swing.JLabel infoMesero;
     private javax.swing.JLabel iva;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
@@ -794,8 +866,10 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel numFact;
+    private javax.swing.JLabel ocupantes;
     private javax.swing.JPanel panelBanner;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JLabel panelBtns;
@@ -805,6 +879,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelMesas;
     private javax.swing.JPanel panelSubmenu;
+    private javax.swing.JTable tablaInfoMesa;
     private javax.swing.JTable tablaPedidos;
     private javax.swing.JLabel total;
     private javax.swing.JLabel totalIva;
