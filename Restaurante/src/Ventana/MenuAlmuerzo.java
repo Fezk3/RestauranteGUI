@@ -9,7 +9,7 @@ public class MenuAlmuerzo {
     public MenuAlmuerzo() {
 
         this.almuerzos = new ArrayList<Comida>();
-
+        generarAlmuerzosBase();
     }
 
     public void agegarAlmuerzo(Comida nueva) {

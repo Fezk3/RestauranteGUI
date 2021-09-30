@@ -5,6 +5,7 @@
  */
 package Ventana;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -21,7 +22,12 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultComboBoxModel comboS = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
-    
+    private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
+    private MenuBebida mBebida = new MenuBebida();
+    private MenuDesayuno mDesa = new MenuDesayuno();
+    private MenuAlmuerzo mAlmu = new MenuAlmuerzo();
+    private MenuCena mCena = new MenuCena();
+
     public VentanRest() {
         agregarModeloTablaFactura();
         initComponents();
@@ -30,50 +36,91 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboServicio();
         llenarModeloComboMesero();
         setFechaActual();
+        agregarModelo();
     }
-    private void llenarComboI(){
-        for(int i=1;i<=15;i++){
-            comboM.addElement(""+i);
+
+    private void llenarComboI() {
+        for (int i = 1; i <= 15; i++) {
+            comboM.addElement("" + i);
         }
     }
-    
-    private void llenarModeloComboServicio(){
-        
+
+    private void llenarModeloComboServicio() {
+
         comboS.addElement("Comer aqui");
         comboS.addElement("Para llevar");
         comboS.addElement("Express");
-        
+
     }
-    
-    private void llenarModeloComboMesero(){
-        
-        
+
+    private void llenarModeloComboMesero() {
+
         comboMese.addElement(new Mesero("Julio", "Perez", "85878986", 15000));
         comboMese.addElement(new Mesero("Jose", "Pereira", "85878986", 15000));
         comboMese.addElement(new Mesero("Mario", "Rodriguez", "85878986", 15000));
         comboMese.addElement(new Mesero("Marvin", "Calvo", "85878986", 15000));
         comboMese.addElement("");
-        
+
     }
-    
-    private void setFechaActual(){
-        
+
+    private void setFechaActual() {
+
         Date actual = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("MM/dd/Y");
         fechaactual.setText(formato.format(actual));
-        
+
     }
-    
-    private void agregarModeloTablaFactura(){
-        
+
+    private void agregarModeloTablaFactura() {
+
         modeloTablaFact.addColumn("Producto");
         modeloTablaFact.addColumn("Cantidad");
         modeloTablaFact.addColumn("Tipo");
         modeloTablaFact.addColumn("Precio");
 
-        
-        
-        
+    }
+
+    private void agregarModelo() {
+        modeloTablaSubM.addColumn("Nombre");
+        modeloTablaSubM.addColumn("Precio");
+    }
+
+    private void llenarTablaSubMenuB() {
+        int top = mBebida.bebidas.size();
+        Bebida actual;
+        for (int i = 0; i < top; i++) {
+            actual = mBebida.bebidas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+        }
+    }
+
+    private void llenarTablaSubMenuD() {
+        int top = mDesa.comidas.size();
+        Comida actual;
+        for (int i = 0; i < top; i++) {
+            actual = mDesa.comidas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+        }
+    }
+
+    private void llenarTablaSubMenuA() {
+        int top = mAlmu.almuerzos.size();
+        Comida actual;
+        for (int i = 0; i < top; i++) {
+            actual = mAlmu.almuerzos.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+        }
+    }
+
+    private void llenarTablaSubMenuC() {
+        int top = mCena.cenas.size();
+        Comida actual;
+        int i = 0;
+        while (i < top) {
+            actual = mCena.cenas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+            i++;
+        }
     }
 
     /**
@@ -146,8 +193,6 @@ public class VentanRest extends javax.swing.JFrame {
         panelBanner = new javax.swing.JPanel();
         panelLogo = new javax.swing.JPanel();
         etiquetaLogo = new javax.swing.JLabel();
-        comboCantidad = new javax.swing.JComboBox<>();
-        botonEliminar = new javax.swing.JButton();
         panelMenu = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         etiquetaBebida = new javax.swing.JLabel();
@@ -158,6 +203,11 @@ public class VentanRest extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         etiquetaCena = new javax.swing.JLabel();
         panelSubmenu = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaSubMenu = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        comboCantidad = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -604,31 +654,17 @@ public class VentanRest extends javax.swing.JFrame {
             .addComponent(etiquetaLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        comboCantidad.setModel(comboM);
-
-        botonEliminar.setText("Eliminar Articulo");
-
         javax.swing.GroupLayout panelBannerLayout = new javax.swing.GroupLayout(panelBanner);
         panelBanner.setLayout(panelBannerLayout);
         panelBannerLayout.setHorizontalGroup(
             panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBannerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(botonEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelBannerLayout.setVerticalGroup(
             panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBannerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonEliminar))
-                .addGap(28, 28, 28))
         );
 
         panelMenu.setBackground(new java.awt.Color(255, 255, 255));
@@ -636,21 +672,41 @@ public class VentanRest extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiquetaBebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen bebida1.jpg"))); // NOI18N
+        etiquetaBebida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaBebidaMouseClicked(evt);
+            }
+        });
         jPanel1.add(etiquetaBebida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiquetaDesayuno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen desayuno1.jpg"))); // NOI18N
+        etiquetaDesayuno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaDesayunoMouseClicked(evt);
+            }
+        });
         jPanel2.add(etiquetaDesayuno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiquetaAlmuerzo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen almuerzo1.jpg"))); // NOI18N
+        etiquetaAlmuerzo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaAlmuerzoMouseClicked(evt);
+            }
+        });
         jPanel3.add(etiquetaAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiquetaCena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen cena1.jpg"))); // NOI18N
+        etiquetaCena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                etiquetaCenaMouseClicked(evt);
+            }
+        });
         jPanel4.add(etiquetaCena, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
@@ -678,17 +734,52 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        panelSubmenu.setBackground(new java.awt.Color(255, 0, 51));
+        panelSubmenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        tablaSubMenu.setModel(modeloTablaSubM);
+        jScrollPane3.setViewportView(tablaSubMenu);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText("Cantidad: ");
+
+        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        comboCantidad.setModel(comboM);
 
         javax.swing.GroupLayout panelSubmenuLayout = new javax.swing.GroupLayout(panelSubmenu);
         panelSubmenu.setLayout(panelSubmenuLayout);
         panelSubmenuLayout.setHorizontalGroup(
             panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelSubmenuLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelSubmenuLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(64, 64, 64))
         );
         panelSubmenuLayout.setVerticalGroup(
             panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelSubmenuLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
@@ -751,15 +842,15 @@ public class VentanRest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
-        
+
         int num = Integer.parseInt(numFact.getText());
         num++;
         numFact.setText("" + num);
-        
+
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
-        
+
         // Debe aniadir la factura generada a la lista de facturas!!!
-        
+
     }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -769,6 +860,54 @@ public class VentanRest extends javax.swing.JFrame {
     private void BotonDivCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDivCuentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonDivCuentaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void etiquetaBebidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaBebidaMouseClicked
+        int top = modeloTablaSubM.getRowCount();
+
+        while (top != 0) {
+
+            modeloTablaSubM.removeRow(0);
+
+        }
+        llenarTablaSubMenuB();
+    }//GEN-LAST:event_etiquetaBebidaMouseClicked
+
+    private void etiquetaDesayunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaDesayunoMouseClicked
+        int top = modeloTablaSubM.getRowCount();
+
+        while (top != 0) {
+
+            modeloTablaSubM.removeRow(0);
+
+        }
+        llenarTablaSubMenuD();
+    }//GEN-LAST:event_etiquetaDesayunoMouseClicked
+
+    private void etiquetaAlmuerzoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaAlmuerzoMouseClicked
+        int top = modeloTablaSubM.getRowCount();
+
+        while (top != 0) {
+
+            modeloTablaSubM.removeRow(0);
+
+        }
+        llenarTablaSubMenuA();
+    }//GEN-LAST:event_etiquetaAlmuerzoMouseClicked
+
+    private void etiquetaCenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaCenaMouseClicked
+        int top = modeloTablaSubM.getRowCount();
+
+        while (top != 0) {
+
+            modeloTablaSubM.removeRow(0);
+
+        }
+        llenarTablaSubMenuC();
+    }//GEN-LAST:event_etiquetaCenaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -811,7 +950,6 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JButton BotonSubMenu;
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton botonCambioMesa;
-    private javax.swing.JButton botonEliminar;
     private javax.swing.JButton botonGeneraFact;
     private javax.swing.JTextField cajaDirec;
     private javax.swing.JTextField cajaNombre;
@@ -856,13 +994,16 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel imagenMesa9;
     private javax.swing.JLabel infoMesero;
     private javax.swing.JLabel iva;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel numFact;
     private javax.swing.JLabel ocupantes;
@@ -877,6 +1018,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JPanel panelSubmenu;
     private javax.swing.JTable tablaInfoMesa;
     private javax.swing.JTable tablaPedidos;
+    private javax.swing.JTable tablaSubMenu;
     private javax.swing.JLabel total;
     private javax.swing.JLabel totalIva;
     // End of variables declaration//GEN-END:variables
