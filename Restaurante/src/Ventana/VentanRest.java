@@ -91,6 +91,15 @@ public class VentanRest extends javax.swing.JFrame {
         imagenMesa1 = new javax.swing.JLabel();
         imagenMesa2 = new javax.swing.JLabel();
         imagenMesa3 = new javax.swing.JLabel();
+        imagenMesa4 = new javax.swing.JLabel();
+        imagenMesa5 = new javax.swing.JLabel();
+        imagenMesa6 = new javax.swing.JLabel();
+        imagenMesa7 = new javax.swing.JLabel();
+        imagenMesa8 = new javax.swing.JLabel();
+        imagenMesa9 = new javax.swing.JLabel();
+        imagenMesa10 = new javax.swing.JLabel();
+        imagenMesa11 = new javax.swing.JLabel();
+        imagenMesa12 = new javax.swing.JLabel();
         panelInfoMesas = new javax.swing.JPanel();
         panelFactura = new javax.swing.JPanel();
         etiquetaNombre = new javax.swing.JLabel();
@@ -158,22 +167,52 @@ public class VentanRest extends javax.swing.JFrame {
 
         imagenMesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
 
+        imagenMesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
         javax.swing.GroupLayout panelMesasLayout = new javax.swing.GroupLayout(panelMesas);
         panelMesas.setLayout(panelMesasLayout);
         panelMesasLayout.setHorizontalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMesasLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(104, 104, 104)
-                .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
-            .addGroup(panelMesasLayout.createSequentialGroup()
-                .addGap(151, 151, 151)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMesasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(etiquetaPanelMesas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(151, 151, 151))
         );
         panelMesasLayout.setVerticalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,6 +224,21 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -722,8 +776,17 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaTotalIva;
     private javax.swing.JLabel fechaactual;
     private javax.swing.JLabel imagenMesa1;
+    private javax.swing.JLabel imagenMesa10;
+    private javax.swing.JLabel imagenMesa11;
+    private javax.swing.JLabel imagenMesa12;
     private javax.swing.JLabel imagenMesa2;
     private javax.swing.JLabel imagenMesa3;
+    private javax.swing.JLabel imagenMesa4;
+    private javax.swing.JLabel imagenMesa5;
+    private javax.swing.JLabel imagenMesa6;
+    private javax.swing.JLabel imagenMesa7;
+    private javax.swing.JLabel imagenMesa8;
+    private javax.swing.JLabel imagenMesa9;
     private javax.swing.JLabel iva;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;

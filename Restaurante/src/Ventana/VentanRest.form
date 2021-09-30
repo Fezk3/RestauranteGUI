@@ -105,17 +105,32 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="imagenMesa1" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa1" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa4" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa7" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa10" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                      <Component id="imagenMesa2" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa2" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa5" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa8" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa11" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="103" max="32767" attributes="0"/>
-                      <Component id="imagenMesa3" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa3" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa6" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa9" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa12" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                      <Component id="etiquetaPanelMesas" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="etiquetaPanelMesas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -129,6 +144,24 @@
                           <Component id="imagenMesa1" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="imagenMesa2" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="imagenMesa3" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa4" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa5" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa6" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa7" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa8" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa9" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="imagenMesa10" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa11" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="imagenMesa12" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -162,6 +195,69 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa3">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa4">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa5">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa6">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa7">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa8">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa9">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa10">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa11">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/icono mesa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="imagenMesa12">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
