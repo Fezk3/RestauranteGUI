@@ -223,7 +223,9 @@ public class VentanRest extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        panelMesas.setBackground(new java.awt.Color(255, 255, 255));
+        PanelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+
+        panelMesas.setBackground(new java.awt.Color(51, 153, 255));
 
         etiquetaPanelMesas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaPanelMesas.setText("Mesas del Restaurante");
@@ -380,20 +382,22 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(imagenMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(num8)
-                    .addComponent(num9)
-                    .addComponent(num7))
+                    .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(num9)
+                        .addComponent(num7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(imagenMesa9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(num10)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(num11)
-                    .addComponent(num12))
+                    .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(num10)
+                        .addComponent(num12)))
                 .addGap(12, 12, 12)
                 .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imagenMesa10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -402,7 +406,7 @@ public class VentanRest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panelInfoMesas.setBackground(new java.awt.Color(255, 255, 255));
+        panelInfoMesas.setBackground(new java.awt.Color(0, 102, 153));
 
         tablaInfoMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tablaInfoMesa.setModel(new javax.swing.table.DefaultTableModel(
@@ -472,7 +476,7 @@ public class VentanRest extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelFactura.setBackground(new java.awt.Color(255, 255, 255));
+        panelFactura.setBackground(new java.awt.Color(0, 102, 153));
 
         etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaNombre.setText("Nombre:");
@@ -669,7 +673,7 @@ public class VentanRest extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelBotones.setBackground(new java.awt.Color(255, 255, 255));
+        panelBotones.setBackground(new java.awt.Color(51, 153, 255));
 
         panelBtns.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         panelBtns.setText("Administracion");
@@ -770,7 +774,7 @@ public class VentanRest extends javax.swing.JFrame {
             .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        panelMenu.setBackground(new java.awt.Color(255, 255, 255));
+        panelMenu.setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -837,7 +841,7 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        panelSubmenu.setBackground(new java.awt.Color(255, 255, 255));
+        panelSubmenu.setBackground(new java.awt.Color(0, 102, 153));
 
         tablaSubMenu.setModel(modeloTablaSubM);
         jScrollPane3.setViewportView(tablaSubMenu);
