@@ -87,6 +87,10 @@ public class VentanRest extends javax.swing.JFrame {
 
         PanelPrincipal = new javax.swing.JPanel();
         panelMesas = new javax.swing.JPanel();
+        etiquetaPanelMesas = new javax.swing.JLabel();
+        imagenMesa1 = new javax.swing.JLabel();
+        imagenMesa2 = new javax.swing.JLabel();
+        imagenMesa3 = new javax.swing.JLabel();
         panelInfoMesas = new javax.swing.JPanel();
         panelFactura = new javax.swing.JPanel();
         etiquetaNombre = new javax.swing.JLabel();
@@ -142,17 +146,46 @@ public class VentanRest extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        panelMesas.setBackground(new java.awt.Color(102, 102, 255));
+        panelMesas.setBackground(new java.awt.Color(255, 255, 255));
+
+        etiquetaPanelMesas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaPanelMesas.setText("Mesas del Restaurante");
+
+        imagenMesa1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        imagenMesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+
+        imagenMesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
 
         javax.swing.GroupLayout panelMesasLayout = new javax.swing.GroupLayout(panelMesas);
         panelMesas.setLayout(panelMesasLayout);
         panelMesasLayout.setHorizontalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104)
+                .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(etiquetaPanelMesas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMesasLayout.setVerticalGroup(
             panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelMesasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(etiquetaPanelMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addGroup(panelMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imagenMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imagenMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelInfoMesas.setBackground(new java.awt.Color(255, 255, 51));
@@ -681,12 +714,16 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaNumFact;
     private javax.swing.JLabel etiquetaOrdenes;
+    private javax.swing.JLabel etiquetaPanelMesas;
     private javax.swing.JLabel etiquetaServicio;
     private javax.swing.JLabel etiquetaTel;
     private javax.swing.JLabel etiquetaTituloFact;
     private javax.swing.JLabel etiquetaTotal;
     private javax.swing.JLabel etiquetaTotalIva;
     private javax.swing.JLabel fechaactual;
+    private javax.swing.JLabel imagenMesa1;
+    private javax.swing.JLabel imagenMesa2;
+    private javax.swing.JLabel imagenMesa3;
     private javax.swing.JLabel iva;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
