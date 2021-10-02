@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -81,7 +83,7 @@ public class VentanRest extends javax.swing.JFrame {
         Bebida actual;
         for (int i = 0; i < top; i++) {
             actual = interfaz.menuBebida.bebidas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), "Bebida"});
+            modeloTablaSubM.addRow(new Object[]{actual.getNombre(), String.valueOf(actual.getPrecio()), "Bebida"});
         }
     }
 
@@ -90,7 +92,7 @@ public class VentanRest extends javax.swing.JFrame {
         Comida actual;
         for (int i = 0; i < top; i++) {
             actual = interfaz.menuDesayuno.comidas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
+            modeloTablaSubM.addRow(new Object[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
         }
     }
 
@@ -99,7 +101,7 @@ public class VentanRest extends javax.swing.JFrame {
         Comida actual;
         for (int i = 0; i < top; i++) {
             actual = interfaz.menuAlmuerzo.almuerzos.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
+            modeloTablaSubM.addRow(new Object[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
         }
     }
 
@@ -109,7 +111,7 @@ public class VentanRest extends javax.swing.JFrame {
         int i = 0;
         while (i < top) {
             actual = interfaz.menuCena.cenas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
+            modeloTablaSubM.addRow(new Object[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
             i++;
         }
     }
@@ -837,6 +839,16 @@ public class VentanRest extends javax.swing.JFrame {
         panelSubmenu.setBackground(new java.awt.Color(0, 102, 153));
 
         tablaSubMenu.setModel(modeloTablaSubM);
+        ListSelectionListener oyente = new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e){
+                if(e.getValueIsAdjusting()){
+
+                }
+            }
+        };
+
+        tablaSubMenu.getSelectionModel().addListSelectionListener(oyente);
         jScrollPane3.setViewportView(tablaSubMenu);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -865,16 +877,17 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelSubmenuLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(60, 60, 60))
-            .addGroup(panelSubmenuLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSubmenuLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelSubmenuLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(60, 60, 60))))
         );
         panelSubmenuLayout.setVerticalGroup(
             panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

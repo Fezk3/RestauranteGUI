@@ -4,11 +4,13 @@ public class Comida {
     
     private String nombre, tipo;
     private double precio;
+    private int cantidad;
 
     public Comida(String nombre, String tipo, double precio) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
+        cantidad=0;
     }
 
     public String getNombre() {
@@ -33,6 +35,14 @@ public class Comida {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
     
     @Override
