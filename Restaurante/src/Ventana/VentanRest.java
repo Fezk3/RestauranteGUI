@@ -8,7 +8,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-
 public class VentanRest extends javax.swing.JFrame {
 
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
@@ -16,9 +15,7 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
-    private Interfaz interfaz=new Interfaz();
-    
-
+    private Interfaz interfaz = new Interfaz();
 
     public VentanRest() {
         agregarModeloTablaFactura();
@@ -29,6 +26,8 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
+
+        
     }
 
     private void llenarComboI() {
@@ -211,7 +210,7 @@ public class VentanRest extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSubMenu = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonAgregar = new javax.swing.JButton();
         comboCantidad = new javax.swing.JComboBox<>();
         etiquetaSubmenu = new javax.swing.JLabel();
 
@@ -839,26 +838,16 @@ public class VentanRest extends javax.swing.JFrame {
         panelSubmenu.setBackground(new java.awt.Color(0, 102, 153));
 
         tablaSubMenu.setModel(modeloTablaSubM);
-        ListSelectionListener oyente = new ListSelectionListener(){
-            @Override
-            public void valueChanged(ListSelectionEvent e){
-                if(e.getValueIsAdjusting()){
-
-                }
-            }
-        };
-
-        tablaSubMenu.getSelectionModel().addListSelectionListener(oyente);
         jScrollPane3.setViewportView(tablaSubMenu);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Cantidad: ");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botonAgregar.setText("Agregar");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonAgregarActionPerformed(evt);
             }
         });
 
@@ -886,7 +875,7 @@ public class VentanRest extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(botonAgregar)
                         .addGap(60, 60, 60))))
         );
         panelSubmenuLayout.setVerticalGroup(
@@ -898,7 +887,7 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGroup(panelSubmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(comboCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -983,9 +972,20 @@ public class VentanRest extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonDivCuentaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        
+                
+                    int fila = tablaSubMenu.getSelectedRow();
+
+                    String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
+                    String cantidad = String.valueOf(comboCantidad.getSelectedItem());
+                    String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
+                    String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
+
+                    modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, precio});
+                
+            
+    }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void etiquetaBebidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaBebidaMouseClicked
         int top = modeloTablaSubM.getRowCount();
@@ -1073,6 +1073,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JButton BotonMostrarMeseros;
     private javax.swing.JButton BotonSubMenu;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonCambioMesa;
     private javax.swing.JButton botonGeneraFact;
     private javax.swing.JTextField cajaDirec;
@@ -1119,7 +1120,6 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel imagenMesa9;
     private javax.swing.JLabel infoMesero;
     private javax.swing.JLabel iva;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

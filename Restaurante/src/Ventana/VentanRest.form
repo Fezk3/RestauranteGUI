@@ -1278,7 +1278,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="comboCantidad" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="botonAgregar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1294,7 +1294,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="comboCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="botonAgregar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="198" max="-2" attributes="0"/>
@@ -1317,9 +1317,6 @@
                       <Connection code="modeloTablaSubM" type="code"/>
                     </Property>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ListSelectionListener oyente = new ListSelectionListener(){&#xd;&#xa;    @Override&#xd;&#xa;    public void valueChanged(ListSelectionEvent e){&#xd;&#xa;        if(e.getValueIsAdjusting()){&#xd;&#xa;            &#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;};&#xd;&#xa;&#xd;&#xa;tablaSubMenu.getSelectionModel().addListSelectionListener(oyente);&#xd;&#xa;"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1331,7 +1328,7 @@
                 <Property name="text" type="java.lang.String" value="Cantidad: "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="botonAgregar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="0"/>
@@ -1339,7 +1336,7 @@
                 <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAgregarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboCantidad">
