@@ -5,6 +5,9 @@
  */
 package Ventana;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Admin
@@ -14,8 +17,23 @@ public class VentanaFactura extends javax.swing.JFrame {
     /**
      * Creates new form VentanaFactura
      */
+    private DefaultTableModel modeloTablaFact = new DefaultTableModel();
+    private ArrayList<Factura> facts;
+    private int cont = 0;
+
     public VentanaFactura() {
         initComponents();
+        agregarModeloTablaFactura();
+        this.facts = facts;
+    }
+
+    private void agregarModeloTablaFactura() {
+
+        modeloTablaFact.addColumn("Producto");
+        modeloTablaFact.addColumn("Cantidad");
+        modeloTablaFact.addColumn("Tipo");
+        modeloTablaFact.addColumn("Precio");
+
     }
 
     /**
@@ -32,11 +50,9 @@ public class VentanaFactura extends javax.swing.JFrame {
         cajaNombre = new javax.swing.JTextField();
         etiquetaTituloFact = new javax.swing.JLabel();
         etiquetaServicio = new javax.swing.JLabel();
-        comboServicio = new javax.swing.JComboBox<>();
         etiquetaNumFact = new javax.swing.JLabel();
         numFact = new javax.swing.JLabel();
         etiquetaMesero = new javax.swing.JLabel();
-        comboMesero = new javax.swing.JComboBox<>();
         etiquetaOrdenes = new javax.swing.JLabel();
         etiquetaFecha = new javax.swing.JLabel();
         fechaactual = new javax.swing.JLabel();
@@ -48,11 +64,14 @@ public class VentanaFactura extends javax.swing.JFrame {
         iva = new javax.swing.JLabel();
         etiquetaTotalIva = new javax.swing.JLabel();
         totalIva = new javax.swing.JLabel();
-        botonGeneraFact = new javax.swing.JButton();
+        botonSiguiente = new javax.swing.JButton();
         etiquetaTel = new javax.swing.JLabel();
         cajaTel = new javax.swing.JTextField();
         etiquetaDirec = new javax.swing.JLabel();
         cajaDirec = new javax.swing.JTextField();
+        cajaServicio = new javax.swing.JTextField();
+        cajaMesero = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,9 +86,6 @@ public class VentanaFactura extends javax.swing.JFrame {
         etiquetaServicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaServicio.setText("Servicio:");
 
-        comboServicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        comboServicio.setModel(comboS);
-
         etiquetaNumFact.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaNumFact.setText("Num Factura:");
 
@@ -78,14 +94,6 @@ public class VentanaFactura extends javax.swing.JFrame {
 
         etiquetaMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaMesero.setText("Mesero:");
-
-        comboMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        comboMesero.setModel(comboMese);
-        comboMesero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboMeseroActionPerformed(evt);
-            }
-        });
 
         etiquetaOrdenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaOrdenes.setText(" Ordenes");
@@ -117,12 +125,12 @@ public class VentanaFactura extends javax.swing.JFrame {
         totalIva.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         totalIva.setText("0.0");
 
-        botonGeneraFact.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        botonGeneraFact.setForeground(new java.awt.Color(0, 0, 0));
-        botonGeneraFact.setText("Generar");
-        botonGeneraFact.addActionListener(new java.awt.event.ActionListener() {
+        botonSiguiente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonSiguiente.setForeground(new java.awt.Color(0, 0, 0));
+        botonSiguiente.setText("Siguiente fact.");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGeneraFactActionPerformed(evt);
+                botonSiguienteActionPerformed(evt);
             }
         });
 
@@ -146,7 +154,7 @@ public class VentanaFactura extends javax.swing.JFrame {
                         .addComponent(etiquetaTel)
                         .addGap(18, 18, 18)
                         .addComponent(cajaTel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelFacturaLayout.createSequentialGroup()
                                 .addComponent(etiquetaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,15 +172,13 @@ public class VentanaFactura extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelFacturaLayout.createSequentialGroup()
-                                .addComponent(comboServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cajaServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(64, 64, 64)
                                 .addComponent(etiquetaMesero)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(panelFacturaLayout.createSequentialGroup()
-                                .addComponent(cajaDirec)
-                                .addContainerGap())))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cajaMesero))
+                            .addComponent(cajaDirec))
+                        .addContainerGap())
                     .addGroup(panelFacturaLayout.createSequentialGroup()
                         .addComponent(etiquetaNombre)
                         .addGap(24, 24, 24)
@@ -189,7 +195,7 @@ public class VentanaFactura extends javax.swing.JFrame {
                             .addGroup(panelFacturaLayout.createSequentialGroup()
                                 .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonGeneraFact, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(53, 53, 53))))
             .addGroup(panelFacturaLayout.createSequentialGroup()
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +236,9 @@ public class VentanaFactura extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiquetaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cajaServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cajaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addComponent(etiquetaOrdenes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -245,7 +251,7 @@ public class VentanaFactura extends javax.swing.JFrame {
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonGeneraFact))
+                    .addComponent(botonSiguiente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaTotalIva, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
@@ -253,11 +259,16 @@ public class VentanaFactura extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jTextField2.setText("jTextField2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(328, Short.MAX_VALUE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -266,7 +277,10 @@ public class VentanaFactura extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(363, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -277,64 +291,27 @@ public class VentanaFactura extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMeseroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboMeseroActionPerformed
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-    private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
+        numFact.setText(String.valueOf(facts.get(cont).getnFact()));
+        cajaNombre.setText(facts.get(cont).getNomCliente());
+        cajaTel.setText(facts.get(cont).getTelCliente());
+        cajaDirec.setText(facts.get(cont).getDirecCliente());
+        cajaServicio.setText(facts.get(cont).getTipoServicio());
+        cajaMesero.setText(facts.get(cont).getMesero());
 
-        int num = Integer.parseInt(numFact.getText());
-        num++;
-        numFact.setText("" + num);
+        // llena la tabla con las comidas de la factura
+        for (int i = 0; i < facts.get(cont).getLComida().size() - 1; i++) {
 
-        // creado obj nuevo de factura y aniadiendolo a la lista de facturas
-        String nom, tel, dir, serv, mese, fech;
-        int nume;
-        ArrayList<Comida> comidas = new ArrayList<Comida>();
-
-        nom = cajaNombre.getText();
-        tel = cajaTel.getText();
-        dir = cajaDirec.getText();
-        serv = String.valueOf(comboServicio.getSelectedItem());
-        fech = String.valueOf(fechaactual.getText());
-        mese = String.valueOf(comboMesero.getSelectedItem());
-        nume = Integer.parseInt(numFact.getText());
-
-        // Para comida
-        String nomb, tip, cant, prec;
-
-        for (int i = 0; i < modeloTablaFact.getRowCount() - 1; i++) {
-
-            nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
-            cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
-            tip = String.valueOf(modeloTablaFact.getValueAt(i, 2));
-            prec = String.valueOf(modeloTablaFact.getValueAt(i, 3));
-
-            comidas.add(new Comida(nomb, tip, Double.parseDouble(prec), Integer.parseInt(cant)));
+            modeloTablaFact.addRow(new Object[]{facts.get(cont).getLComida().get(i).getNombre(), facts.get(cont).getLComida().get(i).getCantidad(), facts.get(cont).getLComida().get(i).getTipo(), facts.get(cont).getLComida().get(i).getPrecio()});
 
         }
 
-        // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume, fech, serv, mese, tel, nom, dir));
+        total.setText(String.valueOf(facts.get(cont).calcularTotal()));
+        totalIva.setText(String.valueOf(facts.get(cont).calcularConIva()));
 
-        JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
-
-        // Vaciando la factura para que quede disponible
-        cajaNombre.setText("");
-        cajaTel.setText("");
-        cajaDirec.setText("");
-        comboServicio.setSelectedIndex(-1);
-        comboMesero.setSelectedIndex(-1);
-
-        int top = modeloTablaSubM.getRowCount();
-
-        while (top != 0) {
-
-            modeloTablaSubM.removeRow(0);
-            top--;
-
-        }
-    }//GEN-LAST:event_botonGeneraFactActionPerformed
+        cont++;
+    }//GEN-LAST:event_botonSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,12 +349,12 @@ public class VentanaFactura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonGeneraFact;
+    private javax.swing.JButton botonSiguiente;
     private javax.swing.JTextField cajaDirec;
+    private javax.swing.JTextField cajaMesero;
     private javax.swing.JTextField cajaNombre;
+    private javax.swing.JTextField cajaServicio;
     private javax.swing.JTextField cajaTel;
-    private javax.swing.JComboBox<String> comboMesero;
-    private javax.swing.JComboBox<String> comboServicio;
     private javax.swing.JLabel etiquetaDirec;
     private javax.swing.JLabel etiquetaFecha;
     private javax.swing.JLabel etiquetaIva;
@@ -393,6 +370,7 @@ public class VentanaFactura extends javax.swing.JFrame {
     private javax.swing.JLabel fechaactual;
     private javax.swing.JLabel iva;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel numFact;
     private javax.swing.JPanel panelFactura;
     private javax.swing.JTable tablaPedidos;

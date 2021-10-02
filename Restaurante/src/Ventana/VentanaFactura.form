@@ -23,7 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="447" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="328" max="32767" attributes="0"/>
+              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -35,7 +39,11 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="541" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="363" max="32767" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -68,7 +76,7 @@
                           <Component id="etiquetaTel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cajaTel" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="etiquetaFecha" min="-2" pref="45" max="-2" attributes="0"/>
@@ -90,19 +98,16 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="comboServicio" min="-2" pref="122" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cajaServicio" min="-2" pref="122" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                                   <Component id="etiquetaMesero" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="comboMesero" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="cajaMesero" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="cajaDirec" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="cajaDirec" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="etiquetaNombre" min="-2" max="-2" attributes="0"/>
@@ -122,7 +127,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="iva" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="botonGeneraFact" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="botonSiguiente" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
@@ -178,9 +183,9 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="etiquetaServicio" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="comboServicio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="etiquetaMesero" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="comboMesero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cajaServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cajaMesero" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="etiquetaOrdenes" min="-2" pref="27" max="-2" attributes="0"/>
@@ -195,7 +200,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="etiquetaIva" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="iva" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="botonGeneraFact" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -234,19 +239,6 @@
             <Property name="text" type="java.lang.String" value="Servicio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="comboServicio">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="1"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="comboS" type="code"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="etiquetaNumFact">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -270,22 +262,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mesero:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="comboMesero">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="1"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="comboMese" type="code"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboMeseroActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="etiquetaOrdenes">
           <Properties>
@@ -377,7 +353,7 @@
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="botonGeneraFact">
+        <Component class="javax.swing.JButton" name="botonSiguiente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
@@ -385,10 +361,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Generar"/>
+            <Property name="text" type="java.lang.String" value="Siguiente fact."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonGeneraFactActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSiguienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="etiquetaTel">
@@ -411,7 +387,16 @@
         </Component>
         <Component class="javax.swing.JTextField" name="cajaDirec">
         </Component>
+        <Component class="javax.swing.JTextField" name="cajaServicio">
+        </Component>
+        <Component class="javax.swing.JTextField" name="cajaMesero">
+        </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="jTextField2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField2"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
