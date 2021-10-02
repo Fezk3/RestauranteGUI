@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventana;
 
 import java.text.SimpleDateFormat;
@@ -11,10 +6,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Admin
- */
+
 public class VentanRest extends javax.swing.JFrame {
 
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
@@ -22,10 +14,9 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
-    private MenuBebida mBebida = new MenuBebida();
-    private MenuDesayuno mDesa = new MenuDesayuno();
-    private MenuAlmuerzo mAlmu = new MenuAlmuerzo();
-    private MenuCena mCena = new MenuCena();
+    private Interfaz interfaz=new Interfaz();
+    
+
 
     public VentanRest() {
         agregarModeloTablaFactura();
@@ -82,42 +73,43 @@ public class VentanRest extends javax.swing.JFrame {
     private void agregarModelo() {
         modeloTablaSubM.addColumn("Nombre");
         modeloTablaSubM.addColumn("Precio");
+        modeloTablaSubM.addColumn("Tipo");
     }
 
     private void llenarTablaSubMenuB() {
-        int top = mBebida.bebidas.size();
+        int top = interfaz.menuBebida.bebidas.size();
         Bebida actual;
         for (int i = 0; i < top; i++) {
-            actual = mBebida.bebidas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+            actual = interfaz.menuBebida.bebidas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), "Bebida"});
         }
     }
 
     private void llenarTablaSubMenuD() {
-        int top = mDesa.comidas.size();
+        int top = interfaz.menuDesayuno.comidas.size();
         Comida actual;
         for (int i = 0; i < top; i++) {
-            actual = mDesa.comidas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+            actual = interfaz.menuDesayuno.comidas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
         }
     }
 
     private void llenarTablaSubMenuA() {
-        int top = mAlmu.almuerzos.size();
+        int top = interfaz.menuAlmuerzo.almuerzos.size();
         Comida actual;
         for (int i = 0; i < top; i++) {
-            actual = mAlmu.almuerzos.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+            actual = interfaz.menuAlmuerzo.almuerzos.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
         }
     }
 
     private void llenarTablaSubMenuC() {
-        int top = mCena.cenas.size();
+        int top = interfaz.menuCena.cenas.size();
         Comida actual;
         int i = 0;
         while (i < top) {
-            actual = mCena.cenas.get(i);
-            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio())});
+            actual = interfaz.menuCena.cenas.get(i);
+            modeloTablaSubM.addRow(new String[]{actual.getNombre(), String.valueOf(actual.getPrecio()), actual.getTipo()});
             i++;
         }
     }
@@ -988,7 +980,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top-=1;
+            top -= 1;
         }
         if (top == 0) {
             llenarTablaSubMenuB();
@@ -1001,7 +993,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top-=1;
+            top -= 1;
         }
         llenarTablaSubMenuD();
     }//GEN-LAST:event_etiquetaDesayunoMouseClicked
@@ -1012,7 +1004,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top-=1;
+            top -= 1;
         }
         llenarTablaSubMenuA();
     }//GEN-LAST:event_etiquetaAlmuerzoMouseClicked
@@ -1023,7 +1015,7 @@ public class VentanRest extends javax.swing.JFrame {
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top-=1;
+            top -= 1;
         }
         llenarTablaSubMenuC();
     }//GEN-LAST:event_etiquetaCenaMouseClicked

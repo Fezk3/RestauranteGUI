@@ -22,6 +22,7 @@ public class Interfaz {
         menuBebida = new MenuBebida();
         menuAlmuerzo = new MenuAlmuerzo();
         menuCena = new MenuCena();
+        menuDesayuno =new MenuDesayuno();
 
     }
 
