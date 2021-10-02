@@ -14,9 +14,33 @@ public class Factura {
     private int cantidad;
     private String nomCliente;
 
-    public Factura(Pedido pedidoCliente) {
-        LBebida=pedidoCliente.getLBebida();
-        LComida=pedidoCliente.getLComida();
+    public Factura() {
+        LBebida= new ArrayList<Bebida>();
+        LComida= new ArrayList<Comida>();
+    }
+    
+    public void agregarBebida(Bebida bebida){
+        LBebida.add(bebida);
+    }
+    
+    public void agregarComida(Comida comida){
+        LComida.add(comida);
+    }
+    
+    public void eliminarBebida(Bebida bebida){
+        LBebida.remove(bebida);
+    }
+    
+    public void eliminarComida(Comida comida){
+        LComida.remove(comida);
+    }
+
+    public ArrayList<Bebida> getLBebida() {
+        return LBebida;
+    }
+    
+    public ArrayList<Comida> getLComida() {
+        return LComida;
     }
 
     public double calcularTotal() {
