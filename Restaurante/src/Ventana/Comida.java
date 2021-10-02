@@ -12,6 +12,13 @@ public class Comida {
         this.precio = precio;
         cantidad=0;
     }
+    
+    public Comida(String nombre, String tipo, double precio, int cantidad) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.precio = precio;
+        this.cantidad = cantidad;
+    }
 
     public String getNombre() {
         return nombre;
