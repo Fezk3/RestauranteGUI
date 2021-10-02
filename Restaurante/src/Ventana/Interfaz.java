@@ -37,12 +37,9 @@ public class Interfaz {
         if (nueva.getTipo().equals("Cena")) {
             menuCena.agegarCena(nueva);
         }
-
-    }
-
-    public void agregarBebida(Bebida nueva) {
-
-        menuBebida.agegarBebida(nueva);
+        if(nueva.getTipo().equals("Bebida")){
+            menuBebida.agegarBebida(nueva);
+        }
 
     }
 

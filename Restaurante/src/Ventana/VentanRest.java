@@ -80,7 +80,7 @@ public class VentanRest extends javax.swing.JFrame {
 
     private void llenarTablaSubMenuB() {
         int top = interfaz.menuBebida.bebidas.size();
-        Bebida actual;
+        Comida actual;
         for (int i = 0; i < top; i++) {
             actual = interfaz.menuBebida.bebidas.get(i);
             modeloTablaSubM.addRow(new Object[]{actual.getNombre(), String.valueOf(actual.getPrecio()), "Bebida"});
