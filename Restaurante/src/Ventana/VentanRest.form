@@ -963,7 +963,10 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="88" max="32767" attributes="0"/>
-                      <Component id="BotonSubMenu" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="BotonSubMenu" pref="125" max="32767" attributes="0"/>
+                          <Component id="botonMuestraFacts" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -989,7 +992,10 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BotonDivCuenta" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BotonDivCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botonMuestraFacts" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="BotonMostrarMeseros" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -1063,6 +1069,17 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Menu Admin"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="botonMuestraFacts">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Mostrar Facts."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonMuestraFactsActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -193,6 +193,7 @@ public class VentanRest extends javax.swing.JFrame {
         BotonDivCuenta = new javax.swing.JButton();
         BotonMostrarMeseros = new javax.swing.JButton();
         BotonSubMenu = new javax.swing.JButton();
+        botonMuestraFacts = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
         panelLogo = new javax.swing.JPanel();
@@ -694,6 +695,14 @@ public class VentanRest extends javax.swing.JFrame {
         BotonSubMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BotonSubMenu.setText("Menu Admin");
 
+        botonMuestraFacts.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botonMuestraFacts.setText("Mostrar Facts.");
+        botonMuestraFacts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMuestraFactsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
@@ -714,7 +723,9 @@ public class VentanRest extends javax.swing.JFrame {
                         .addComponent(BotonDivCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonCambioMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BotonSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
         panelBotonesLayout.setVerticalGroup(
@@ -734,7 +745,9 @@ public class VentanRest extends javax.swing.JFrame {
                         .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BotonDivCuenta)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonDivCuenta)
+                    .addComponent(botonMuestraFacts))
                 .addGap(12, 12, 12)
                 .addComponent(BotonMostrarMeseros)
                 .addGap(18, 18, 18))
@@ -1075,6 +1088,12 @@ public class VentanRest extends javax.swing.JFrame {
         llenarTablaSubMenuC();
     }//GEN-LAST:event_etiquetaCenaMouseClicked
 
+    private void botonMuestraFactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMuestraFactsActionPerformed
+        VentanaFactura facturas = new VentanaFactura(interfaz.facturas);
+        facturas.setVisible(true);
+        facturas.setLocationRelativeTo(null);
+    }//GEN-LAST:event_botonMuestraFactsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1118,6 +1137,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonCambioMesa;
     private javax.swing.JButton botonGeneraFact;
+    private javax.swing.JButton botonMuestraFacts;
     private javax.swing.JTextField cajaDirec;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaTel;
