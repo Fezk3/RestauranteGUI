@@ -1,6 +1,7 @@
 package Ventana;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -27,7 +28,6 @@ public class VentanRest extends javax.swing.JFrame {
         setFechaActual();
         agregarModelo();
 
-        
     }
 
     private void llenarComboI() {
@@ -958,10 +958,53 @@ public class VentanRest extends javax.swing.JFrame {
         num++;
         numFact.setText("" + num);
 
+        // creado obj nuevo de factura y aniadiendolo a la lista de facturas
+        String nom, tel, dir, serv, mese, fech;
+        int nume;
+        ArrayList<Comida> comidas = new ArrayList<Comida>();
+
+        nom = cajaNombre.getText();
+        tel = cajaTel.getText();
+        dir = cajaDirec.getText();
+        serv = String.valueOf(comboServicio.getSelectedItem());
+        fech = String.valueOf(fechaactual.getText());
+        mese = String.valueOf(comboMesero.getSelectedItem());
+        nume = Integer.parseInt(numFact.getText());
+
+        // Para comida
+        String nomb, tip, cant, prec;
+
+        for (int i = 0; i < modeloTablaFact.getRowCount() - 1; i++) {
+
+            nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
+            cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
+            tip = String.valueOf(modeloTablaFact.getValueAt(i, 2));
+            prec = String.valueOf(modeloTablaFact.getValueAt(i, 3));
+
+            comidas.add(new Comida(nomb, tip, Double.parseDouble(prec), Integer.parseInt(cant)));
+
+        }
+
+        // AGREGANDO FACTURA A LA LISTA
+        interfaz.facturas.add(new Factura(comidas, nume, fech, serv, mese, tel, nom, dir));
+
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
-        // Debe aniadir la factura generada a la lista de facturas!!!
+        // Vaciando la factura para que quede disponible
+        cajaNombre.setText("");
+        cajaTel.setText("");
+        cajaDirec.setText("");
+        comboServicio.setSelectedIndex(-1);
+        comboMesero.setSelectedIndex(-1);
 
+        int top = modeloTablaSubM.getRowCount();
+
+        while (top != 0) {
+
+            modeloTablaSubM.removeRow(0);
+            top--;
+
+        }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     private void comboMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMeseroActionPerformed
@@ -973,18 +1016,17 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonDivCuentaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        
-                
-                    int fila = tablaSubMenu.getSelectedRow();
 
-                    String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
-                    String cantidad = String.valueOf(comboCantidad.getSelectedItem());
-                    String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
-                    String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
+        int fila = tablaSubMenu.getSelectedRow();
 
-                    modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, precio});
-                
-            
+        String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
+        String cantidad = String.valueOf(comboCantidad.getSelectedItem());
+        String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
+        String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
+
+        modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, precio});
+
+
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void etiquetaBebidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaBebidaMouseClicked
