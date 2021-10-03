@@ -1006,6 +1006,12 @@ public class VentanRest extends javax.swing.JFrame {
             comidas.add(new Comida(nomb.trim(),  Integer.parseInt(cant.trim()), Double.parseDouble(prec.trim()), tip.trim()));
 
         }
+        
+        for(int i=0;i<comidas.size();i++){
+            
+            System.out.println(comidas.get(i));
+            
+        }
 
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume, fech, serv, mese, tel, nom, dir));
@@ -1020,12 +1026,11 @@ public class VentanRest extends javax.swing.JFrame {
         comboServicio.setSelectedIndex(-1);
         comboMesero.setSelectedIndex(-1);
 
-        int top1 = modeloTablaSubM.getRowCount();
 
-        while (top1 != 0) {
+        while (top != 0) {
 
-            modeloTablaSubM.removeRow(0);
-            top1-=1;
+            modeloTablaFact.removeRow(0);
+            top-=1;
 
         }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
