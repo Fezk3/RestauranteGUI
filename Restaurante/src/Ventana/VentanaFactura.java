@@ -31,8 +31,8 @@ public class VentanaFactura extends javax.swing.JFrame {
 
         modeloTablaFact.addColumn("Producto");
         modeloTablaFact.addColumn("Cantidad");
-        modeloTablaFact.addColumn("Tipo");
         modeloTablaFact.addColumn("Precio");
+        modeloTablaFact.addColumn("Tipo");
 
     }
 
@@ -288,9 +288,9 @@ public class VentanaFactura extends javax.swing.JFrame {
         cajaMesero.setText(facts.get(cont).getMesero());
 
         // llena la tabla con las comidas de la factura
-        for (int i = 0; i < facts.get(cont).getLComida().size() - 1; i++) {
+        for (int i = 0; i < facts.get(cont).LComida.size(); i++) {
 
-            modeloTablaFact.addRow(new Object[]{facts.get(cont).getLComida().get(i).getNombre(), facts.get(cont).getLComida().get(i).getCantidad(), facts.get(cont).getLComida().get(i).getTipo(), facts.get(cont).getLComida().get(i).getPrecio()});
+            System.out.println(facts.get(cont).LComida.get(i).toString());
 
         }
 

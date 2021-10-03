@@ -1014,7 +1014,7 @@ public class VentanRest extends javax.swing.JFrame {
         }
 
         // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume, fech, serv, mese, tel, nom, dir));
+        interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
         comidas.clear(); // libre para siguiente orden
 
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
