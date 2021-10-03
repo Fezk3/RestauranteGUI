@@ -31,6 +31,7 @@ public class VentanaFactura extends javax.swing.JFrame {
 
         modeloTablaFact.addColumn("Producto");
         modeloTablaFact.addColumn("Cantidad");
+        
         modeloTablaFact.addColumn("Precio");
         modeloTablaFact.addColumn("Tipo");
 
@@ -279,7 +280,9 @@ public class VentanaFactura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+       
         Factura fact=facts.get(cont);
+        
         numFact.setText(String.valueOf(fact.getnFact()));
         cajaNombre.setText(fact.getNomCliente());
         cajaTel.setText(fact.getTelCliente());

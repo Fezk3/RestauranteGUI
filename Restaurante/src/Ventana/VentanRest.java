@@ -28,6 +28,7 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
+        
 
     }
 
@@ -1111,6 +1112,7 @@ public class VentanRest extends javax.swing.JFrame {
         VentanaFactura facturas = new VentanaFactura(interfaz.facturas);
         facturas.setVisible(true);
         facturas.setLocationRelativeTo(null);
+        facturas.validate();
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     /**
