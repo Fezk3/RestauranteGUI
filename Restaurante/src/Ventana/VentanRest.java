@@ -18,6 +18,7 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
     private Interfaz interfaz = new Interfaz();
+    double totalFact = 0;
 
     public VentanRest() {
         agregarModeloTablaFactura();
@@ -28,7 +29,6 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
-        
 
     }
 
@@ -601,12 +601,15 @@ public class VentanRest extends javax.swing.JFrame {
                             .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(totalIva, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelFacturaLayout.createSequentialGroup()
                                 .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonGeneraFact, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(botonGeneraFact, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelFacturaLayout.createSequentialGroup()
+                                .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalIva, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(53, 53, 53))))
             .addGroup(panelFacturaLayout.createSequentialGroup()
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -990,32 +993,30 @@ public class VentanRest extends javax.swing.JFrame {
         String nomb, tip, cant, prec;
         int top = modeloTablaFact.getRowCount();
 
-        for (int i = 0; i < top ; i++) {
+        for (int i = 0; i < top; i++) {
 
             nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
             cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
             tip = String.valueOf(modeloTablaFact.getValueAt(i, 2));
             prec = String.valueOf(modeloTablaFact.getValueAt(i, 3));
-        
-            
+
             System.out.println(nomb);
             System.out.println(cant);
             System.out.println(tip);
             System.out.println(prec);
-            
 
-            comidas.add(new Comida(nomb.trim(),  Integer.parseInt(cant.trim()), Double.parseDouble(prec.trim()), tip.trim()));
+            comidas.add(new Comida(nomb.trim(), Integer.parseInt(cant.trim()), Double.parseDouble(prec.trim()), tip.trim()));
 
         }
-        
-        for(int i=0;i<comidas.size();i++){
-            
+
+        for (int i = 0; i < comidas.size(); i++) {
+
             System.out.println(comidas.get(i));
-            
+
         }
 
         // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
+        interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
         comidas.clear(); // libre para siguiente orden
 
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
@@ -1027,11 +1028,10 @@ public class VentanRest extends javax.swing.JFrame {
         comboServicio.setSelectedIndex(-1);
         comboMesero.setSelectedIndex(-1);
 
-
         while (top != 0) {
 
             modeloTablaFact.removeRow(0);
-            top-=1;
+            top -= 1;
 
         }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
@@ -1047,18 +1047,20 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
         
+        
         int fila = tablaSubMenu.getSelectedRow();
 
         String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
         String cantidad = String.valueOf(comboCantidad.getSelectedItem());
         String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
         String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
-        double preciot =Integer.parseInt(cantidad)*Double.parseDouble(precio);
+        double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
         //Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
 
         modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
-
-        total=new JLabel(""+preciot);
+        totalFact += preciot;
+        total.setText("" + totalFact);
+        totalIva.setText("" + Math.round((totalFact*1.13)*100.0)/100.0);
 
     }//GEN-LAST:event_botonAgregarActionPerformed
 
