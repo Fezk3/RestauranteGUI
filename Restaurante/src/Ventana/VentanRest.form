@@ -257,6 +257,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa1">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="ff" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
@@ -264,6 +267,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa2">
               <Properties>
@@ -271,6 +277,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa2MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa3">
               <Properties>
@@ -278,6 +287,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa3MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa4">
               <Properties>
@@ -285,6 +297,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa4MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa5">
               <Properties>
@@ -292,6 +307,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa5MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa6">
               <Properties>
@@ -299,6 +317,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa6MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa7">
               <Properties>
@@ -306,6 +327,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa7MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa8">
               <Properties>
@@ -313,6 +337,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa8MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa9">
               <Properties>
@@ -320,6 +347,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa9MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa10">
               <Properties>
@@ -327,6 +357,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa10MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa11">
               <Properties>
@@ -334,6 +367,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa11MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="imagenMesa12">
               <Properties>
@@ -341,6 +377,9 @@
                   <Image iconType="3" name="/imagenes/icono mesa.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imagenMesa12MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="num1">
               <Properties>
