@@ -993,8 +993,9 @@ public class VentanRest extends javax.swing.JFrame {
 
             nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
             cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
-            prec = String.valueOf(modeloTablaFact.getValueAt(i, 2));
-            tip = String.valueOf(modeloTablaFact.getValueAt(i, 3));
+            tip = String.valueOf(modeloTablaFact.getValueAt(i, 2));
+            prec = String.valueOf(modeloTablaFact.getValueAt(i, 3));
+        
             
             System.out.println(nomb);
             System.out.println(cant);
@@ -1019,12 +1020,12 @@ public class VentanRest extends javax.swing.JFrame {
         comboServicio.setSelectedIndex(-1);
         comboMesero.setSelectedIndex(-1);
 
-        //int top1 = modeloTablaSubM.getRowCount();
+        int top1 = modeloTablaSubM.getRowCount();
 
-        while (top != 0) {
+        while (top1 != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top-=1;
+            top1-=1;
 
         }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
@@ -1047,7 +1048,7 @@ public class VentanRest extends javax.swing.JFrame {
         String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
         String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
         double preciot =Integer.parseInt(cantidad)*Double.parseDouble(precio);
-        Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
+        //Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
 
         modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
 
