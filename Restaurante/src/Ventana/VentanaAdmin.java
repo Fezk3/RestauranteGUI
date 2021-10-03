@@ -28,72 +28,240 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
+        panelMeseros = new javax.swing.JPanel();
+        etiquetaNombre = new javax.swing.JLabel();
+        cajaNombre = new javax.swing.JTextField();
+        etiquetaApellido = new javax.swing.JLabel();
+        cajaApellido = new javax.swing.JTextField();
+        etiquetaCelular = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        etiquetaSalario = new javax.swing.JLabel();
+        cajaSalario = new javax.swing.JTextField();
+        etiquetaPanelMesero = new javax.swing.JLabel();
+        botonAgregaMesero = new javax.swing.JButton();
         panelComidas = new javax.swing.JPanel();
         etiquetaPanelComidas = new javax.swing.JLabel();
-        panelMeseros = new javax.swing.JPanel();
-        etiquetaPanelMesero = new javax.swing.JLabel();
+        etiquetaNombComida = new javax.swing.JLabel();
+        cajaNombreComida = new javax.swing.JTextField();
+        etiquetaTipo = new javax.swing.JLabel();
+        cajaTipo = new javax.swing.JTextField();
+        etiquetaPrecio = new javax.swing.JLabel();
+        cajaPrecio = new javax.swing.JTextField();
+        botonAgregaComida = new javax.swing.JButton();
         panelTotales = new javax.swing.JPanel();
         etiquetaPanelTotal = new javax.swing.JLabel();
+        etiquetaTotalRest = new javax.swing.JLabel();
+        cajaTotalRest = new javax.swing.JLabel();
+        etiquetaTotalExp = new javax.swing.JLabel();
+        cajaTotalExp = new javax.swing.JLabel();
+        etiquetaToralParaLlevar = new javax.swing.JLabel();
+        cajaTotalParaLlevar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        etiquetaPanelComidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        etiquetaPanelComidas.setText("Formulario Para Nueva Comidas");
+        etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaNombre.setText("Nombre:");
 
-        javax.swing.GroupLayout panelComidasLayout = new javax.swing.GroupLayout(panelComidas);
-        panelComidas.setLayout(panelComidasLayout);
-        panelComidasLayout.setHorizontalGroup(
-            panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidasLayout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addComponent(etiquetaPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
-        );
-        panelComidasLayout.setVerticalGroup(
-            panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComidasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etiquetaPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(555, Short.MAX_VALUE))
-        );
+        cajaNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        etiquetaApellido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaApellido.setText("Apellido:");
+
+        cajaApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        etiquetaCelular.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        etiquetaCelular.setText("Celular:");
+
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        etiquetaSalario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaSalario.setText("Salario:");
+
+        cajaSalario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         etiquetaPanelMesero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaPanelMesero.setText("Formulario Para Nuevos Meseros");
+
+        botonAgregaMesero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonAgregaMesero.setText("Agregar a la Plantilla");
 
         javax.swing.GroupLayout panelMeserosLayout = new javax.swing.GroupLayout(panelMeseros);
         panelMeseros.setLayout(panelMeserosLayout);
         panelMeserosLayout.setHorizontalGroup(
             panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMeserosLayout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
-                .addComponent(etiquetaPanelMesero)
-                .addGap(75, 75, 75))
+            .addGroup(panelMeserosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(etiquetaSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaCelular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                    .addComponent(etiquetaNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cajaApellido)
+                    .addComponent(jTextField1)
+                    .addComponent(cajaSalario)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMeserosLayout.createSequentialGroup()
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMeserosLayout.createSequentialGroup()
+                                .addComponent(etiquetaPanelMesero)
+                                .addGap(47, 47, 47))
+                            .addComponent(cajaNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(25, 25, 25))
+            .addGroup(panelMeserosLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(botonAgregaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelMeserosLayout.setVerticalGroup(
             panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMeserosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(etiquetaPanelMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cajaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cajaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(botonAgregaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        etiquetaPanelComidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaPanelComidas.setText("Formulario Para Nueva Comidas");
+
+        etiquetaNombComida.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaNombComida.setText("Nombre:");
+
+        cajaNombreComida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        etiquetaTipo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaTipo.setText("Tipo:");
+
+        cajaTipo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        etiquetaPrecio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaPrecio.setText("Precio:");
+
+        botonAgregaComida.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botonAgregaComida.setText("Agregar al Menu");
+
+        javax.swing.GroupLayout panelComidasLayout = new javax.swing.GroupLayout(panelComidas);
+        panelComidas.setLayout(panelComidasLayout);
+        panelComidasLayout.setHorizontalGroup(
+            panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComidasLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(etiquetaTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(etiquetaNombComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(etiquetaPrecio))
+                .addGap(18, 18, 18)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cajaNombreComida)
+                    .addComponent(cajaTipo)
+                    .addComponent(cajaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidasLayout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidasLayout.createSequentialGroup()
+                        .addComponent(etiquetaPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidasLayout.createSequentialGroup()
+                        .addComponent(botonAgregaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95))))
+        );
+        panelComidasLayout.setVerticalGroup(
+            panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComidasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(etiquetaPanelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaNombComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaNombreComida, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAgregaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
 
         etiquetaPanelTotal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        etiquetaPanelTotal.setText("Consulta Total");
+        etiquetaPanelTotal.setText("Totales Generados Hoy");
+
+        etiquetaTotalRest.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaTotalRest.setText("Servicio Restaurante:");
+
+        cajaTotalRest.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        etiquetaTotalExp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaTotalExp.setText("Servicio Express:");
+
+        cajaTotalExp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        etiquetaToralParaLlevar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaToralParaLlevar.setText("Servicio Para Llevar:");
 
         javax.swing.GroupLayout panelTotalesLayout = new javax.swing.GroupLayout(panelTotales);
         panelTotales.setLayout(panelTotalesLayout);
         panelTotalesLayout.setHorizontalGroup(
             panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTotalesLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(etiquetaPanelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaToralParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaTotalExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaTotalRest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cajaTotalRest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaTotalExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cajaTotalParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalesLayout.createSequentialGroup()
+                .addContainerGap(120, Short.MAX_VALUE)
+                .addComponent(etiquetaPanelTotal)
+                .addGap(114, 114, 114))
         );
         panelTotalesLayout.setVerticalGroup(
             panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTotalesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(etiquetaPanelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaTotalRest, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(cajaTotalRest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaTotalExp, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(cajaTotalExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(etiquetaToralParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(cajaTotalParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -102,18 +270,18 @@ public class VentanaAdmin extends javax.swing.JFrame {
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addComponent(panelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMeseros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelComidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelTotales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelComidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelMeseros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelTotales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelMeseros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelComidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,10 +334,32 @@ public class VentanaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregaComida;
+    private javax.swing.JButton botonAgregaMesero;
+    private javax.swing.JTextField cajaApellido;
+    private javax.swing.JTextField cajaNombre;
+    private javax.swing.JTextField cajaNombreComida;
+    private javax.swing.JTextField cajaPrecio;
+    private javax.swing.JTextField cajaSalario;
+    private javax.swing.JTextField cajaTipo;
+    private javax.swing.JLabel cajaTotalExp;
+    private javax.swing.JLabel cajaTotalParaLlevar;
+    private javax.swing.JLabel cajaTotalRest;
+    private javax.swing.JLabel etiquetaApellido;
+    private javax.swing.JLabel etiquetaCelular;
+    private javax.swing.JLabel etiquetaNombComida;
+    private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaPanelComidas;
     private javax.swing.JLabel etiquetaPanelMesero;
     private javax.swing.JLabel etiquetaPanelTotal;
+    private javax.swing.JLabel etiquetaPrecio;
+    private javax.swing.JLabel etiquetaSalario;
+    private javax.swing.JLabel etiquetaTipo;
+    private javax.swing.JLabel etiquetaToralParaLlevar;
+    private javax.swing.JLabel etiquetaTotalExp;
+    private javax.swing.JLabel etiquetaTotalRest;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelComidas;
     private javax.swing.JPanel panelMeseros;
     private javax.swing.JPanel panelPrincipal;
