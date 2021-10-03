@@ -987,20 +987,28 @@ public class VentanRest extends javax.swing.JFrame {
 
         // Para comida
         String nomb, tip, cant, prec;
+        int top = modeloTablaFact.getRowCount();
 
-        for (int i = 0; i < modeloTablaFact.getRowCount() - 1; i++) {
+        for (int i = 0; i < top ; i++) {
 
             nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
             cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
-            tip = String.valueOf(modeloTablaFact.getValueAt(i, 2));
-            prec = String.valueOf(modeloTablaFact.getValueAt(i, 3));
+            prec = String.valueOf(modeloTablaFact.getValueAt(i, 2));
+            tip = String.valueOf(modeloTablaFact.getValueAt(i, 3));
+            
+            System.out.println(nomb);
+            System.out.println(cant);
+            System.out.println(tip);
+            System.out.println(prec);
+            
 
-            comidas.add(new Comida(nomb, tip, Double.parseDouble(prec), Integer.parseInt(cant)));
+            comidas.add(new Comida(nomb.trim(),  Integer.parseInt(cant.trim()), Double.parseDouble(prec.trim()), tip.trim()));
 
         }
 
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume, fech, serv, mese, tel, nom, dir));
+        comidas.clear(); // libre para siguiente orden
 
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
@@ -1011,12 +1019,12 @@ public class VentanRest extends javax.swing.JFrame {
         comboServicio.setSelectedIndex(-1);
         comboMesero.setSelectedIndex(-1);
 
-        int top = modeloTablaSubM.getRowCount();
+        //int top1 = modeloTablaSubM.getRowCount();
 
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top--;
+            top-=1;
 
         }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
