@@ -13,7 +13,7 @@ public class Comida {
         cantidad=0;
     }
     
-    public Comida(String nombre, String tipo, double precio, int cantidad) {
+    public Comida(String nombre, int cantidad,double precio, String tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;

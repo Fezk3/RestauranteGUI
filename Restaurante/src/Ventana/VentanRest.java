@@ -986,8 +986,9 @@ public class VentanRest extends javax.swing.JFrame {
 
         // Para comida
         String nomb, tip, cant, prec;
+        int top = modeloTablaFact.getRowCount();
 
-        for (int i = 0; i < modeloTablaFact.getRowCount() - 1; i++) {
+        for (int i = 0; i <= top ; i++) {
 
             nomb = String.valueOf(modeloTablaFact.getValueAt(i, 0));
             cant = String.valueOf(modeloTablaFact.getValueAt(i, 1));
@@ -1010,12 +1011,12 @@ public class VentanRest extends javax.swing.JFrame {
         comboServicio.setSelectedIndex(-1);
         comboMesero.setSelectedIndex(-1);
 
-        int top = modeloTablaSubM.getRowCount();
+        //int top1 = modeloTablaSubM.getRowCount();
 
         while (top != 0) {
 
             modeloTablaSubM.removeRow(0);
-            top--;
+            top-=1;
 
         }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
