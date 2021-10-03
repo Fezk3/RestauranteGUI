@@ -279,18 +279,20 @@ public class VentanaFactura extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-
-        numFact.setText(String.valueOf(facts.get(cont).getnFact()));
-        cajaNombre.setText(facts.get(cont).getNomCliente());
-        cajaTel.setText(facts.get(cont).getTelCliente());
-        cajaDirec.setText(facts.get(cont).getDirecCliente());
-        cajaServicio.setText(facts.get(cont).getTipoServicio());
-        cajaMesero.setText(facts.get(cont).getMesero());
+        Factura fact=facts.get(cont);
+        numFact.setText(String.valueOf(fact.getnFact()));
+        cajaNombre.setText(fact.getNomCliente());
+        cajaTel.setText(fact.getTelCliente());
+        cajaDirec.setText(fact.getDirecCliente());
+        cajaServicio.setText(fact.getTipoServicio());
+        cajaMesero.setText(fact.getMesero());
 
         // llena la tabla con las comidas de la factura
-        for (int i = 0; i < facts.get(cont).LComida.size(); i++) {
 
-            System.out.println(facts.get(cont).LComida.get(i).toString());
+        for (int i = 0; i < fact.getLComida().size() ; i++) {
+
+            modeloTablaFact.addRow(new Object[]{fact.getLComida().get(i).getNombre(), fact.getLComida().get(i).getCantidad(), fact.getLComida().get(i).getTipo(), fact.getLComida().get(i).getPrecio()});
+
 
         }
 
