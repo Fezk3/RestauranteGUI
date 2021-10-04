@@ -273,8 +273,15 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         etiquetaToralParaLlevar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaToralParaLlevar.setText("Servicio Para Llevar:");
 
+        cajaTotalParaLlevar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
         BotonCalculaTotales.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BotonCalculaTotales.setText("Calcular Totales");
+        BotonCalculaTotales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonCalculaTotalesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTotalesLayout = new javax.swing.GroupLayout(panelTotales);
         panelTotales.setLayout(panelTotalesLayout);
@@ -441,6 +448,38 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         cajaPrecio.setText("");
 
     }//GEN-LAST:event_botonAgregaComidaActionPerformed
+
+    private void BotonCalculaTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCalculaTotalesActionPerformed
+        
+        double totalA = 0, totalP = 0, totalE = 0;
+        
+        for(Factura fact: interfaz.facturas ){
+            
+            if(fact.getTipoServicio().equals("Comer aqui")){
+                
+                totalA += fact.calcularConIva();
+                
+            }
+            
+            if(fact.getTipoServicio().equals("Para llevar")){
+                
+                totalP += fact.calcularConIva();
+                
+            }
+            
+            if(fact.getTipoServicio().equals("Express")){
+                
+                totalE += fact.calcularConIva();
+                
+            }
+            
+        }
+        
+        cajaTotalRest.setText(String.valueOf(totalA));
+        cajaTotalParaLlevar.setText(String.valueOf(totalP));
+        cajaTotalExp.setText(String.valueOf(totalE));
+        
+    }//GEN-LAST:event_BotonCalculaTotalesActionPerformed
 
     /**
      * @param args the command line arguments
