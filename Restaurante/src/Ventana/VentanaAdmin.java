@@ -167,6 +167,11 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
 
         botonAgregaComida.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonAgregaComida.setText("Agregar al Menu");
+        botonAgregaComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregaComidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelComidasLayout = new javax.swing.GroupLayout(panelComidas);
         panelComidas.setLayout(panelComidasLayout);
@@ -316,7 +321,42 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
         salario = cajaSalario.getText();
 
         interfaz.meseros.add( new Mesero(nombre, apellido, celular, Double.parseDouble(salario)));
+        
+        cajaNombre.setText("");
+        cajaApellido.setText("");
+        cajaCel.setText("");
+        cajaSalario.setText("");
+        
     }//GEN-LAST:event_botonAgregaMeseroActionPerformed
+
+    private void botonAgregaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregaComidaActionPerformed
+        
+        String comida, tpo, prec;
+        
+        comida = cajaNombreComida.getText();
+        tpo = cajaTipo.getText();
+        prec =  cajaPrecio.getText();
+        
+        if(tpo.equals("Desayuno")){
+            interfaz.menuDesayuno.agegarComida(new Comida(comida, tpo, Double.parseDouble(prec)));
+        }
+        if (tpo.equals("Almuerzo")) {
+            interfaz.menuAlmuerzo.agegarAlmuerzo(new Comida(comida, tpo, Double.parseDouble(prec)));
+        }
+        if (tpo.equals("Cena")) {
+            interfaz.menuCena.agegarCena(new Comida(comida, tpo, Double.parseDouble(prec)));
+        }
+        if(tpo.equals("Bebida")){
+            interfaz.menuBebida.agegarBebida(new Comida(comida, tpo, Double.parseDouble(prec)));
+        }
+        
+        interfaz.menuDesayuno.agegarComida(new Comida(comida, tpo, Double.parseDouble(prec)));
+        
+        cajaNombreComida.setText("");
+        cajaTipo.setText("");
+        cajaPrecio.setText("");
+        
+    }//GEN-LAST:event_botonAgregaComidaActionPerformed
 
     /**
      * @param args the command line arguments
