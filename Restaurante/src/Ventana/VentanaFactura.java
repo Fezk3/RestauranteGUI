@@ -7,7 +7,9 @@ package Ventana;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
@@ -29,8 +31,17 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         initComponents();
         agregarModeloTablaFactura();
         this.interfaz = interfaz;
+        iniciaFecha();
     }
-
+    
+    public void iniciaFecha(){
+        
+        Date actual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("MM/dd/Y");
+        fechaactual.setText(formato.format(actual));
+        
+    }
+    
     private void agregarModeloTablaFactura() {
 
         modeloTablaFact.addColumn("Producto");
