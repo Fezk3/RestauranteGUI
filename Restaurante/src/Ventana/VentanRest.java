@@ -1060,7 +1060,6 @@ public class VentanRest extends javax.swing.JFrame {
         String nom, tel, dir, serv, mese, fech;
         int nume;
         ArrayList<Comida> comidas = new ArrayList<Comida>();
-        ArrayList<Comida> aux = new ArrayList<Comida>();
             
         nom = cajaNombre.getText();
         tel = cajaTel.getText();
@@ -1140,8 +1139,6 @@ public class VentanRest extends javax.swing.JFrame {
             top -= 1;
 
         }  
-        
-        comidas = aux;
     }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     private void comboMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMeseroActionPerformed
