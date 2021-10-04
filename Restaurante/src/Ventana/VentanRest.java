@@ -1060,7 +1060,8 @@ public class VentanRest extends javax.swing.JFrame {
         String nom, tel, dir, serv, mese, fech;
         int nume;
         ArrayList<Comida> comidas = new ArrayList<Comida>();
-
+        ArrayList<Comida> aux = new ArrayList<Comida>();
+            
         nom = cajaNombre.getText();
         tel = cajaTel.getText();
         dir = cajaDirec.getText();
@@ -1122,7 +1123,6 @@ public class VentanRest extends javax.swing.JFrame {
         }
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
-        comidas.clear(); // libre para siguiente orden
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
         // Vaciando la factura para que quede disponible
@@ -1139,7 +1139,9 @@ public class VentanRest extends javax.swing.JFrame {
             modeloTablaFact.removeRow(0);
             top -= 1;
 
-        }
+        }  
+        
+        comidas = aux;
     }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     private void comboMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMeseroActionPerformed

@@ -292,11 +292,11 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-        if (interfaz.facturas.isEmpty() && cont == 0) {
+        if (interfaz.facturas.isEmpty()) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        if (cont > interfaz.facturas.size()) {
+        if (interfaz.facturas.size()-1 < cont) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
@@ -312,9 +312,8 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
 
         // llena la tabla con las comidas de la factura
         for (int i = 0; i < fact.LComida.size(); i++) {
-            System.out.println(fact.toString());
 
-            modeloTablaFact.addRow(new Object[]{fact.LComida.get(i).getNombre(), fact.LComida.get(i).getCantidad(), fact.LComida.get(i).getTipo(), fact.LComida.get(i).getPrecio()});
+            modeloTablaFact.addRow(new Object[]{fact.LComida.get(i).getNombre(), fact.LComida.get(i).getCantidad(), fact.LComida.get(i).getTipo(), String.valueOf(fact.LComida.get(i).getPrecio())});
 
         }
 
