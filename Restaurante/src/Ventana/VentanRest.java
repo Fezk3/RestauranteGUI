@@ -1053,7 +1053,6 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
 
         int num = Integer.parseInt(numFact.getText());
-        num++;
         numFact.setText("" + num);
 
         // creado obj nuevo de factura y aniadiendolo a la lista de facturas
@@ -1119,18 +1118,20 @@ public class VentanRest extends javax.swing.JFrame {
             showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        num++;
         // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
+        interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
         comidas.clear(); // libre para siguiente orden
-
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
         // Vaciando la factura para que quede disponible
         cajaNombre.setText("");
         cajaTel.setText("");
         cajaDirec.setText("");
-        comboServicio.setSelectedIndex(-1);
-        comboMesero.setSelectedIndex(-1);
+        //comboServicio.setSelectedIndex(-1);
+        //comboMesero.setSelectedIndex(-1);
+        total.setText("0.0");
+        totalIva.setText("0.0");
 
         while (top != 0) {
 
@@ -1213,7 +1214,7 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_etiquetaCenaMouseClicked
 
     private void botonMuestraFactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMuestraFactsActionPerformed
-        VentanaFactura facturas = new VentanaFactura(interfaz.facturas);
+        VentanaFactura facturas = new VentanaFactura(interfaz);
         facturas.setVisible(true);
         facturas.setLocationRelativeTo(null);
         facturas.validate();

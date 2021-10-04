@@ -5,26 +5,30 @@
  */
 package Ventana;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Admin
  */
-public class VentanaFactura extends javax.swing.JFrame {
+public class VentanaFactura extends javax.swing.JFrame implements WindowListener {
 
     /**
      * Creates new form VentanaFactura
      */
     private  DefaultTableModel modeloTablaFact = new DefaultTableModel();
-    private ArrayList<Factura> facts;
+    private Interfaz interfaz;
     private int cont = 0;
 
-    public VentanaFactura(ArrayList<Factura> facts) {
+    public VentanaFactura(Interfaz interfaz) {
         initComponents();
         agregarModeloTablaFactura();
-        this.facts = facts;
+        this.interfaz = interfaz;
     }
 
     private void agregarModeloTablaFactura() {
@@ -73,8 +77,6 @@ public class VentanaFactura extends javax.swing.JFrame {
         cajaServicio = new javax.swing.JTextField();
         cajaMesero = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         panelFactura.setBackground(new java.awt.Color(0, 102, 153));
 
         etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -90,7 +92,6 @@ public class VentanaFactura extends javax.swing.JFrame {
         etiquetaNumFact.setText("Num Factura:");
 
         numFact.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        numFact.setText("0");
 
         etiquetaMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaMesero.setText("Mesero:");
@@ -162,7 +163,7 @@ public class VentanaFactura extends javax.swing.JFrame {
                                 .addComponent(fechaactual, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFacturaLayout.createSequentialGroup()
                                 .addComponent(etiquetaNumFact, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(30, 30, 30)
                                 .addComponent(numFact, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(35, 35, 35))
                     .addGroup(panelFacturaLayout.createSequentialGroup()
@@ -281,7 +282,12 @@ public class VentanaFactura extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
        
-        Factura fact=facts.get(cont);
+        Factura fact = interfaz.facturas.get(cont);
+        /*
+        if(cont > interfaz){
+            showMessageDialog(null, "Ya no hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }*/
         
         numFact.setText(String.valueOf(fact.getnFact()));
         cajaNombre.setText(fact.getNomCliente());
@@ -300,10 +306,11 @@ public class VentanaFactura extends javax.swing.JFrame {
 
         }
 
-        total.setText(String.valueOf(facts.get(cont).calcularTotal()));
-        totalIva.setText(String.valueOf(facts.get(cont).calcularConIva()));
+        total.setText(String.valueOf(interfaz.facturas.get(cont).calcularTotal()));
+        totalIva.setText(String.valueOf(interfaz.facturas.get(cont).calcularConIva()));
 
         cont++;
+        
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     /**
@@ -369,4 +376,39 @@ public class VentanaFactura extends javax.swing.JFrame {
     private javax.swing.JLabel total;
     private javax.swing.JLabel totalIva;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        this.setVisible(false);
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
