@@ -5,11 +5,14 @@
  */
 package Ventana;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
 /**
  *
  * @author Admin
  */
-public class VentanaAdmin extends javax.swing.JFrame {
+public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
 
     /**
      * Creates new form VentanaAdmin
@@ -59,8 +62,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
         cajaTotalExp = new javax.swing.JLabel();
         etiquetaToralParaLlevar = new javax.swing.JLabel();
         cajaTotalParaLlevar = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaNombre.setText("Nombre:");
@@ -383,4 +384,39 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelTotales;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        this.setVisible(false);
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
