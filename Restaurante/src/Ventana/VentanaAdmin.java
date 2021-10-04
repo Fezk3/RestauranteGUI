@@ -7,21 +7,24 @@ package Ventana;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
  * @author Admin
  */
-public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
+public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
 
     /**
      * Creates new form VentanaAdmin
      */
     public static Interfaz interfaz;
-   public VentanaAdmin(Interfaz nuevo) {
+
+    public VentanaAdmin(Interfaz nuevo) {
         initComponents();
-        interfaz=nuevo;
-        
+        interfaz = nuevo;
+
     }
 
     /**
@@ -331,24 +334,41 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
         celular = cajaCel.getText();
         salario = cajaSalario.getText();
 
-        interfaz.meseros.add( new Mesero(nombre, apellido, celular, Double.parseDouble(salario)));
-        
+        if (nombre.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (apellido.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (celular.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (salario.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        interfaz.meseros.add(new Mesero(nombre, apellido, celular, Double.parseDouble(salario)));
+
         cajaNombre.setText("");
         cajaApellido.setText("");
         cajaCel.setText("");
         cajaSalario.setText("");
-        
+
     }//GEN-LAST:event_botonAgregaMeseroActionPerformed
 
     private void botonAgregaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregaComidaActionPerformed
-        
+
         String comida, tpo, prec;
-        
+
         comida = cajaNombreComida.getText();
         tpo = cajaTipo.getText();
-        prec =  cajaPrecio.getText();
-        
-        if(tpo.equals("Desayuno")){
+        prec = cajaPrecio.getText();
+
+        if (tpo.equals("Desayuno")) {
             interfaz.menuDesayuno.agegarComida(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
         if (tpo.equals("Almuerzo")) {
@@ -357,14 +377,14 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
         if (tpo.equals("Cena")) {
             interfaz.menuCena.agegarCena(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
-        if(tpo.equals("Bebida")){
+        if (tpo.equals("Bebida")) {
             interfaz.menuBebida.agegarBebida(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
-        
+
         cajaNombreComida.setText("");
         cajaTipo.setText("");
         cajaPrecio.setText("");
-        
+
     }//GEN-LAST:event_botonAgregaComidaActionPerformed
 
     /**
