@@ -5,6 +5,7 @@
  */
 package Ventana;
 
+import static Ventana.VentanRest.interfaz;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.ButtonGroup;
@@ -460,11 +461,15 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
             
             if(fact.getTipoServicio().equals("Comer aqui")){
                 
+                totalA += (fact.calcularConIva());
+                /*
                for(int j=0;j<fact.LComida.size();j++){
                    
-                   totalA += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   totalA += (fact.calcularConIva());
                    
                }
+               
+               */
                 
             }
             
