@@ -452,24 +452,39 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
     private void BotonCalculaTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCalculaTotalesActionPerformed
         
         double totalA = 0, totalP = 0, totalE = 0;
+        Factura fact;
         
-        for(Factura fact: interfaz.facturas ){
+        for(int i=0;i<interfaz.facturas.size();i++){
+            
+            fact = interfaz.facturas.get(i);
             
             if(fact.getTipoServicio().equals("Comer aqui")){
                 
-                totalA += fact.calcularConIva();
+               for(int j=0;j<fact.LComida.size();j++){
+                   
+                   totalA += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   
+               }
                 
             }
             
             if(fact.getTipoServicio().equals("Para llevar")){
                 
-                totalP += fact.calcularConIva();
+                for(int j=0;j<fact.LComida.size();j++){
+                   
+                   totalP += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   
+               }
                 
             }
             
             if(fact.getTipoServicio().equals("Express")){
                 
-                totalE += fact.calcularConIva();
+                for(int j=0;j<fact.LComida.size();j++){
+                   
+                   totalE += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   
+               }
                 
             }
             
