@@ -10,6 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -33,7 +34,7 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
-        interfaz=nuevo;
+        interfaz = nuevo;
 
     }
 
@@ -57,14 +58,14 @@ public class VentanRest extends javax.swing.JFrame {
         interfaz.meseros.add(new Mesero("Jose", "Pereira", "85878986", 15000));
         interfaz.meseros.add(new Mesero("Mario", "Rodriguez", "85878986", 15000));
         interfaz.meseros.add(new Mesero("Marvin", "Calvo", "85878986", 15000));
-        
+
         int top = interfaz.meseros.size();
         Mesero actual;
         for (int i = 0; i < top; i++) {
             actual = interfaz.meseros.get(i);
             comboMese.addElement(actual);
         }
-        
+
         comboMese.addElement("");
 
     }
@@ -1093,7 +1094,31 @@ public class VentanRest extends javax.swing.JFrame {
             System.out.println(comidas.get(i));
 
         }
-
+        
+        if (nom.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (tel.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (dir.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (serv.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (mese.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(top == 0){
+            showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
         comidas.clear(); // libre para siguiente orden
@@ -1125,8 +1150,6 @@ public class VentanRest extends javax.swing.JFrame {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
-        
-        
         int fila = tablaSubMenu.getSelectedRow();
 
         String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
@@ -1139,7 +1162,7 @@ public class VentanRest extends javax.swing.JFrame {
         modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
         totalFact += preciot;
         total.setText("" + totalFact);
-        totalIva.setText("" + Math.round((totalFact*1.13)*100.0)/100.0);
+        totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
 
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -1225,11 +1248,11 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
-       imagenMesa8.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa8.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
-         imagenMesa9.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa9.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
