@@ -368,6 +368,19 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         tpo = cajaTipo.getText();
         prec = cajaPrecio.getText();
 
+        if (comida.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (tpo.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (prec.equals("")) {
+            showMessageDialog(null, "Llene todos los espacios antes de registrar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         if (tpo.equals("Desayuno")) {
             interfaz.menuDesayuno.agegarComida(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
