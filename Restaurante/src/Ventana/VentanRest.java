@@ -53,10 +53,18 @@ public class VentanRest extends javax.swing.JFrame {
 
     private void llenarModeloComboMesero() {
 
-        comboMese.addElement(new Mesero("Julio", "Perez", "85878986", 15000));
-        comboMese.addElement(new Mesero("Jose", "Pereira", "85878986", 15000));
-        comboMese.addElement(new Mesero("Mario", "Rodriguez", "85878986", 15000));
-        comboMese.addElement(new Mesero("Marvin", "Calvo", "85878986", 15000));
+        interfaz.meseros.add(new Mesero("Julio", "Perez", "85878986", 15000));
+        interfaz.meseros.add(new Mesero("Jose", "Pereira", "85878986", 15000));
+        interfaz.meseros.add(new Mesero("Mario", "Rodriguez", "85878986", 15000));
+        interfaz.meseros.add(new Mesero("Marvin", "Calvo", "85878986", 15000));
+        
+        int top = interfaz.meseros.size();
+        Mesero actual;
+        for (int i = 0; i < top; i++) {
+            actual = interfaz.meseros.get(i);
+            comboMese.addElement(actual);
+        }
+        
         comboMese.addElement("");
 
     }
