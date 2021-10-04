@@ -62,6 +62,7 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
         cajaTotalExp = new javax.swing.JLabel();
         etiquetaToralParaLlevar = new javax.swing.JLabel();
         cajaTotalParaLlevar = new javax.swing.JLabel();
+        BotonCalculaTotales = new javax.swing.JButton();
 
         etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaNombre.setText("Nombre:");
@@ -238,6 +239,9 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
         etiquetaToralParaLlevar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaToralParaLlevar.setText("Servicio Para Llevar:");
 
+        BotonCalculaTotales.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        BotonCalculaTotales.setText("Calcular Totales");
+
         javax.swing.GroupLayout panelTotalesLayout = new javax.swing.GroupLayout(panelTotales);
         panelTotales.setLayout(panelTotalesLayout);
         panelTotalesLayout.setHorizontalGroup(
@@ -255,9 +259,14 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
                     .addComponent(cajaTotalParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalesLayout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
-                .addComponent(etiquetaPanelTotal)
-                .addGap(114, 114, 114))
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalesLayout.createSequentialGroup()
+                        .addComponent(etiquetaPanelTotal)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalesLayout.createSequentialGroup()
+                        .addComponent(BotonCalculaTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101))))
         );
         panelTotalesLayout.setVerticalGroup(
             panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +285,9 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
                 .addGroup(panelTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiquetaToralParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(cajaTotalParaLlevar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonCalculaTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -394,6 +405,7 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonCalculaTotales;
     private javax.swing.JButton botonAgregaComida;
     private javax.swing.JButton botonAgregaMesero;
     private javax.swing.JTextField cajaApellido;
