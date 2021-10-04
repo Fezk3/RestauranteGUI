@@ -1053,6 +1053,7 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
 
         int num = Integer.parseInt(numFact.getText());
+        num++;
         numFact.setText("" + num);
 
         // creado obj nuevo de factura y aniadiendolo a la lista de facturas
@@ -1118,7 +1119,6 @@ public class VentanRest extends javax.swing.JFrame {
             showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        num++;
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
         comidas.clear(); // libre para siguiente orden

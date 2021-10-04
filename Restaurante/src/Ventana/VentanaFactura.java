@@ -21,7 +21,7 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
     /**
      * Creates new form VentanaFactura
      */
-    private  DefaultTableModel modeloTablaFact = new DefaultTableModel();
+    private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private Interfaz interfaz;
     private int cont = 0;
 
@@ -37,7 +37,6 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         modeloTablaFact.addColumn("Cantidad");
         modeloTablaFact.addColumn("Tipo");
         modeloTablaFact.addColumn("Precio");
-        
 
     }
 
@@ -281,14 +280,18 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-       
-        Factura fact = interfaz.facturas.get(cont);
-        /*
-        if(cont > interfaz){
-            showMessageDialog(null, "Ya no hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
+
+        if (interfaz.facturas.isEmpty() && cont == 0) {
+            showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
-        }*/
+        }
+        if (cont > interfaz.facturas.size()) {
+            showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         
+        Factura fact = interfaz.facturas.get(cont);
+
         numFact.setText(String.valueOf(fact.getnFact()));
         cajaNombre.setText(fact.getNomCliente());
         cajaTel.setText(fact.getTelCliente());
@@ -297,12 +300,10 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         cajaMesero.setText(fact.getMesero());
 
         // llena la tabla con las comidas de la factura
-
-        for (int i = 0; i < fact.LComida.size() ; i++) {
+        for (int i = 0; i < fact.LComida.size(); i++) {
             System.out.println(fact.toString());
 
             modeloTablaFact.addRow(new Object[]{fact.LComida.get(i).getNombre(), fact.LComida.get(i).getCantidad(), fact.LComida.get(i).getTipo(), fact.LComida.get(i).getPrecio()});
-
 
         }
 
@@ -310,7 +311,7 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         totalIva.setText(String.valueOf(interfaz.facturas.get(cont).calcularConIva()));
 
         cont++;
-        
+
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     /**
