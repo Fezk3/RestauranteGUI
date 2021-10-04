@@ -56,6 +56,7 @@ public class Comida {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Comida{nombre=").append(nombre);
+        sb.append(", cantidad=").append(cantidad);
         sb.append(", tipo=").append(tipo);
         sb.append(", precio=").append(precio);
         sb.append('}');

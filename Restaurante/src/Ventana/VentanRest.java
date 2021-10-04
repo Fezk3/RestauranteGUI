@@ -1084,7 +1084,7 @@ public class VentanRest extends javax.swing.JFrame {
             System.out.println(tip);
             System.out.println(prec);
 
-            comidas.add(new Comida(nomb.trim(), Integer.parseInt(cant.trim()), Double.parseDouble(prec.trim()), tip.trim()));
+            comidas.add(new Comida(nomb.trim(), Integer.parseInt(cant), Double.parseDouble(prec), tip.trim()));
 
         }
 
