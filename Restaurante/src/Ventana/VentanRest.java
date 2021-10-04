@@ -1094,7 +1094,8 @@ public class VentanRest extends javax.swing.JFrame {
             System.out.println(comidas.get(i));
 
         }
-        
+        /*
+        OPCIONALES
         if (nom.equals("")) {
             showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
@@ -1106,7 +1107,7 @@ public class VentanRest extends javax.swing.JFrame {
         if (dir.equals("")) {
             showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
-        }
+        }*/
         if (serv.equals("")) {
             showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
