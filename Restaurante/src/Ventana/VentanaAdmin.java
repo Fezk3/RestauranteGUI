@@ -77,6 +77,10 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         cajaTotalParaLlevar = new javax.swing.JLabel();
         BotonCalculaTotales = new javax.swing.JButton();
 
+        panelPrincipal.setBackground(new java.awt.Color(0, 0, 0));
+
+        panelMeseros.setBackground(new java.awt.Color(51, 153, 255));
+
         etiquetaNombre.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaNombre.setText("Nombre:");
 
@@ -162,6 +166,8 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                 .addComponent(botonAgregaMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
+
+        panelComidas.setBackground(new java.awt.Color(0, 102, 153));
 
         etiquetaPanelComidas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaPanelComidas.setText("Formulario Para Nueva Comidas");
@@ -257,6 +263,8 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                 .addComponent(botonAgregaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
+
+        panelTotales.setBackground(new java.awt.Color(51, 153, 255));
 
         etiquetaPanelTotal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaPanelTotal.setText("Totales Generados Hoy");
