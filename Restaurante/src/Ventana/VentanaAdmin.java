@@ -469,15 +469,11 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
             
             if(fact.getTipoServicio().equals("Comer aqui")){
                 
-                totalA += (fact.calcularConIva());
-                /*
-               for(int j=0;j<fact.LComida.size();j++){
+                for(int j=0;j<fact.LComida.size();j++){
                    
-                   totalA += (fact.calcularConIva());
+                   totalA += Math.round(((fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio()) * 1.13)*100)/100;
                    
                }
-               
-               */
                 
             }
             
@@ -485,7 +481,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                 
                 for(int j=0;j<fact.LComida.size();j++){
                    
-                   totalP += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   totalP += Math.round(((fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio()) * 1.13)*100)/100;
                    
                }
                 
@@ -495,7 +491,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                 
                 for(int j=0;j<fact.LComida.size();j++){
                    
-                   totalE += (fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio());
+                   totalE += Math.round(((fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio()) * 1.13)*100)/100;
                    
                }
                 
