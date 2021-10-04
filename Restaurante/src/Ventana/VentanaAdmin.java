@@ -7,6 +7,7 @@ package Ventana;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -20,11 +21,16 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
      * Creates new form VentanaAdmin
      */
     public static Interfaz interfaz;
+    private ButtonGroup grupo;
 
     public VentanaAdmin(Interfaz nuevo) {
         initComponents();
         interfaz = nuevo;
-
+        grupo = new ButtonGroup();
+        grupo.add(radioBotonDasayuno);
+        grupo.add(radioBotonAlmuerzo);
+        grupo.add(radioBotonCena);
+        grupo.add(radioBotonBebida);
     }
 
     /**
@@ -59,6 +65,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         radioBotonDasayuno = new javax.swing.JRadioButton();
         radioBotonAlmuerzo = new javax.swing.JRadioButton();
         radioBotonCena = new javax.swing.JRadioButton();
+        radioBotonBebida = new javax.swing.JRadioButton();
         panelTotales = new javax.swing.JPanel();
         etiquetaPanelTotal = new javax.swing.JLabel();
         etiquetaTotalRest = new javax.swing.JLabel();
@@ -186,6 +193,9 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         radioBotonCena.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         radioBotonCena.setText("Cena");
 
+        radioBotonBebida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        radioBotonBebida.setText("Bebida");
+
         javax.swing.GroupLayout panelComidasLayout = new javax.swing.GroupLayout(panelComidas);
         panelComidas.setLayout(panelComidasLayout);
         panelComidasLayout.setHorizontalGroup(
@@ -202,11 +212,14 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                     .addComponent(cajaNombreComida)
                     .addComponent(cajaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                     .addGroup(panelComidasLayout.createSequentialGroup()
-                        .addComponent(radioBotonDasayuno)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(radioBotonAlmuerzo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radioBotonCena, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(radioBotonDasayuno, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioBotonBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelComidasLayout.createSequentialGroup()
+                                .addComponent(radioBotonAlmuerzo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(radioBotonCena, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidasLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -233,7 +246,9 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                     .addComponent(radioBotonDasayuno)
                     .addComponent(radioBotonAlmuerzo)
                     .addComponent(radioBotonCena))
-                .addGap(28, 28, 28)
+                .addGap(2, 2, 2)
+                .addComponent(radioBotonBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelComidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiquetaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cajaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
@@ -378,10 +393,21 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
 
     private void botonAgregaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregaComidaActionPerformed
 
-        String comida, tpo, prec;
+        String comida, tpo = "", prec;
 
         comida = cajaNombreComida.getText();
-        tpo = cajaTipo.getText();
+        if(radioBotonDasayuno.isSelected()){
+            tpo = radioBotonDasayuno.getText();
+        }
+        if(radioBotonAlmuerzo.isSelected()){
+            tpo = radioBotonAlmuerzo.getText();
+        }
+        if(radioBotonCena.isSelected()){
+            tpo = radioBotonCena.getText();
+        }
+        if(radioBotonBebida.isSelected()){
+            tpo = radioBotonBebida.getText();
+        }
         prec = cajaPrecio.getText();
 
         if (comida.equals("")) {
@@ -411,7 +437,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         }
 
         cajaNombreComida.setText("");
-        cajaTipo.setText("");
+        grupo.clearSelection();
         cajaPrecio.setText("");
 
     }//GEN-LAST:event_botonAgregaComidaActionPerformed
@@ -482,6 +508,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelTotales;
     private javax.swing.JRadioButton radioBotonAlmuerzo;
+    private javax.swing.JRadioButton radioBotonBebida;
     private javax.swing.JRadioButton radioBotonCena;
     private javax.swing.JRadioButton radioBotonDasayuno;
     // End of variables declaration//GEN-END:variables

@@ -224,12 +224,17 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cajaNombreComida" max="32767" attributes="0"/>
                           <Component id="cajaPrecio" pref="282" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="radioBotonDasayuno" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="radioBotonAlmuerzo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="radioBotonCena" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="radioBotonDasayuno" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="radioBotonBebida" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="radioBotonAlmuerzo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="radioBotonCena" min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="17" max="32767" attributes="0"/>
@@ -266,7 +271,9 @@
                           <Component id="radioBotonAlmuerzo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="radioBotonCena" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="radioBotonBebida" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="etiquetaPrecio" max="32767" attributes="0"/>
                           <Component id="cajaPrecio" pref="37" max="32767" attributes="0"/>
@@ -353,6 +360,14 @@
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cena"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="radioBotonBebida">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="12" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Bebida"/>
               </Properties>
             </Component>
           </SubComponents>
