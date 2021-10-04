@@ -765,6 +765,11 @@ public class VentanRest extends javax.swing.JFrame {
 
         BotonSubMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BotonSubMenu.setText("Menu Admin");
+        BotonSubMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonSubMenuActionPerformed(evt);
+            }
+        });
 
         botonMuestraFacts.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         botonMuestraFacts.setText("Mostrar Facts.");
@@ -1233,6 +1238,13 @@ public class VentanRest extends javax.swing.JFrame {
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_imagenMesa12MouseClicked
+
+    private void BotonSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubMenuActionPerformed
+        VentanaAdmin admin = new VentanaAdmin(interfaz);
+        admin.setVisible(true);
+        admin.setLocationRelativeTo(null);
+        admin.validate();
+    }//GEN-LAST:event_BotonSubMenuActionPerformed
 
     /**
      * @param args the command line arguments
