@@ -361,8 +361,6 @@ public class VentanaAdmin extends javax.swing.JFrame  implements WindowListener{
             interfaz.menuBebida.agegarBebida(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
         
-        interfaz.menuDesayuno.agegarComida(new Comida(comida, tpo, Double.parseDouble(prec)));
-        
         cajaNombreComida.setText("");
         cajaTipo.setText("");
         cajaPrecio.setText("");
