@@ -21,10 +21,10 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultComboBoxModel comboMese = new DefaultComboBoxModel();
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
-    private Interfaz interfaz = new Interfaz();
+    public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
 
-    public VentanRest() {
+    public VentanRest(Interfaz nuevo) {
         agregarModeloTablaFactura();
         initComponents();
         this.setLocationRelativeTo(null);
@@ -33,6 +33,7 @@ public class VentanRest extends javax.swing.JFrame {
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
+        interfaz=nuevo;
 
     }
 
@@ -1263,7 +1264,7 @@ public class VentanRest extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanRest().setVisible(true);
+                new VentanRest(interfaz).setVisible(true);
             }
         });
     }

@@ -14,8 +14,11 @@ public class VentanaAdmin extends javax.swing.JFrame {
     /**
      * Creates new form VentanaAdmin
      */
-    public VentanaAdmin() {
+    public static Interfaz interfaz;
+   public VentanaAdmin(Interfaz nuevo) {
         initComponents();
+        interfaz=nuevo;
+        
     }
 
     /**
@@ -34,7 +37,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
         etiquetaApellido = new javax.swing.JLabel();
         cajaApellido = new javax.swing.JTextField();
         etiquetaCelular = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        cajaCel = new javax.swing.JTextField();
         etiquetaSalario = new javax.swing.JLabel();
         cajaSalario = new javax.swing.JTextField();
         etiquetaPanelMesero = new javax.swing.JLabel();
@@ -72,7 +75,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
         etiquetaCelular.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         etiquetaCelular.setText("Celular:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        cajaCel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         etiquetaSalario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaSalario.setText("Salario:");
@@ -84,6 +87,11 @@ public class VentanaAdmin extends javax.swing.JFrame {
 
         botonAgregaMesero.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botonAgregaMesero.setText("Agregar a la Plantilla");
+        botonAgregaMesero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregaMeseroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMeserosLayout = new javax.swing.GroupLayout(panelMeseros);
         panelMeseros.setLayout(panelMeserosLayout);
@@ -99,7 +107,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cajaApellido)
-                    .addComponent(jTextField1)
+                    .addComponent(cajaCel)
                     .addComponent(cajaSalario)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMeserosLayout.createSequentialGroup()
                         .addGap(0, 3, Short.MAX_VALUE)
@@ -130,7 +138,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cajaCel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(panelMeserosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(etiquetaSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -298,11 +306,22 @@ public class VentanaAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonAgregaMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregaMeseroActionPerformed
+        String nombre, apellido, celular, salario;
+
+        nombre = cajaNombre.getText();
+        apellido = cajaApellido.getText();
+        celular = cajaCel.getText();
+        salario = cajaSalario.getText();
+
+        interfaz.meseros.add( new Mesero(nombre, apellido, celular, Double.parseDouble(salario)));
+    }//GEN-LAST:event_botonAgregaMeseroActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /* Set the Nimbus look and feel /
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -328,7 +347,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaAdmin().setVisible(true);
+                new VentanaAdmin(interfaz).setVisible(true);
             }
         });
     }
@@ -337,6 +356,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JButton botonAgregaComida;
     private javax.swing.JButton botonAgregaMesero;
     private javax.swing.JTextField cajaApellido;
+    private javax.swing.JTextField cajaCel;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaNombreComida;
     private javax.swing.JTextField cajaPrecio;
@@ -358,8 +378,6 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaToralParaLlevar;
     private javax.swing.JLabel etiquetaTotalExp;
     private javax.swing.JLabel etiquetaTotalRest;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelComidas;
     private javax.swing.JPanel panelMeseros;
     private javax.swing.JPanel panelPrincipal;
