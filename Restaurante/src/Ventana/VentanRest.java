@@ -235,6 +235,7 @@ public class VentanRest extends javax.swing.JFrame {
         BotonMostrarMeseros = new javax.swing.JButton();
         BotonSubMenu = new javax.swing.JButton();
         botonMuestraFacts = new javax.swing.JButton();
+        botonActualizaCombo = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
         panelLogo = new javax.swing.JPanel();
@@ -724,7 +725,7 @@ public class VentanRest extends javax.swing.JFrame {
                     .addGroup(panelFacturaLayout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addComponent(etiquetaOrdenes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelFacturaLayout.createSequentialGroup()
                 .addGap(196, 196, 196)
                 .addComponent(etiquetaTituloFact, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -823,6 +824,14 @@ public class VentanRest extends javax.swing.JFrame {
             }
         });
 
+        botonActualizaCombo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        botonActualizaCombo.setText("Acualizar Planilla");
+        botonActualizaCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActualizaComboActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
@@ -844,8 +853,9 @@ public class VentanRest extends javax.swing.JFrame {
                         .addComponent(botonCambioMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotonSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotonSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonActualizaCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
         panelBotonesLayout.setVerticalGroup(
@@ -856,21 +866,23 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonDivCuenta)
+                            .addComponent(botonMuestraFacts))
+                        .addGap(12, 12, 12)
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonMostrarMeseros)
+                            .addComponent(botonActualizaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(botonCambioMesa))
-                    .addGroup(panelBotonesLayout.createSequentialGroup()
-                        .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonDivCuenta)
-                    .addComponent(botonMuestraFacts))
-                .addGap(12, 12, 12)
-                .addComponent(BotonMostrarMeseros)
-                .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCambioMesa)
+                        .addGap(104, 104, 104))))
         );
 
         panelBanner.setBackground(new java.awt.Color(255, 255, 255));
@@ -1350,6 +1362,13 @@ public class VentanRest extends javax.swing.JFrame {
         mese.validate();
     }//GEN-LAST:event_BotonMostrarMeserosActionPerformed
 
+    private void botonActualizaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizaComboActionPerformed
+        
+        comboMese.removeAllElements();
+        llenarModeloComboMesero();
+        
+    }//GEN-LAST:event_botonActualizaComboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1390,6 +1409,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JButton BotonMostrarMeseros;
     private javax.swing.JButton BotonSubMenu;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton botonActualizaCombo;
     private javax.swing.JButton botonAgregar;
     private javax.swing.JButton botonCambioMesa;
     private javax.swing.JButton botonGeneraFact;
