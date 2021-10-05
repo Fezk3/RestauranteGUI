@@ -998,11 +998,11 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="etiquetaAsigMesa" min="-2" pref="91" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="etiquetaAsigMesa" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="comboMesa" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="botonDesocuparMesa" alignment="0" max="32767" attributes="0"/>
                               <Component id="BotonMostrarMeseros" alignment="0" max="32767" attributes="0"/>
                               <Component id="BotonDivCuenta" alignment="0" max="32767" attributes="0"/>
@@ -1075,7 +1075,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  Asignar Mesa"/>
+                <Property name="text" type="java.lang.String" value="Seleccione Mesa"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboMesa">

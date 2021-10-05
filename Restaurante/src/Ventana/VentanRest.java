@@ -805,7 +805,7 @@ public class VentanRest extends javax.swing.JFrame {
         panelBtns.setText("Gestion del Restaurante");
 
         etiquetaAsigMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        etiquetaAsigMesa.setText("  Asignar Mesa");
+        etiquetaAsigMesa.setText("Seleccione Mesa");
 
         comboMesa.setModel(comboMesas);
 
@@ -868,8 +868,8 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
-                        .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(botonDesocuparMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
