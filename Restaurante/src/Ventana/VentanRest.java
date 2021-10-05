@@ -24,6 +24,7 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
+    private boolean bandera=false;
 
     public VentanRest(Interfaz nuevo) {
         agregarModeloTablaFactura();
@@ -130,6 +131,17 @@ public class VentanRest extends javax.swing.JFrame {
             i++;
         }
     }
+    
+    private Icon asignarMesa(JLabel imagenMesa){
+        Icon me =new ImageIcon("src\\imagenes\\icono mesa - copia.png");
+        if(!me.equals(imagenMesa.getIcon())){
+            bandera=true;
+            return me;
+        }
+        
+        return (new ImageIcon("src\\imagenes\\icono mesa.png"));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -244,6 +256,7 @@ public class VentanRest extends javax.swing.JFrame {
         imagenMesa1.setBackground(new java.awt.Color(255, 0, 51));
         imagenMesa1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         imagenMesa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa1.setText("1");
         imagenMesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa1MouseClicked(evt);
@@ -251,6 +264,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa2.setText("2");
         imagenMesa2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa2MouseClicked(evt);
@@ -258,6 +272,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa3.setText("3");
         imagenMesa3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa3MouseClicked(evt);
@@ -265,6 +280,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa4.setText("4");
         imagenMesa4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa4MouseClicked(evt);
@@ -272,6 +288,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa5.setText("5 ");
         imagenMesa5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa5MouseClicked(evt);
@@ -279,6 +296,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa6.setText("6");
         imagenMesa6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa6MouseClicked(evt);
@@ -286,6 +304,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa7.setText("7");
         imagenMesa7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa7MouseClicked(evt);
@@ -293,6 +312,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa8.setText("8");
         imagenMesa8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa8MouseClicked(evt);
@@ -300,6 +320,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa9.setText("9");
         imagenMesa9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa9MouseClicked(evt);
@@ -307,6 +328,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa10.setText("10");
         imagenMesa10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa10MouseClicked(evt);
@@ -314,6 +336,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa11.setText("11");
         imagenMesa11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa11MouseClicked(evt);
@@ -321,6 +344,7 @@ public class VentanRest extends javax.swing.JFrame {
         });
 
         imagenMesa12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono mesa.png"))); // NOI18N
+        imagenMesa12.setText("12");
         imagenMesa12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMesa12MouseClicked(evt);
@@ -1051,7 +1075,7 @@ public class VentanRest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
-
+        
         int num = Integer.parseInt(numFact.getText());
         num++;
         numFact.setText("" + num);
@@ -1120,6 +1144,10 @@ public class VentanRest extends javax.swing.JFrame {
             showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if(bandera==false && comboServicio.getSelectedItem().equals("Comer aqui")){
+            showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
@@ -1132,7 +1160,8 @@ public class VentanRest extends javax.swing.JFrame {
         //comboMesero.setSelectedIndex(-1);
         total.setText("0.0");
         totalIva.setText("0.0");
-
+        bandera=false;
+        resetearMesa(new ImageIcon("src\\imagenes\\icono mesa.png"));
         while (top != 0) {
 
             modeloTablaFact.removeRow(0);
@@ -1221,51 +1250,51 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     private void imagenMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa1MouseClicked
-        imagenMesa1.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa1.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa1MouseClicked
 
     private void imagenMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa2MouseClicked
-        imagenMesa2.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa2.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa2MouseClicked
 
     private void imagenMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa3MouseClicked
-        imagenMesa3.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa3.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa3MouseClicked
 
     private void imagenMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa4MouseClicked
-        imagenMesa4.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa4.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa4MouseClicked
 
     private void imagenMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa5MouseClicked
-        imagenMesa5.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa5.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa5MouseClicked
 
     private void imagenMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa6MouseClicked
-        imagenMesa6.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa6.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa6MouseClicked
 
     private void imagenMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa7MouseClicked
-        imagenMesa7.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa7.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
-        imagenMesa8.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa8.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
-        imagenMesa9.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa9.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
-        imagenMesa10.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa10.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa10MouseClicked
 
     private void imagenMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa11MouseClicked
-        imagenMesa11.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa11.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa11MouseClicked
 
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
-        imagenMesa12.setIcon(new ImageIcon("src\\imagenes\\icono mesa - copia.png"));
+        imagenMesa12.setIcon(asignarMesa(imagenMesa1));
     }//GEN-LAST:event_imagenMesa12MouseClicked
 
     private void BotonSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubMenuActionPerformed
@@ -1275,6 +1304,9 @@ public class VentanRest extends javax.swing.JFrame {
         admin.validate();
     }//GEN-LAST:event_BotonSubMenuActionPerformed
 
+    private void resetearMesa(ImageIcon a){
+        
+    }
     /**
      * @param args the command line arguments
      */
