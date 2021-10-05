@@ -1169,9 +1169,9 @@ public class VentanRest extends javax.swing.JFrame {
 
             mesita.setMesero_encargado(mese);
             interfaz.mesas.add(Integer.parseInt(indexComboMesa), mesita);
-        }else{
+        } else {
             showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
-                return;
+            return;
         }
 
         // AGREGANDO FACTURA A LA LISTA
@@ -1208,19 +1208,23 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
         int fila = tablaSubMenu.getSelectedRow();
+        if (fila != -1) {
+            String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
+            String cantidad = String.valueOf(comboCantidad.getSelectedItem());
+            String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
+            String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
+            double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
+            //Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
 
-        String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
-        String cantidad = String.valueOf(comboCantidad.getSelectedItem());
-        String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
-        String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
-        double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
-        //Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
-
-        modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
-        totalFact += preciot;
-        total.setText("" + totalFact);
-        totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
-
+            modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
+            totalFact += preciot;
+            total.setText("" + totalFact);
+            totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
+        }
+        else{
+            showMessageDialog(null, "seleccione un articulo", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void etiquetaBebidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_etiquetaBebidaMouseClicked
