@@ -1180,7 +1180,7 @@ public class VentanRest extends javax.swing.JFrame {
                 showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            mesita.setFactura(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
+            mesita.setPedido(comidas);
             mesita.setMesero_encargado(mese);
             interfaz.mesas.add(Integer.parseInt(indexComboMesa), mesita);
 
