@@ -1,5 +1,6 @@
 package Ventana;
 
+import static Ventana.VentanRest.interfaz;
 import java.util.ArrayList;
 
 public class Interfaz {
@@ -41,6 +42,15 @@ public class Interfaz {
             menuBebida.agegarBebida(nueva);
         }
 
+    }
+    
+    public void llenaMeseros(){
+        
+        meseros.add(new Mesero("Julio", "Perez", "85878986", 15000));
+        meseros.add(new Mesero("Jose", "Pereira", "85878986", 15000));
+        meseros.add(new Mesero("Mario", "Rodriguez", "85878986", 15000));
+        meseros.add(new Mesero("Marvin", "Calvo", "85878986", 15000));
+        
     }
 
 }

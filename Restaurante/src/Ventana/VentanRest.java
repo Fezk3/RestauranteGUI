@@ -35,6 +35,7 @@ public class VentanRest extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         llenarComboI();
         llenarModeloComboServicio();
+        interfaz.llenaMeseros();
         llenarModeloComboMesero();
         setFechaActual();
         agregarModelo();
@@ -57,11 +58,6 @@ public class VentanRest extends javax.swing.JFrame {
     }
 
     private void llenarModeloComboMesero() {
-
-        interfaz.meseros.add(new Mesero("Julio", "Perez", "85878986", 15000));
-        interfaz.meseros.add(new Mesero("Jose", "Pereira", "85878986", 15000));
-        interfaz.meseros.add(new Mesero("Mario", "Rodriguez", "85878986", 15000));
-        interfaz.meseros.add(new Mesero("Marvin", "Calvo", "85878986", 15000));
 
         int top = interfaz.meseros.size();
         Mesero actual;
