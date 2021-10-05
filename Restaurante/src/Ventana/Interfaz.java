@@ -53,17 +53,20 @@ public class Interfaz {
         
     }
     
-    public void desocuparMesas(int n){
+    public boolean desocuparMesas(int n){
         
         for(Mesa mes: mesas){
             
-            if(mes.getNumero_mesa() == n){
+            if(mes.getNumero_mesa() == n && mes.getDisponible() == false){
                 
                 mes.desocuparMesa();
+                return true;
                 
             }
             
         }
+        
+        return false;
         
     }
 
