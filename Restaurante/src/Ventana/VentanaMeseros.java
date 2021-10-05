@@ -5,17 +5,30 @@
  */
 package Ventana;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Admin
  */
 public class VentanaMeseros extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaMeseros
-     */
-    public VentanaMeseros() {
+    public DefaultTableModel modelo;
+    public Interfaz interfaz;
+    
+    public VentanaMeseros(Interfaz inter) {
         initComponents();
+        interfaz = inter;
+        iniciaModeloTabla();
+    }
+    
+    public void iniciaModeloTabla(){
+        
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Celular");
+        modelo.addColumn("Salario");
+        
     }
 
     /**
@@ -27,17 +40,58 @@ public class VentanaMeseros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        panelPrincipal = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaMeseros = new javax.swing.JTable();
+        etiquetaMeserosT = new javax.swing.JLabel();
+
+        panelPrincipal.setBackground(new java.awt.Color(51, 153, 255));
+
+        tablaMeseros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaMeseros);
+
+        etiquetaMeserosT.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        etiquetaMeserosT.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaMeserosT.setText("Meseros en Plantilla");
+
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGap(398, 398, 398)
+                .addComponent(etiquetaMeserosT)
+                .addContainerGap(400, Short.MAX_VALUE))
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(etiquetaMeserosT, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1119, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 559, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -73,11 +127,15 @@ public class VentanaMeseros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaMeseros().setVisible(true);
+                //new VentanaMeseros().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel etiquetaMeserosT;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JTable tablaMeseros;
     // End of variables declaration//GEN-END:variables
 }
