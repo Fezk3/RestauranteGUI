@@ -782,7 +782,7 @@ public class VentanRest extends javax.swing.JFrame {
         panelBotones.setBackground(new java.awt.Color(51, 153, 255));
 
         panelBtns.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        panelBtns.setText("Administracion");
+        panelBtns.setText("Gestion del Restaurante");
 
         etiquetaAsigMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaAsigMesa.setText("  Asignar Mesa");
@@ -837,10 +837,6 @@ public class VentanRest extends javax.swing.JFrame {
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(panelBtns)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
@@ -857,6 +853,10 @@ public class VentanRest extends javax.swing.JFrame {
                     .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonActualizaCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelBtns)
+                .addGap(145, 145, 145))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
