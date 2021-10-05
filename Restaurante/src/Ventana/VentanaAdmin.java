@@ -399,6 +399,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         }
 
         interfaz.meseros.add(new Mesero(nombre, apellido, celular, Double.parseDouble(salario)));
+        showMessageDialog(null, "El Mesero ha sido agregado a la plantilla", "Aceptado", JOptionPane.INFORMATION_MESSAGE);
 
         cajaNombre.setText("");
         cajaApellido.setText("");
@@ -451,6 +452,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
         if (tpo.equals("Bebida")) {
             interfaz.menuBebida.agegarBebida(new Comida(comida, tpo, Double.parseDouble(prec)));
         }
+        showMessageDialog(null, "La comida ha sido agregada al menu", "Aceptado", JOptionPane.INFORMATION_MESSAGE);
 
         cajaNombreComida.setText("");
         grupo.clearSelection();
