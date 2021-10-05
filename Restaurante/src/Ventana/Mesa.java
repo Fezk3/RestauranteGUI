@@ -98,4 +98,14 @@ public class Mesa {
         return sb.toString();
     }
     
+    public void desocuparMesa(String n){
+        
+        cantidad = 0;
+        disponible = true;
+        mesero_encargado = "";
+        clientes.clear();
+        pedido.clear();
+        
+    }
+    
 }
