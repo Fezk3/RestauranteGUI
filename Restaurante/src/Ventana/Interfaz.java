@@ -52,5 +52,19 @@ public class Interfaz {
         meseros.add(new Mesero("Marvin", "Calvo", "85878986", 15000));
         
     }
+    
+    public void desocuparMesas(int n){
+        
+        for(Mesa mes: mesas){
+            
+            if(mes.getNumero_mesa() == n){
+                
+                mes.desocuparMesa();
+                
+            }
+            
+        }
+        
+    }
 
 }

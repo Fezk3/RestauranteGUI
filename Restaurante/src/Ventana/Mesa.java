@@ -98,7 +98,7 @@ public class Mesa {
         return sb.toString();
     }
     
-    public void desocuparMesa(String n){
+    public void desocuparMesa(){
         
         cantidad = 0;
         disponible = true;
