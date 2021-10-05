@@ -1170,14 +1170,21 @@ public class VentanRest extends javax.swing.JFrame {
             showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
         if (comboServicio.getSelectedItem().equals("Comer aqui") && !interfaz.mesas.isEmpty()) {
 
             indexComboMesa = String.valueOf(comboMesero.getSelectedIndex());
             mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
 
+            if (mesita.getDisponible() == true) {
+                showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            mesita.setFactura(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
             mesita.setMesero_encargado(mese);
             interfaz.mesas.add(Integer.parseInt(indexComboMesa), mesita);
-        } else {
+
+        } else if (comboServicio.getSelectedItem().equals("Comer aqui") && interfaz.mesas.isEmpty()) {
             showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -1228,8 +1235,7 @@ public class VentanRest extends javax.swing.JFrame {
             totalFact += preciot;
             total.setText("" + totalFact);
             totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
-        }
-        else{
+        } else {
             showMessageDialog(null, "seleccione un articulo", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -1363,10 +1369,10 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonMostrarMeserosActionPerformed
 
     private void botonActualizaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizaComboActionPerformed
-        
+
         comboMese.removeAllElements();
         llenarModeloComboMesero();
-        
+
     }//GEN-LAST:event_botonActualizaComboActionPerformed
 
     /**
