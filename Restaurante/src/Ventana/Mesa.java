@@ -9,11 +9,13 @@ public class Mesa {
     private int numero_mesa;
     private String mesero_encargado;
     private ArrayList<Cliente> clientes;
+    private ArrayList<Comida> pedido;
 
     public Mesa(int numero_mesa, String mesero_encargado) {
         this.clientes = new ArrayList<>();
         this.numero_mesa = numero_mesa;
         this.mesero_encargado = mesero_encargado;
+        pedido=new ArrayList<Comida>();
     }
 
     public boolean getDisponible() {
