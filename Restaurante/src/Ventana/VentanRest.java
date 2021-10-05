@@ -24,7 +24,8 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
-    private boolean bandera=false;
+    private boolean bandera = false;
+    Mesa mesa;
 
     public VentanRest(Interfaz nuevo) {
         agregarModeloTablaFactura();
@@ -131,17 +132,25 @@ public class VentanRest extends javax.swing.JFrame {
             i++;
         }
     }
-    
-    private Icon asignarMesa(JLabel imagenMesa){
-        Icon me =new ImageIcon("src\\imagenes\\icono mesa - copia.png");
-        if(!me.equals(imagenMesa.getIcon())){
-            bandera=true;
+
+    private Icon cambiarIcono(JLabel imagenMesa) {
+        Icon me = new ImageIcon("src\\imagenes\\icono mesa - copia.png");
+        if (!me.equals(imagenMesa.getIcon())) {
+            bandera = true;
             return me;
         }
-        
+
         return (new ImageIcon("src\\imagenes\\icono mesa.png"));
     }
-    
+
+    private void resetearMesa(ImageIcon a) {
+
+    }
+
+    private void asignarMesa(String numeroMesa) {
+        mesa = new Mesa(Integer.parseInt(numeroMesa), String.valueOf(comboMesero.getSelectedItem()));
+        interfaz.mesas.add(mesa);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1075,7 +1084,7 @@ public class VentanRest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
-        
+
         int num = Integer.parseInt(numFact.getText());
         num++;
         numFact.setText("" + num);
@@ -1084,7 +1093,7 @@ public class VentanRest extends javax.swing.JFrame {
         String nom, tel, dir, serv, mese, fech;
         int nume;
         ArrayList<Comida> comidas = new ArrayList<Comida>();
-            
+
         nom = cajaNombre.getText();
         tel = cajaTel.getText();
         dir = cajaDirec.getText();
@@ -1140,16 +1149,25 @@ public class VentanRest extends javax.swing.JFrame {
             showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(top == 0){
+        if (top == 0) {
             showMessageDialog(null, "Aniada un pedido antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if(bandera==false && comboServicio.getSelectedItem().equals("Comer aqui")){
+        if (bandera == false && comboServicio.getSelectedItem().equals("Comer aqui")) {
             showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if (comboServicio.getSelectedItem().equals("Comer aqui")) {
+            
+            String indexComboMesa = String.valueOf(comboMesero.getSelectedIndex());
+            Mesa mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
+            
+            mesita.setMesero_encargado(mese);
+        }
+
         // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume-1, fech, serv, mese, tel, nom, dir));
+        interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
+
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
         // Vaciando la factura para que quede disponible
@@ -1160,14 +1178,14 @@ public class VentanRest extends javax.swing.JFrame {
         //comboMesero.setSelectedIndex(-1);
         total.setText("0.0");
         totalIva.setText("0.0");
-        bandera=false;
+        bandera = false;
         resetearMesa(new ImageIcon("src\\imagenes\\icono mesa.png"));
         while (top != 0) {
 
             modeloTablaFact.removeRow(0);
             top -= 1;
 
-        }  
+        }
     }//GEN-LAST:event_botonGeneraFactActionPerformed
 
     private void comboMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMeseroActionPerformed
@@ -1250,51 +1268,63 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     private void imagenMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa1MouseClicked
-        imagenMesa1.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa1.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa1MouseClicked
 
     private void imagenMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa2MouseClicked
-        imagenMesa2.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa2.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa2MouseClicked
 
     private void imagenMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa3MouseClicked
-        imagenMesa3.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa3.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa3MouseClicked
 
     private void imagenMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa4MouseClicked
-        imagenMesa4.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa4.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa4MouseClicked
 
     private void imagenMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa5MouseClicked
-        imagenMesa5.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa5.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa5MouseClicked
 
     private void imagenMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa6MouseClicked
-        imagenMesa6.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa6.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa6MouseClicked
 
     private void imagenMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa7MouseClicked
-        imagenMesa7.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa7.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
-        imagenMesa8.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa8.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
-        imagenMesa9.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa9.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
-        imagenMesa10.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa10.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa10MouseClicked
 
     private void imagenMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa11MouseClicked
-        imagenMesa11.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa11.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa11MouseClicked
 
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
-        imagenMesa12.setIcon(asignarMesa(imagenMesa1));
+        imagenMesa12.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(imagenMesa1.getText());
     }//GEN-LAST:event_imagenMesa12MouseClicked
 
     private void BotonSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubMenuActionPerformed
@@ -1304,9 +1334,6 @@ public class VentanRest extends javax.swing.JFrame {
         admin.validate();
     }//GEN-LAST:event_BotonSubMenuActionPerformed
 
-    private void resetearMesa(ImageIcon a){
-        
-    }
     /**
      * @param args the command line arguments
      */
