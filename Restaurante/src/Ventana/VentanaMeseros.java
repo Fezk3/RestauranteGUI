@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VentanaMeseros extends javax.swing.JFrame {
 
-    public DefaultTableModel modelo;
+    public DefaultTableModel modelo = new DefaultTableModel();
     public Interfaz interfaz;
     
     public VentanaMeseros(Interfaz inter) {
@@ -28,6 +28,10 @@ public class VentanaMeseros extends javax.swing.JFrame {
         modelo.addColumn("Apellido");
         modelo.addColumn("Celular");
         modelo.addColumn("Salario");
+        
+        interfaz.meseros.forEach((mes) -> {
+            modelo.addRow(new Object[]{mes.getNombre(), mes.getApellido(), mes.getCelular(), String.valueOf(mes.getSalario())});
+        });
         
     }
 
@@ -47,17 +51,7 @@ public class VentanaMeseros extends javax.swing.JFrame {
 
         panelPrincipal.setBackground(new java.awt.Color(51, 153, 255));
 
-        tablaMeseros.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tablaMeseros.setModel(modelo);
         jScrollPane1.setViewportView(tablaMeseros);
 
         etiquetaMeserosT.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N

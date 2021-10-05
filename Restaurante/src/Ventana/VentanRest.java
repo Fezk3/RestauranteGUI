@@ -771,6 +771,11 @@ public class VentanRest extends javax.swing.JFrame {
 
         BotonMostrarMeseros.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         BotonMostrarMeseros.setText("Mostrar Meseros");
+        BotonMostrarMeseros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonMostrarMeserosActionPerformed(evt);
+            }
+        });
 
         BotonSubMenu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         BotonSubMenu.setText("Menu Admin");
@@ -1274,6 +1279,13 @@ public class VentanRest extends javax.swing.JFrame {
         admin.setLocationRelativeTo(null);
         admin.validate();
     }//GEN-LAST:event_BotonSubMenuActionPerformed
+
+    private void BotonMostrarMeserosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMostrarMeserosActionPerformed
+        VentanaMeseros mese = new VentanaMeseros(interfaz);
+        mese.setVisible(true);
+        mese.setLocationRelativeTo(null);
+        mese.validate();
+    }//GEN-LAST:event_BotonMostrarMeserosActionPerformed
 
     /**
      * @param args the command line arguments
