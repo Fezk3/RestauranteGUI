@@ -907,6 +907,9 @@
                       <Connection code="modeloTablaFact" type="code"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="ListSelectionListener oyenteSeleccion = new ListSelectionListener(){&#xd;&#xa;    @Override&#xd;&#xa;    public void valueChanged(ListSelectionEvent e){&#xd;&#xa;        if(e.getValueIsAdjusting()){&#xd;&#xa;            int fila = tablaPedidos.getSelectedRow();&#xd;&#xa;            String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));&#xd;&#xa;            String cantidad = String.valueOf(comboCantidad.getSelectedItem());&#xd;&#xa;            String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));&#xd;&#xa;            String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));&#xd;&#xa;            double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);&#xd;&#xa;            pedido.add(new Comida(nombre,Integer.parseInt(cantidad),preciot,tipo));&#xd;&#xa;        }&#xd;&#xa;    }&#xd;&#xa;};&#xd;&#xa;&#xd;&#xa;tablaPedidos.getSelectionModel().addListSelectionListener(oyenteSeleccion);&#xd;&#xa;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

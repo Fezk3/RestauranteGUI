@@ -29,6 +29,7 @@ public class VentanRest extends javax.swing.JFrame {
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
     ArrayList<Comida> comidas;
+    ArrayList<Comida> pedido = new ArrayList<Comida>();
 
     Mesa mesa;
 
@@ -711,6 +712,22 @@ public class VentanRest extends javax.swing.JFrame {
 
         tablaPedidos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tablaPedidos.setModel(modeloTablaFact);
+        ListSelectionListener oyenteSeleccion = new ListSelectionListener(){
+            @Override
+            public void valueChanged(ListSelectionEvent e){
+                if(e.getValueIsAdjusting()){
+                    int fila = tablaPedidos.getSelectedRow();
+                    String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
+                    String cantidad = String.valueOf(comboCantidad.getSelectedItem());
+                    String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
+                    String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
+                    double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
+                    pedido.add(new Comida(nombre,Integer.parseInt(cantidad),preciot,tipo));
+                }
+            }
+        };
+
+        tablaPedidos.getSelectionModel().addListSelectionListener(oyenteSeleccion);
         jScrollPane1.setViewportView(tablaPedidos);
 
         etiquetaTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -1343,7 +1360,14 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_comboMeseroActionPerformed
 
     private void BotonDivCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDivCuentaActionPerformed
-        // TODO add your handling code here:
+        
+        if (pedido.isEmpty()) {
+            showMessageDialog(null, "seleccione el articulo que desee eliminar", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            /*int nf=numFact
+            Factura nueva =new Factura(pedido,, fecha, tipoServicio, mesero, telCliente, nomCliente, direcCliente)*/
+        }
     }//GEN-LAST:event_BotonDivCuentaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
