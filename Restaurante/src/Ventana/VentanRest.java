@@ -175,13 +175,13 @@ public class VentanRest extends javax.swing.JFrame {
         int var = Integer.parseInt(String.valueOf(comboMesa.getSelectedItem()));
         for (int i = 0; i < 12; i++) {
             m = interfaz.mesas.get(i);
-            
+
             if (m.getNumero_mesa() == var /*&& m.getDisponible()==false*/) {
                 infoMesero.setText(m.getMesero_encargado());
                 ocupantes.setText(String.valueOf(m.getCantidad()));
 
                 int j = 0;
-                while (m.getPedido().size()> j ) {
+                while (m.getPedido().size() > j) {
                     c = m.getPedido().get(j);
 
                     String nombre = String.valueOf(c.getNombre());
@@ -196,9 +196,18 @@ public class VentanRest extends javax.swing.JFrame {
         }
     }
 
-    private void asignarMesa(String num) {
-        Mesa m = interfaz.mesas.get(Integer.parseInt(num) - 1);
-        m.setDisponible(false);
+    private boolean asignarMesa(String num) {
+        String path = JOptionPane.showInputDialog("Digite el numero de ocupantes");
+        if (Integer.parseInt(path) > 0 && Integer.parseInt(path) <= 4) {
+            Mesa m = interfaz.mesas.get(Integer.parseInt(num) - 1);
+            m.setDisponible(false);
+            m.setCantidad(Integer.parseInt(path));
+            return true;
+        }
+
+        showMessageDialog(null, "Numero de ocupantes invalido", "Invalido", JOptionPane.ERROR_MESSAGE);
+        return false;
+
     }
 
     /**
@@ -1247,7 +1256,7 @@ public class VentanRest extends javax.swing.JFrame {
             indexComboMesa = String.valueOf(comboMesa.getSelectedIndex());
 
             mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
-            interfaz.mesas.remove(Integer.parseInt(indexComboMesa));
+            
 
             if (mesita.getDisponible() == true) {
                 showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
@@ -1255,13 +1264,13 @@ public class VentanRest extends javax.swing.JFrame {
             }
             mesita.setPedido(comidas);
             mesita.setMesero_encargado(mese);
-            interfaz.mesas.add(Integer.parseInt(indexComboMesa), mesita);
+            
 
         }
 
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
-
+        
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
         // Vaciando la factura para que quede disponible
@@ -1364,75 +1373,87 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     private void imagenMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa1MouseClicked
+        if (asignarMesa(num1.getText())) {
+            imagenMesa1.setIcon(cambiarIcono(imagenMesa1));
+        }
 
-        imagenMesa1.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa1MouseClicked
 
     private void imagenMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa2MouseClicked
 
-        imagenMesa2.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num2.getText());
+        if (asignarMesa(num2.getText())) {
+            imagenMesa2.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa2MouseClicked
 
     private void imagenMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa3MouseClicked
 
-        imagenMesa3.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num3.getText());
+        if (asignarMesa(num3.getText())) {
+            imagenMesa3.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa3MouseClicked
 
     private void imagenMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa4MouseClicked
 
-        imagenMesa4.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num4.getText());
+        if (asignarMesa(num4.getText())) {
+            imagenMesa4.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa4MouseClicked
 
     private void imagenMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa5MouseClicked
 
-        imagenMesa5.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num5.getText());
+        if (asignarMesa(num5.getText())) {
+            imagenMesa5.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa5MouseClicked
 
     private void imagenMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa6MouseClicked
 
-        imagenMesa6.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num6.getText());
+        if (asignarMesa(num6.getText())) {
+            imagenMesa6.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa6MouseClicked
 
     private void imagenMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa7MouseClicked
 
-        imagenMesa7.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num7.getText());
+        if (asignarMesa(num7.getText())) {
+            imagenMesa7.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
 
-        imagenMesa8.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num8.getText());
+        if (asignarMesa(num8.getText())) {
+            imagenMesa8.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
 
-        imagenMesa9.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num9.getText());
+        if (asignarMesa(num9.getText())) {
+            imagenMesa9.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
 
-        imagenMesa10.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num10.getText());
+        if (asignarMesa(num10.getText())) {
+            imagenMesa10.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa10MouseClicked
 
     private void imagenMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa11MouseClicked
 
-        imagenMesa11.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num11.getText());
+        if (asignarMesa(num11.getText())) {
+            imagenMesa11.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa11MouseClicked
 
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
 
-        imagenMesa12.setIcon(cambiarIcono(imagenMesa1));
-        asignarMesa(num12.getText());
+        if (asignarMesa(num12.getText())) {
+            imagenMesa12.setIcon(cambiarIcono(imagenMesa1));
+        }
     }//GEN-LAST:event_imagenMesa12MouseClicked
 
     private void BotonSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubMenuActionPerformed
