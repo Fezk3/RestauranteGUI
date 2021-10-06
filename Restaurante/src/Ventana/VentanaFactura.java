@@ -338,7 +338,7 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         }
 
         total.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100));
-        totalIva.setText(String.valueOf(Math.round(((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100) * 1.13));
+        totalIva.setText(String.valueOf(Math.round((((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100)*1.13)));
         cont++;
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
