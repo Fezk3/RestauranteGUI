@@ -151,9 +151,11 @@ public class VentanRest extends javax.swing.JFrame {
     }
 
     private void agregarModeloTablaMesa() {
-        modeloTablaMesa.addColumn("Numero de Mesa");
-        modeloTablaMesa.addColumn("Mesero");
-        modeloTablaMesa.addColumn("Cliente");
+        modeloTablaMesa.addColumn("Producto");
+        modeloTablaMesa.addColumn("Cantidad");
+        modeloTablaMesa.addColumn("Tipo");
+        modeloTablaMesa.addColumn("Precio");
+
     }
 
     /**
@@ -1295,62 +1297,62 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     private void imagenMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa1MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num1.getText());
         imagenMesa1.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa1MouseClicked
 
     private void imagenMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa2MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num2.getText());
         imagenMesa2.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa2MouseClicked
 
     private void imagenMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa3MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num3.getText());
         imagenMesa3.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa3MouseClicked
 
     private void imagenMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa4MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num4.getText());
         imagenMesa4.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa4MouseClicked
 
     private void imagenMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa5MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num5.getText());
         imagenMesa5.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa5MouseClicked
 
     private void imagenMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa6MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num6.getText());
         imagenMesa6.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa6MouseClicked
 
     private void imagenMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa7MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num7.getText());
         imagenMesa7.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num8.getText());
         imagenMesa8.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num9.getText());
         imagenMesa9.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num10.getText());
         imagenMesa10.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa10MouseClicked
 
     private void imagenMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa11MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num11.getText());
         imagenMesa11.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa11MouseClicked
 
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
-        asignarMesa(imagenMesa1.getText());
+        asignarMesa(num12.getText());
         imagenMesa12.setIcon(cambiarIcono(imagenMesa1));
     }//GEN-LAST:event_imagenMesa12MouseClicked
 
