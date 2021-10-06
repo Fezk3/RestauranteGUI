@@ -33,15 +33,15 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         this.interfaz = interfaz;
         iniciaFecha();
     }
-    
-    public void iniciaFecha(){
-        
+
+    public void iniciaFecha() {
+
         Date actual = new Date();
         SimpleDateFormat formato = new SimpleDateFormat("MM/dd/Y");
         fechaactual.setText(formato.format(actual));
-        
+
     }
-    
+
     private void agregarModeloTablaFactura() {
 
         modeloTablaFact.addColumn("Producto");
@@ -290,16 +290,23 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        
 
+        while (modeloTablaFact.getRowCount() != 0) {
+
+            modeloTablaFact.removeRow(0);
+            
+        }
+        
         if (interfaz.facturas.isEmpty()) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        if (interfaz.facturas.size()-1 < cont) {
+        if (interfaz.facturas.size() - 1 < cont) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
+
         Factura fact = interfaz.facturas.get(cont);
 
         numFact.setText(String.valueOf(fact.getnFact()));
@@ -310,16 +317,17 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         cajaMesero.setText(fact.getMesero());
 
         // llena la tabla con las comidas de la factura
-        for (int i = 0; i < fact.LComida.size(); i++) {
-            Comida c=fact.LComida.get(i);
+        int top = fact.LComida.size();
+        for (int i = 0; i < top; i++) {
+            Comida c = fact.LComida.get(i);
             modeloTablaFact.addRow(new Object[]{c.getNombre(), c.getCantidad(), c.getTipo(), String.valueOf(c.getPrecio())});
 
         }
 
-        total.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularTotal())*100)/100));
-        totalIva.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularConIva())*100)/100));
-
+        total.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100));
+        totalIva.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularConIva()) * 100) / 100));
         cont++;
+        
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 

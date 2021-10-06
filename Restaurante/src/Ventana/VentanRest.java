@@ -26,6 +26,7 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaMesa = new DefaultTableModel();
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
+    ArrayList<Comida> comidas;
 
     Mesa mesa;
 
@@ -1189,7 +1190,7 @@ public class VentanRest extends javax.swing.JFrame {
         // creado obj nuevo de factura y aniadiendolo a la lista de facturas
         String nom, tel, dir, serv, mese, fech;
         int nume;
-        ArrayList<Comida> comidas = new ArrayList<Comida>();
+        comidas = new ArrayList<Comida>();
 
         nom = cajaNombre.getText();
         tel = cajaTel.getText();
