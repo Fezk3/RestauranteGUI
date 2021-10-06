@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Mesa {
     
     private int cantidad = 0;
-    private boolean disponible = true;
+    private boolean disponible;
     private int numero_mesa;
     private String mesero_encargado;
     private ArrayList<Cliente> clientes;
@@ -16,6 +16,7 @@ public class Mesa {
         this.numero_mesa = numero_mesa;
         this.mesero_encargado = mesero_encargado;
         pedido=new ArrayList<Comida>();
+        disponible = true;
     }
 
     public boolean getDisponible() {

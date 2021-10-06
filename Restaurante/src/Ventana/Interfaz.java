@@ -72,7 +72,7 @@ public class Interfaz {
 
     private void llenarListaMesa() {
         for (int i = 0; i < 12; i++) {
-            mesas.add(new Mesa(i,""));
+            mesas.add(new Mesa(i+1,""));
         }
     }
 }
