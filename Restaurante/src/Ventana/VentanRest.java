@@ -1404,6 +1404,7 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_etiquetaCenaMouseClicked
 
     private void botonMuestraFactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMuestraFactsActionPerformed
+        interfaz.OrdenarFacts();
         VentanaFactura facturas = new VentanaFactura(interfaz);
         facturas.setVisible(true);
         facturas.setLocationRelativeTo(null);

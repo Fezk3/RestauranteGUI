@@ -3,6 +3,7 @@ package Ventana;
 import static Ventana.VentanRest.interfaz;
 import java.util.ArrayList;
 
+
 public class Interfaz {
 
     public ArrayList<Mesero> meseros;
@@ -72,7 +73,23 @@ public class Interfaz {
 
     private void llenarListaMesa() {
         for (int i = 0; i < 12; i++) {
-            mesas.add(new Mesa(i+1,""));
+            mesas.add(new Mesa(i + 1, ""));
+        }
+    }
+
+    public void OrdenarFacts() {
+        Factura variable;
+        for (int i = 0; i < facturas.size(); i++) {
+            for (int j = 0; j < facturas.size(); j++) {
+                String n1=facturas.get(i).getTipoServicio();
+                String n2=facturas.get(j).getTipoServicio();
+                if (n1.charAt(0) < n2.charAt(0)) {
+                    
+                    variable=facturas.get(i);
+                    facturas.set(i, facturas.get(j));
+                    facturas.set(j, variable);
+                }
+            }
         }
     }
 }

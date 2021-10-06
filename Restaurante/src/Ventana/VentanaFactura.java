@@ -32,6 +32,7 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         agregarModeloTablaFactura();
         this.interfaz = interfaz;
         iniciaFecha();
+        
     }
 
     public void iniciaFecha() {
