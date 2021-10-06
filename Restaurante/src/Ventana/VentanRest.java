@@ -1304,7 +1304,20 @@ public class VentanRest extends javax.swing.JFrame {
         }
 
         // AGREGANDO FACTURA A LA LISTA
-        interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
+        Factura nueva = new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir);
+        interfaz.facturas.add(nueva);
+        double descuento, totalisimo;
+
+        if (comboServicio.getSelectedItem() == "Express") {
+            totalisimo = nueva.calcularTotal();
+            descuento = totalisimo * 0.05;
+            total.setText("Con descuento " + (totalisimo - descuento));
+            totalIva.setText("Con descuento " + Math.round((((totalisimo * 1.13) * 100.0) / 100.0) - descuento));
+        } else {
+            total.setText("" + nueva.calcularTotal());
+            totalIva.setText("" + Math.round((nueva.calcularTotal() * 1.13) * 100.0) / 100.0);
+
+        }
 
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
@@ -1336,7 +1349,7 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
         int fila = tablaSubMenu.getSelectedRow();
-        double descuento;
+        double descuento, totalisimo;
         if (fila != -1) {
             String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
             String cantidad = String.valueOf(comboCantidad.getSelectedItem());
@@ -1347,16 +1360,6 @@ public class VentanRest extends javax.swing.JFrame {
 
             modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
 
-            if (comboServicio.getSelectedItem() == "Express") {
-                totalFact += preciot;
-                descuento = totalFact * 0.05;
-                total.setText("Con descuento " + (totalFact - descuento));
-                totalIva.setText("Con descuento " + Math.round((((totalFact * 1.13) * 100.0) / 100.0) - descuento));
-                return;
-            }
-            totalFact += preciot;
-            total.setText("" + totalFact);
-            totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
         } else {
             showMessageDialog(null, "seleccione un articulo", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;

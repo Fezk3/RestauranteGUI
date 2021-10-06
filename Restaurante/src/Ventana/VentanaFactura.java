@@ -200,12 +200,13 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
                             .addComponent(etiquetaTotalIva)
                             .addComponent(etiquetaIva, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(iva, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                        .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFacturaLayout.createSequentialGroup()
+                                .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(totalIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
             .addGroup(panelFacturaLayout.createSequentialGroup()
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,14 +291,13 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        
 
         while (modeloTablaFact.getRowCount() != 0) {
 
             modeloTablaFact.removeRow(0);
-            
+
         }
-        
+
         if (interfaz.facturas.isEmpty()) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
@@ -324,10 +324,21 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
 
         }
 
+        if (fact.getTipoServicio().equals("Express")) {
+
+            double totale = (interfaz.facturas.get(cont).calcularTotal() * 100) / 100;
+            double descuento = totale * 0.05;
+
+            total.setText("Con descuento "+String.valueOf(totale - descuento));
+            totalIva.setText("Con descuento " + String.valueOf(Math.round((totale * 1.13)-descuento)));
+            cont++;
+            return;
+
+        }
+
         total.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100));
-        totalIva.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularConIva()) * 100) / 100));
+        totalIva.setText(String.valueOf(Math.round(((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100) * 1.13));
         cont++;
-        
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
