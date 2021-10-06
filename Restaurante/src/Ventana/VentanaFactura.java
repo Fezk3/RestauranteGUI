@@ -32,7 +32,7 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         agregarModeloTablaFactura();
         this.interfaz = interfaz;
         iniciaFecha();
-        
+
     }
 
     public void iniciaFecha() {
@@ -293,12 +293,6 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-        while (modeloTablaFact.getRowCount() != 0) {
-
-            modeloTablaFact.removeRow(0);
-
-        }
-
         if (interfaz.facturas.isEmpty()) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
@@ -306,6 +300,12 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
         if (interfaz.facturas.size() - 1 < cont) {
             showMessageDialog(null, "No hay mas facturas para mostrar", "Invalido", JOptionPane.INFORMATION_MESSAGE);
             return;
+        }
+
+        while (modeloTablaFact.getRowCount() != 0) {
+
+            modeloTablaFact.removeRow(0);
+
         }
 
         Factura fact = interfaz.facturas.get(cont);
@@ -330,15 +330,15 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
             double totale = (interfaz.facturas.get(cont).calcularTotal() * 100) / 100;
             double descuento = totale * 0.05;
 
-            total.setText("Con descuento "+String.valueOf(totale - descuento));
-            totalIva.setText("Con descuento " + String.valueOf(Math.round((totale * 1.13)-descuento)));
+            total.setText("Con descuento " + String.valueOf(totale - descuento));
+            totalIva.setText("Con descuento " + String.valueOf(Math.round((totale * 1.13) - descuento)));
             cont++;
             return;
 
         }
 
         total.setText(String.valueOf(Math.round((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100));
-        totalIva.setText(String.valueOf(Math.round(((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100) * 1.13));
+        totalIva.setText(String.valueOf(Math.round((((interfaz.facturas.get(cont).calcularTotal()) * 100) / 100)*1.13)));
         cont++;
 
     }//GEN-LAST:event_botonSiguienteActionPerformed
