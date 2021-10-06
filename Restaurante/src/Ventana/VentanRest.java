@@ -5,6 +5,9 @@ import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -228,6 +231,19 @@ public class VentanRest extends javax.swing.JFrame {
 
         showMessageDialog(null, "Numero de ocupantes invalido", "Invalido", JOptionPane.ERROR_MESSAGE);
         return false;
+
+    }
+
+    private void partirFactura(int fila) {
+
+        String nombre = String.valueOf(modeloTablaFact.getValueAt(fila, 0));
+        String cantidad = String.valueOf(modeloTablaFact.getValueAt(fila, 1));
+        String tipo = String.valueOf(modeloTablaFact.getValueAt(fila, 2));
+        String precio = String.valueOf(modeloTablaFact.getValueAt(fila, 3));
+        double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
+        pedido.add(new Comida(nombre, Integer.parseInt(cantidad), preciot, tipo));
+
+        modeloTablaFact.removeRow(tablaPedidos.getSelectedRow());
 
     }
 
@@ -712,22 +728,6 @@ public class VentanRest extends javax.swing.JFrame {
 
         tablaPedidos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tablaPedidos.setModel(modeloTablaFact);
-        ListSelectionListener oyenteSeleccion = new ListSelectionListener(){
-            @Override
-            public void valueChanged(ListSelectionEvent e){
-                if(e.getValueIsAdjusting()){
-                    int fila = tablaPedidos.getSelectedRow();
-                    String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
-                    String cantidad = String.valueOf(comboCantidad.getSelectedItem());
-                    String tipo = String.valueOf(modeloTablaSubM.getValueAt(fila, 2));
-                    String precio = String.valueOf(modeloTablaSubM.getValueAt(fila, 1));
-                    double preciot = Integer.parseInt(cantidad) * Double.parseDouble(precio);
-                    pedido.add(new Comida(nombre,Integer.parseInt(cantidad),preciot,tipo));
-                }
-            }
-        };
-
-        tablaPedidos.getSelectionModel().addListSelectionListener(oyenteSeleccion);
         jScrollPane1.setViewportView(tablaPedidos);
 
         etiquetaTotal.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -1232,7 +1232,7 @@ public class VentanRest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
-        
+
         String indexComboMesa;
         numFact.setText("" + num);
         Mesa mesita;
@@ -1327,12 +1327,12 @@ public class VentanRest extends javax.swing.JFrame {
             mesita.setMesero_encargado(mese);
 
         }
-        
+
         nume = Integer.parseInt(numFact.getText());
         // AGREGANDO FACTURA A LA LISTA
-        Factura nueva = new Factura(comidas, nume , fech, serv, mese, tel, nom, dir);
+        Factura nueva = new Factura(comidas, nume, fech, serv, mese, tel, nom, dir);
         interfaz.facturas.add(nueva);
-        num +=1;
+        num += 1;
         numFact.setText("" + (num));
         double descuento, totalisimo;
 
@@ -1372,13 +1372,32 @@ public class VentanRest extends javax.swing.JFrame {
 
     private void BotonDivCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDivCuentaActionPerformed
         
-        if (pedido.isEmpty()) {
-            showMessageDialog(null, "seleccione el articulo que desee eliminar", "Invalido", JOptionPane.ERROR_MESSAGE);
+        ArrayList<Integer> numeros =new ArrayList<Integer>();
+             if (!String.valueOf(comboServicio.getSelectedItem()).equals("Comer aqui")) {
+            showMessageDialog(null, "Solo se puede partir la factura comiendo aqui!!", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
-        } else {
-            /*int nf=numFact
-            Factura nueva =new Factura(pedido,, fecha, tipoServicio, mesero, telCliente, nomCliente, direcCliente)*/
         }
+        int op = JOptionPane.showConfirmDialog(null, "Le gustaria dividir la factura?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+        int fila = tablaPedidos.getSelectedRow();
+        while(op == JOptionPane.YES_OPTION){
+        
+            
+            if (fila != -1) {
+                fila = tablaPedidos.getSelectedRow();
+                partirFactura(fila);
+
+            
+            }
+        op = JOptionPane.showConfirmDialog(null, "Le gustaria aniadir un item mas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+            
+            
+        }
+        int nf = num;
+        Factura nueva = new Factura(pedido, nf, fechaactual.getText(), String.valueOf(comboServicio.getSelectedItem()), String.valueOf(comboMesero.getSelectedItem()), cajaTel.getText(), cajaNombre.getText(), cajaDirec.getText());
+        interfaz.facturas.add(nueva);
+
+        pedido = new ArrayList<Comida>();
+        num++;
     }//GEN-LAST:event_BotonDivCuentaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
