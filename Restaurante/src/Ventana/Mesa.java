@@ -88,6 +88,14 @@ public class Mesa {
         return true;
         
     }
+
+    public ArrayList<Comida> getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(ArrayList<Comida> pedido) {
+        this.pedido = pedido;
+    }
     
     @Override
     public String toString() {
