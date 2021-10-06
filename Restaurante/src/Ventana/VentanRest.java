@@ -176,12 +176,12 @@ public class VentanRest extends javax.swing.JFrame {
         for (int i = 0; i < 12; i++) {
             m = interfaz.mesas.get(i);
             
-            if (m.getNumero_mesa() == var) {
+            if (m.getNumero_mesa() == var /*&& m.getDisponible()==false*/) {
                 infoMesero.setText(m.getMesero_encargado());
                 ocupantes.setText(String.valueOf(m.getCantidad()));
 
                 int j = 0;
-                while (m.getPedido().size() > j) {
+                while (m.getPedido().size()> j ) {
                     c = m.getPedido().get(j);
 
                     String nombre = String.valueOf(c.getNombre());
@@ -1247,6 +1247,7 @@ public class VentanRest extends javax.swing.JFrame {
             indexComboMesa = String.valueOf(comboMesa.getSelectedIndex());
 
             mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
+            interfaz.mesas.remove(Integer.parseInt(indexComboMesa));
 
             if (mesita.getDisponible() == true) {
                 showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
