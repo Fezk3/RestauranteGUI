@@ -44,9 +44,9 @@ public class VentanRest extends javax.swing.JFrame {
         iniciaComboBoxMesas();
 
     }
-    
-    private void iniciaComboBoxMesas(){
-        
+
+    private void iniciaComboBoxMesas() {
+
         comboMesas.addElement(1);
         comboMesas.addElement(2);
         comboMesas.addElement(3);
@@ -59,7 +59,7 @@ public class VentanRest extends javax.swing.JFrame {
         comboMesas.addElement(10);
         comboMesas.addElement(11);
         comboMesas.addElement(12);
-        
+
     }
 
     private void llenarComboI() {
@@ -175,6 +175,29 @@ public class VentanRest extends javax.swing.JFrame {
         modeloTablaMesa.addColumn("Tipo");
         modeloTablaMesa.addColumn("Precio");
 
+    }
+
+    private void llenarTablaMesa() {
+        int top = interfaz.mesas.size();
+        Mesa m;
+        Comida c;
+        for (int i = 0; i < top; i++) {
+            m = interfaz.mesas.get(i);
+            if (m.getNumero_mesa() == comboMesa.getSelectedIndex() + 1) {
+                infoMesero.setText(m.getMesero_encargado());
+                ocupantes.setText(String.valueOf(m.getCantidad()));
+                
+                int topPedido=m.getPedido().size();
+                for(int j=0;j<topPedido;j++){
+                    c = m.getPedido().get(j);
+                    String nombre =String.valueOf(c.getNombre());
+                    String cantidad=String.valueOf(c.getCantidad());
+                    String tipo=String.valueOf(c.getTipo());
+                    String precio=String.valueOf(c.getPrecio());
+                    modeloTablaMesa.addRow(new Object[]{nombre,cantidad,tipo,precio});
+                }
+            }
+        }
     }
 
     /**
@@ -1409,19 +1432,19 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonActualizaComboActionPerformed
 
     private void botonDesocuparMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesocuparMesaActionPerformed
-        
+
         String n = String.valueOf(comboMesa.getSelectedItem());
-        
-        if(interfaz.desocuparMesas(Integer.parseInt(n))){
-            
+
+        if (interfaz.desocuparMesas(Integer.parseInt(n))) {
+
             showMessageDialog(null, "Mesa" + n + " desocupada", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
-            
-        }else{
-            
+
+        } else {
+
             showMessageDialog(null, "La mesa no puede ser desocupada", "Invalido", JOptionPane.ERROR_MESSAGE);
-            
+
         }
-        
+
     }//GEN-LAST:event_botonDesocuparMesaActionPerformed
 
     /**
