@@ -29,6 +29,7 @@ public class VentanRest extends javax.swing.JFrame {
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
     ArrayList<Comida> comidas;
+    public int num = 1;
 
     Mesa mesa;
 
@@ -105,8 +106,7 @@ public class VentanRest extends javax.swing.JFrame {
             comboMese.addElement(actual);
         }
 
-        comboMese.addElement("");
-
+        //comboMese.addElement("");
     }
 
     private void setFechaActual() {
@@ -688,7 +688,7 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaNumFact.setText("Num Factura:");
 
         numFact.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        numFact.setText("0");
+        numFact.setText("1");
 
         etiquetaMesero.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaMesero.setText("Mesero:");
@@ -1215,12 +1215,9 @@ public class VentanRest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGeneraFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGeneraFactActionPerformed
-
-        int num = Integer.parseInt(numFact.getText());
-        num++;
-        numFact.setText("" + num);
-
+        
         String indexComboMesa;
+        numFact.setText("" + num);
         Mesa mesita;
 
         // creado obj nuevo de factura y aniadiendolo a la lista de facturas
@@ -1233,8 +1230,16 @@ public class VentanRest extends javax.swing.JFrame {
         dir = cajaDirec.getText();
         serv = String.valueOf(comboServicio.getSelectedItem());
         fech = String.valueOf(fechaactual.getText());
-        mese = String.valueOf(comboMesero.getSelectedItem());
-        nume = Integer.parseInt(numFact.getText());
+
+        if (serv.equals("Comer aqui")) {
+
+            mese = String.valueOf(comboMesero.getSelectedItem());
+
+        } else {
+
+            mese = "  ";
+
+        }
 
         // Para comida
         String nomb, tip, cant, prec;
@@ -1261,20 +1266,23 @@ public class VentanRest extends javax.swing.JFrame {
             System.out.println(comidas.get(i));
 
         }
-        /*
-        OPCIONALES
-        if (nom.equals("")) {
-            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
-            return;
+
+        if (serv.equals("Express")) {
+
+            if (nom.equals("")) {
+                showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (tel.equals("")) {
+                showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (dir.equals("")) {
+                showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
         }
-        if (tel.equals("")) {
-            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (dir.equals("")) {
-            showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
-            return;
-        }*/
         if (serv.equals("")) {
             showMessageDialog(null, "Llene todos los espacios antes de Facturar", "Invalido", JOptionPane.ERROR_MESSAGE);
             return;
@@ -1302,10 +1310,13 @@ public class VentanRest extends javax.swing.JFrame {
             mesita.setMesero_encargado(mese);
 
         }
-
+        
+        nume = Integer.parseInt(numFact.getText());
         // AGREGANDO FACTURA A LA LISTA
-        Factura nueva = new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir);
+        Factura nueva = new Factura(comidas, nume , fech, serv, mese, tel, nom, dir);
         interfaz.facturas.add(nueva);
+        num +=1;
+        numFact.setText("" + (num));
         double descuento, totalisimo;
 
         if (comboServicio.getSelectedItem() == "Express") {
