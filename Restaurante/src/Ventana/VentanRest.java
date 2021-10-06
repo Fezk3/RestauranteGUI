@@ -24,6 +24,8 @@ public class VentanRest extends javax.swing.JFrame {
     private DefaultTableModel modeloTablaFact = new DefaultTableModel();
     private DefaultTableModel modeloTablaSubM = new DefaultTableModel();
     private DefaultTableModel modeloTablaMesa = new DefaultTableModel();
+    public DefaultComboBoxModel ini = new DefaultComboBoxModel();
+    public DefaultComboBoxModel des = new DefaultComboBoxModel();
     public static Interfaz interfaz = new Interfaz();
     double totalFact = 0;
 
@@ -42,6 +44,23 @@ public class VentanRest extends javax.swing.JFrame {
         agregarModelo();
         interfaz = nuevo;
         iniciaComboBoxMesas();
+        iniciaComboMesasD();
+
+    }
+
+    private void iniciaComboMesasD() {
+
+        for (int i = 1; i <= 12; i++) {
+
+            ini.addElement("" + i);
+
+        }
+
+        for (int i = 1; i <= 12; i++) {
+
+            des.addElement("" + i);
+
+        }
 
     }
 
@@ -292,6 +311,8 @@ public class VentanRest extends javax.swing.JFrame {
         botonMuestraFacts = new javax.swing.JButton();
         botonActualizaCombo = new javax.swing.JButton();
         botonDesocuparMesa = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
         panelBanner = new javax.swing.JPanel();
         panelLogo = new javax.swing.JPanel();
@@ -860,6 +881,11 @@ public class VentanRest extends javax.swing.JFrame {
 
         botonCambioMesa.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         botonCambioMesa.setText("Cambiar Mesa");
+        botonCambioMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambioMesaActionPerformed(evt);
+            }
+        });
 
         BotonDivCuenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         BotonDivCuenta.setText("Div Cuenta");
@@ -909,6 +935,10 @@ public class VentanRest extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(ini);
+
+        jComboBox2.setModel(des);
+
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
@@ -919,18 +949,24 @@ public class VentanRest extends javax.swing.JFrame {
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addComponent(etiquetaAsigMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(botonDesocuparMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonMostrarMeseros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonDivCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonCambioMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BotonSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonActualizaCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
+                        .addComponent(comboMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotonSubMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonMuestraFacts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonActualizaCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(22, 22, 22))
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(botonDesocuparMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonMostrarMeseros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonDivCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonCambioMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelBtns)
@@ -961,7 +997,10 @@ public class VentanRest extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botonDesocuparMesa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonCambioMesa)
+                        .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botonCambioMesa)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(104, 104, 104))))
         );
 
@@ -1268,7 +1307,7 @@ public class VentanRest extends javax.swing.JFrame {
 
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
-        
+
         JOptionPane.showMessageDialog(null, "Supedido ha sido aceptado!", "Factura Generada", JOptionPane.INFORMATION_MESSAGE);
 
         // Vaciando la factura para que quede disponible
@@ -1544,6 +1583,134 @@ public class VentanRest extends javax.swing.JFrame {
         llenarTablaMesa();
     }//GEN-LAST:event_botonRefrescarActionPerformed
 
+    private void botonCambioMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambioMesaActionPerformed
+
+        int inic = Integer.parseInt(String.valueOf(ini.getSelectedItem()));
+        int dest = Integer.parseInt(String.valueOf(des.getSelectedItem()));
+        Icon me = new ImageIcon("src\\imagenes\\icono mesa.png");
+        Icon mev = new ImageIcon("src\\imagenes\\icono mesa - copia.png");
+
+        inic -= 1;
+        dest -= 1;
+
+        if (inic == dest) {
+            showMessageDialog(null, "La mesa inicial no puede ser la misma que la de destino", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (interfaz.mesas.get(inic).getDisponible() == true || interfaz.mesas.isEmpty()) {
+            showMessageDialog(null, "La mesa inicial no esta ocupada", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (interfaz.mesas.get(dest).getDisponible() == false) {
+            showMessageDialog(null, "La mesa de destino esta ocupada", "Invalido", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Mesa vieja = interfaz.mesas.get(inic);
+        System.out.println(vieja);
+        System.out.println("DESTINO:   " + dest);
+        interfaz.mesas.get(dest).setPedido(vieja.pedido);
+        interfaz.mesas.get(dest).setMesero_encargado(vieja.getMesero_encargado());
+        interfaz.mesas.get(dest).setCantidad(vieja.getCantidad());
+        interfaz.mesas.get(dest).setDisponible(false);
+        interfaz.mesas.get(inic).desocuparMesa();
+        /*
+        for (int i = 0; i < interfaz.mesas.size(); i++) {
+
+            if (interfaz.mesas.get(i).getNumero_mesa() == dest) {
+
+                System.out.println(interfaz.mesas.get(i).toString());
+
+            }
+
+        }
+        */
+        dest++;
+        inic++;
+        switch (inic) {
+
+            case 1:
+                imagenMesa1.setIcon(me);
+                break;
+            case 2:
+                imagenMesa2.setIcon(me);
+                break;
+            case 3:
+                imagenMesa3.setIcon(me);
+                break;
+            case 4:
+                imagenMesa4.setIcon(me);
+                break;
+            case 5:
+                imagenMesa5.setIcon(me);
+                break;
+            case 6:
+                imagenMesa6.setIcon(me);
+                break;
+            case 7:
+                imagenMesa7.setIcon(me);
+                break;
+            case 8:
+                imagenMesa8.setIcon(me);
+                break;
+            case 9:
+                imagenMesa9.setIcon(me);
+                break;
+            case 10:
+                imagenMesa10.setIcon(me);
+                break;
+            case 11:
+                imagenMesa11.setIcon(me);
+                break;
+            case 12:
+                imagenMesa12.setIcon(me);
+                break;
+
+        }
+
+        switch (dest) {
+
+            case 1:
+                imagenMesa1.setIcon(mev);
+                break;
+            case 2:
+                imagenMesa2.setIcon(mev);
+                break;
+            case 3:
+                imagenMesa3.setIcon(mev);
+                break;
+            case 4:
+                imagenMesa4.setIcon(mev);
+                break;
+            case 5:
+                imagenMesa5.setIcon(mev);
+                break;
+            case 6:
+                imagenMesa6.setIcon(mev);
+                break;
+            case 7:
+                imagenMesa7.setIcon(mev);
+                break;
+            case 8:
+                imagenMesa8.setIcon(mev);
+                break;
+            case 9:
+                imagenMesa9.setIcon(mev);
+                break;
+            case 10:
+                imagenMesa10.setIcon(mev);
+                break;
+            case 11:
+                imagenMesa11.setIcon(mev);
+                break;
+            case 12:
+                imagenMesa12.setIcon(mev);
+                break;
+
+        }
+
+    }//GEN-LAST:event_botonCambioMesaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1636,6 +1803,8 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JLabel imagenMesa9;
     private javax.swing.JLabel infoMesero;
     private javax.swing.JLabel iva;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

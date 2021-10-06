@@ -9,7 +9,7 @@ public class Mesa {
     private int numero_mesa;
     private String mesero_encargado;
     private ArrayList<Cliente> clientes;
-    private ArrayList<Comida> pedido;
+    public ArrayList<Comida> pedido;
 
     public Mesa(int numero_mesa, String mesero_encargado) {
         this.clientes = new ArrayList<>();
@@ -121,7 +121,7 @@ public class Mesa {
         disponible = true;
         mesero_encargado = "";
         clientes.clear();
-        pedido.clear();
+        pedido = new ArrayList<>();
         
     }
     
