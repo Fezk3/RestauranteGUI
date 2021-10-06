@@ -44,9 +44,9 @@ public class VentanRest extends javax.swing.JFrame {
         iniciaComboBoxMesas();
 
     }
-    
-    private void iniciaComboBoxMesas(){
-        
+
+    private void iniciaComboBoxMesas() {
+
         comboMesas.addElement(1);
         comboMesas.addElement(2);
         comboMesas.addElement(3);
@@ -59,7 +59,7 @@ public class VentanRest extends javax.swing.JFrame {
         comboMesas.addElement(10);
         comboMesas.addElement(11);
         comboMesas.addElement(12);
-        
+
     }
 
     private void llenarComboI() {
@@ -1409,19 +1409,61 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonActualizaComboActionPerformed
 
     private void botonDesocuparMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDesocuparMesaActionPerformed
-        
+
         String n = String.valueOf(comboMesa.getSelectedItem());
-        
-        if(interfaz.desocuparMesas(Integer.parseInt(n))){
-            
+        Icon me = new ImageIcon("src\\imagenes\\icono mesa.png");
+
+        if (interfaz.desocuparMesas(Integer.parseInt(n))) {
+
             showMessageDialog(null, "Mesa" + n + " desocupada", "Confirmado", JOptionPane.INFORMATION_MESSAGE);
-            
-        }else{
-            
+
+            switch (Integer.parseInt(n)) {
+
+                case 1:
+                    imagenMesa1.setIcon(me);
+                    break;
+                case 2:
+                    imagenMesa2.setIcon(me);
+                    break;
+                case 3:
+                    imagenMesa3.setIcon(me);
+                    break;
+                case 4:
+                    imagenMesa4.setIcon(me);
+                    break;
+                case 5:
+                    imagenMesa5.setIcon(me);
+                    break;
+                case 6:
+                    imagenMesa6.setIcon(me);
+                    break;
+                case 7:
+                    imagenMesa7.setIcon(me);
+                    break;
+                case 8:
+                    imagenMesa8.setIcon(me);
+                    break;
+                case 9:
+                    imagenMesa9.setIcon(me);
+                    break;
+                case 10:
+                    imagenMesa10.setIcon(me);
+                    break;
+                case 11:
+                    imagenMesa11.setIcon(me);
+                    break;
+                case 12:
+                    imagenMesa12.setIcon(me);
+                    break;
+
+            }
+
+        } else {
+
             showMessageDialog(null, "La mesa no puede ser desocupada", "Invalido", JOptionPane.ERROR_MESSAGE);
-            
+
         }
-        
+
     }//GEN-LAST:event_botonDesocuparMesaActionPerformed
 
     /**
