@@ -311,8 +311,8 @@ public class VentanaFactura extends javax.swing.JFrame implements WindowListener
 
         // llena la tabla con las comidas de la factura
         for (int i = 0; i < fact.LComida.size(); i++) {
-
-            modeloTablaFact.addRow(new Object[]{fact.LComida.get(i).getNombre(), fact.LComida.get(i).getCantidad(), fact.LComida.get(i).getTipo(), String.valueOf(fact.LComida.get(i).getPrecio())});
+            Comida c=fact.LComida.get(i);
+            modeloTablaFact.addRow(new Object[]{c.getNombre(), c.getCantidad(), c.getTipo(), String.valueOf(c.getPrecio())});
 
         }
 

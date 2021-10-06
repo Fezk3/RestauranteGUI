@@ -1256,7 +1256,6 @@ public class VentanRest extends javax.swing.JFrame {
             indexComboMesa = String.valueOf(comboMesa.getSelectedIndex());
 
             mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
-            
 
             if (mesita.getDisponible() == true) {
                 showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
@@ -1264,7 +1263,6 @@ public class VentanRest extends javax.swing.JFrame {
             }
             mesita.setPedido(comidas);
             mesita.setMesero_encargado(mese);
-            
 
         }
 
