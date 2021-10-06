@@ -153,20 +153,11 @@ public class VentanRest extends javax.swing.JFrame {
     private Icon cambiarIcono(JLabel imagenMesa) {
         Icon me = new ImageIcon("src\\imagenes\\icono mesa - copia.png");
         if (!me.equals(imagenMesa.getIcon())) {
-            mesa.setDisponible(false);
+            
             return me;
         }
 
         return (new ImageIcon("src\\imagenes\\icono mesa.png"));
-    }
-
-    private void resetearMesa(ImageIcon a) {
-
-    }
-
-    private void asignarMesa(String numeroMesa) {
-        mesa = new Mesa(Integer.parseInt(numeroMesa), String.valueOf(comboMesero.getSelectedItem()));
-        interfaz.mesas.add(mesa);
     }
 
     private void agregarModeloTablaMesa() {
@@ -175,6 +166,33 @@ public class VentanRest extends javax.swing.JFrame {
         modeloTablaMesa.addColumn("Tipo");
         modeloTablaMesa.addColumn("Precio");
 
+    }
+
+    private void llenarTablaMesa() {
+        int top = interfaz.mesas.size();
+        Mesa m;
+        Comida c;
+        for (int i = 0; i < top; i++) {
+            m = interfaz.mesas.get(i);
+            if (m.getNumero_mesa() == comboMesa.getSelectedIndex() + 1) {
+                infoMesero.setText(m.getMesero_encargado());
+                ocupantes.setText(String.valueOf(m.getCantidad()));
+                
+                int topPedido=m.getPedido().size();
+                for(int j=0;j<topPedido;j++){
+                    c = m.getPedido().get(j);
+                    String nombre =String.valueOf(c.getNombre());
+                    String cantidad=String.valueOf(c.getCantidad());
+                    String tipo=String.valueOf(c.getTipo());
+                    String precio=String.valueOf(c.getPrecio());
+                    modeloTablaMesa.addRow(new Object[]{nombre,cantidad,tipo,precio});
+                }
+            }
+        }
+    }
+    
+    private void asignarMesa(String num){
+        interfaz.mesas.get(Integer.parseInt(num)-1).setDisponible(false);
     }
 
     /**
@@ -221,6 +239,7 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaOcupantes = new javax.swing.JLabel();
         ocupantes = new javax.swing.JLabel();
         etiquetaDetallePedido = new javax.swing.JLabel();
+        botonRefrescar = new javax.swing.JButton();
         panelFactura = new javax.swing.JPanel();
         etiquetaNombre = new javax.swing.JLabel();
         cajaNombre = new javax.swing.JTextField();
@@ -558,6 +577,13 @@ public class VentanRest extends javax.swing.JFrame {
         etiquetaDetallePedido.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaDetallePedido.setText("Detalle de los Pedidos");
 
+        botonRefrescar.setText("Refrescar");
+        botonRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRefrescarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelInfoMesasLayout = new javax.swing.GroupLayout(panelInfoMesas);
         panelInfoMesas.setLayout(panelInfoMesasLayout);
         panelInfoMesasLayout.setHorizontalGroup(
@@ -565,40 +591,46 @@ public class VentanRest extends javax.swing.JFrame {
             .addGroup(panelInfoMesasLayout.createSequentialGroup()
                 .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
+                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
                         .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelInfoMesasLayout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addComponent(etiquetaInfoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(infoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
+                                .addGap(25, 25, 25)
                                 .addComponent(etiquetaOcupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(ocupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelInfoMesasLayout.createSequentialGroup()
-                                .addGap(152, 152, 152)
+                                .addGap(150, 150, 150)
                                 .addComponent(etiquetaDetallePedido)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelInfoMesasLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panelInfoMesasLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(botonRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInfoMesasLayout.setVerticalGroup(
             panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoMesasLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(15, 15, 15)
                 .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiquetaInfoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(infoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaInfoMesero, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelInfoMesasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(etiquetaOcupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ocupantes, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(etiquetaDetallePedido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonRefrescar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelFactura.setBackground(new java.awt.Color(0, 102, 153));
@@ -1204,9 +1236,10 @@ public class VentanRest extends javax.swing.JFrame {
             return;
         }
 
-        if (comboServicio.getSelectedItem().equals("Comer aqui") && !interfaz.mesas.isEmpty()) {
+        if (comboServicio.getSelectedItem().equals("Comer aqui") ) {
 
-            indexComboMesa = String.valueOf(comboMesero.getSelectedIndex());
+            indexComboMesa = String.valueOf(comboMesa.getSelectedIndex());
+            
             mesita = interfaz.mesas.get(Integer.parseInt(indexComboMesa));
 
             if (mesita.getDisponible() == true) {
@@ -1217,10 +1250,7 @@ public class VentanRest extends javax.swing.JFrame {
             mesita.setMesero_encargado(mese);
             interfaz.mesas.add(Integer.parseInt(indexComboMesa), mesita);
 
-        } else if (comboServicio.getSelectedItem().equals("Comer aqui") && interfaz.mesas.isEmpty()) {
-            showMessageDialog(null, "asigne una mesa", "Invalido", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        } 
 
         // AGREGANDO FACTURA A LA LISTA
         interfaz.facturas.add(new Factura(comidas, nume - 1, fech, serv, mese, tel, nom, dir));
@@ -1236,7 +1266,6 @@ public class VentanRest extends javax.swing.JFrame {
         total.setText("0.0");
         totalIva.setText("0.0");
 
-        resetearMesa(new ImageIcon("src\\imagenes\\icono mesa.png"));
         while (top != 0) {
 
             modeloTablaFact.removeRow(0);
@@ -1328,63 +1357,75 @@ public class VentanRest extends javax.swing.JFrame {
     }//GEN-LAST:event_botonMuestraFactsActionPerformed
 
     private void imagenMesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa1MouseClicked
-        asignarMesa(num1.getText());
+        
         imagenMesa1.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa1MouseClicked
 
     private void imagenMesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa2MouseClicked
-        asignarMesa(num2.getText());
+        
         imagenMesa2.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa2MouseClicked
 
     private void imagenMesa3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa3MouseClicked
-        asignarMesa(num3.getText());
+        
         imagenMesa3.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa3MouseClicked
 
     private void imagenMesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa4MouseClicked
-        asignarMesa(num4.getText());
+        
         imagenMesa4.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa4MouseClicked
 
     private void imagenMesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa5MouseClicked
-        asignarMesa(num5.getText());
+        
         imagenMesa5.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa5MouseClicked
 
     private void imagenMesa6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa6MouseClicked
-        asignarMesa(num6.getText());
+        
         imagenMesa6.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa6MouseClicked
 
     private void imagenMesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa7MouseClicked
-        asignarMesa(num7.getText());
+        
         imagenMesa7.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa7MouseClicked
 
     private void imagenMesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa8MouseClicked
-        asignarMesa(num8.getText());
+        
         imagenMesa8.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa8MouseClicked
 
     private void imagenMesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa9MouseClicked
-        asignarMesa(num9.getText());
+        
         imagenMesa9.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa9MouseClicked
 
     private void imagenMesa10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa10MouseClicked
-        asignarMesa(num10.getText());
+        
         imagenMesa10.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa10MouseClicked
 
     private void imagenMesa11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa11MouseClicked
-        asignarMesa(num11.getText());
+        
         imagenMesa11.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa11MouseClicked
 
     private void imagenMesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imagenMesa12MouseClicked
-        asignarMesa(num12.getText());
+        
         imagenMesa12.setIcon(cambiarIcono(imagenMesa1));
+        asignarMesa(num1.getText());
     }//GEN-LAST:event_imagenMesa12MouseClicked
 
     private void BotonSubMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubMenuActionPerformed
@@ -1466,6 +1507,10 @@ public class VentanRest extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonDesocuparMesaActionPerformed
 
+    private void botonRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRefrescarActionPerformed
+        llenarTablaMesa();
+    }//GEN-LAST:event_botonRefrescarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1512,6 +1557,7 @@ public class VentanRest extends javax.swing.JFrame {
     private javax.swing.JButton botonDesocuparMesa;
     private javax.swing.JButton botonGeneraFact;
     private javax.swing.JButton botonMuestraFacts;
+    private javax.swing.JButton botonRefrescar;
     private javax.swing.JTextField cajaDirec;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaTel;
