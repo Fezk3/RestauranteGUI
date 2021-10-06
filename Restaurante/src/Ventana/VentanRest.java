@@ -802,11 +802,8 @@ public class VentanRest extends javax.swing.JFrame {
                                 .addComponent(iva, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonGeneraFact, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelFacturaLayout.createSequentialGroup()
-                                .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(totalIva, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totalIva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(53, 53, 53))))
             .addGroup(panelFacturaLayout.createSequentialGroup()
                 .addGroup(panelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1339,6 +1336,7 @@ public class VentanRest extends javax.swing.JFrame {
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
         int fila = tablaSubMenu.getSelectedRow();
+        double descuento;
         if (fila != -1) {
             String nombre = String.valueOf(modeloTablaSubM.getValueAt(fila, 0));
             String cantidad = String.valueOf(comboCantidad.getSelectedItem());
@@ -1348,6 +1346,14 @@ public class VentanRest extends javax.swing.JFrame {
             //Comida nueva =new Comida(nombre,tipo,preciot,Integer.parseInt(cantidad) );
 
             modeloTablaFact.addRow(new Object[]{nombre, cantidad, tipo, preciot});
+
+            if (comboServicio.getSelectedItem() == "Express") {
+                totalFact += preciot;
+                descuento = totalFact * 0.05;
+                total.setText("Con descuento " + (totalFact - descuento));
+                totalIva.setText("Con descuento " + Math.round((((totalFact * 1.13) * 100.0) / 100.0) - descuento));
+                return;
+            }
             totalFact += preciot;
             total.setText("" + totalFact);
             totalIva.setText("" + Math.round((totalFact * 1.13) * 100.0) / 100.0);
@@ -1625,7 +1631,7 @@ public class VentanRest extends javax.swing.JFrame {
             }
 
         }
-        */
+         */
         dest++;
         inic++;
         switch (inic) {
