@@ -490,14 +490,15 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
                 
             }
             
-            if(fact.getTipoServicio().equals("Express")){
-                
-                for(int j=0;j<fact.LComida.size();j++){
-                   
-                   totalE += Math.round(((fact.LComida.get(j).getCantidad() * fact.LComida.get(j).getPrecio()) * 1.13)*100)/100;
-                   
-               }
-                
+            if (fact.getTipoServicio().equals("Express")) {
+
+                double descuento = 0.0;
+
+                totalE += Math.round(((fact.calcularTotal()) * 1.13) * 100) / 100;
+
+                descuento = totalE * 0.05;
+                totalE -= descuento;
+
             }
             
         }
