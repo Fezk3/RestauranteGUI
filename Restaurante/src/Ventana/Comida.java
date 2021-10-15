@@ -2,10 +2,12 @@ package Ventana;
 
 public class Comida {
     
+    //ATRIBUTOS
     private String nombre, tipo;
     private double precio;
     private int cantidad;
 
+    //CONSTRUCTORES
     public Comida(String nombre, String tipo, double precio) {
         this.nombre = nombre;
         this.tipo = tipo;
@@ -20,6 +22,7 @@ public class Comida {
         this.cantidad = cantidad;
     }
 
+    //METODOS ACCESORES
     public String getNombre() {
         return nombre;
     }
@@ -52,6 +55,7 @@ public class Comida {
         this.cantidad = cantidad;
     }
     
+    //TOSTRING
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

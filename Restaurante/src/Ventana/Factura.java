@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Factura {
 
+    //ATRIBUTOS
     ArrayList<Comida> LComida;
     private int nFact;
     private String fecha;
@@ -14,6 +15,7 @@ public class Factura {
     private String nomCliente;
     private String direcCliente;
 
+    //CONSTRUCTORES
     public Factura() {
         LComida= new ArrayList<Comida>();
     }
@@ -29,6 +31,7 @@ public class Factura {
         this.direcCliente = direcCliente;
     }
 
+    //METODOS ACCESORES
     public ArrayList<Comida> getLComida() {
         return LComida;
     }
@@ -95,6 +98,7 @@ public class Factura {
     
     
 
+    //CON LA LISTA DE COMIDAS CALCULA EL TOTAL DE LA FACTURA
     public double calcularTotal() {
         int topC=LComida.size();
         
@@ -107,6 +111,7 @@ public class Factura {
         return totalC+totalB;
     }
 
+    //
     public double calcularConIva() {
         
         return calcularTotal()*1.13;

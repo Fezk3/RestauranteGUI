@@ -2,11 +2,14 @@ package Ventana;
 
 public class Cliente extends Persona{
 
+    //atributos
     private String direccion;
     private String tipoDePago;
     private String servicioDeAtencion;
     private boolean pagado;
 
+    
+    //CONSTRUCTOR
     public Cliente(String direccion, String tipoDePago, String servicioDeAtencion, String nombre, String apellido, String celular) {
         super(nombre, apellido, celular);
         this.direccion = direccion;
@@ -15,6 +18,7 @@ public class Cliente extends Persona{
         
     }
 
+    //METODOS ACCESORES
     public String getDireccion() {
         return direccion;
     }
@@ -47,6 +51,7 @@ public class Cliente extends Persona{
         this.pagado = pagado;
     }
     
+    //TOSTRING DE LA CLASE
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
