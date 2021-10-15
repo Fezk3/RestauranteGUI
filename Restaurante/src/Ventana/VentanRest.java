@@ -1379,7 +1379,7 @@ public class VentanRest extends javax.swing.JFrame {
         }
         int op = JOptionPane.showConfirmDialog(null, "Le gustaria dividir la factura?", "Confirmacion", JOptionPane.YES_NO_OPTION);
         int fila = tablaPedidos.getSelectedRow();
-        while(op == JOptionPane.YES_OPTION){
+        //while(op == JOptionPane.YES_OPTION){
         
             
             if (fila != -1) {
@@ -1388,10 +1388,10 @@ public class VentanRest extends javax.swing.JFrame {
 
             
             }
-        op = JOptionPane.showConfirmDialog(null, "Le gustaria aniadir un item mas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+        //op = JOptionPane.showConfirmDialog(null, "Le gustaria aniadir un item mas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
             
             
-        }
+        //}
         int nf = num;
         Factura nueva = new Factura(pedido, nf, fechaactual.getText(), String.valueOf(comboServicio.getSelectedItem()), String.valueOf(comboMesero.getSelectedItem()), cajaTel.getText(), cajaNombre.getText(), cajaDirec.getText());
         interfaz.facturas.add(nueva);
