@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Mesa {
     
+    //ATRIBUTOS
     private int cantidad = 0;
     private boolean disponible;
     private int numero_mesa;
@@ -11,6 +12,7 @@ public class Mesa {
     private ArrayList<Cliente> clientes;
     public ArrayList<Comida> pedido;
 
+    //CONSTRUCTOR
     public Mesa(int numero_mesa, String mesero_encargado) {
         this.clientes = new ArrayList<>();
         this.numero_mesa = numero_mesa;
@@ -19,6 +21,7 @@ public class Mesa {
         disponible = true;
     }
 
+    //ACCESORES
     public boolean getDisponible() {
         return disponible;
     }
@@ -43,54 +46,7 @@ public class Mesa {
         this.mesero_encargado = mesero_encargado;
     }
     
-    public boolean IngresarCliente(Cliente c){
-        
-        if(cantidad != 4){
-            
-            clientes.add(c);
-            cantidad++;
-            return true; // ingresa bien 
-            
-        }
-        
-        return false; // no hay espacio para mas
-        
-    }
-    
-    public void retiraCliente(){
-        
-        for(int i=0;i<clientes.size();i++){
-         
-            // cambiar metodo a getPagado
-            if(clientes.get(i).getTipoDePago().equals("pagado")){
-                
-                clientes.remove(i);
-                
-            }    
-            
-        }
-        
-    }
-    
-    // quizas no se ocupe y funcione solo con sets y gets :/
-    public boolean disponible(){
-        
-        if(cantidad != 0){
-            
-            disponible = false;
-            return false;
-            
-        }else{
-         
-            disponible = true;
-            
-        }
-        
-        return true;
-        
-    }
-
-    public ArrayList<Comida> getPedido() {
+     public ArrayList<Comida> getPedido() {
         return pedido;
     }
 
@@ -106,6 +62,38 @@ public class Mesa {
         this.cantidad = cantidad;
     }
     
+    //AGREGA UN CLIENTE A LA MESA
+    public boolean IngresarCliente(Cliente c){
+        
+        if(cantidad != 4){
+            
+            clientes.add(c);
+            cantidad++;
+            return true; // ingresa bien 
+            
+        }
+        
+        return false; // no hay espacio para mas
+        
+    }
+    
+    //RETIRA A UN CLIENTE DE LA MESA
+    public void retiraCliente(){
+        
+        for(int i=0;i<clientes.size();i++){
+         
+            // cambiar metodo a getPagado
+            if(clientes.get(i).getTipoDePago().equals("pagado")){
+                
+                clientes.remove(i);
+                
+            }    
+            
+        }
+        
+    }
+    
+    //TOSTRING
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -115,6 +103,7 @@ public class Mesa {
         return sb.toString();
     }
     
+    //LIMPIA LA MESA
     public void desocuparMesa(){
         
         cantidad = 0;

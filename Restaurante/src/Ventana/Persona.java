@@ -4,12 +4,14 @@ public class Persona {
     
     private String nombre, apellido, celular;
 
+    //CONSTRUCTORES
     public Persona(String nombre, String apellido, String celular) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
     }
 
+    //ACCESORES
     public String getNombre() {
         return nombre;
     }

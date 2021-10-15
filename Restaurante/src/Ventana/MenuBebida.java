@@ -6,17 +6,20 @@ public class MenuBebida {
     
     public ArrayList<Comida> bebidas;
 
+    //CONSTRUCTOR
     public MenuBebida() {
         this.bebidas = new ArrayList<Comida>();
         generarBebidasBase();
     }
     
+    //AGREGA UNA BEBIDA A LA LISTA
     public void agegarBebida(Comida nueva){
         
         bebidas.add(nueva);
         
     }
     
+    //GENERA BEBIDAS POR DEFECTO Y LAS AGREGA A LA LISTA
     public void generarBebidasBase(){
         
         Comida coca = new Comida("Coca-Cola","Bebida", 1200);

@@ -6,18 +6,21 @@ public class MenuAlmuerzo {
 
     public ArrayList<Comida> almuerzos;
 
+    //CONSTRUCTOR
     public MenuAlmuerzo() {
 
         this.almuerzos = new ArrayList<Comida>();
         generarAlmuerzosBase();
     }
 
+    //AGREGA UN ALMUERZO A LA LISTA
     public void agegarAlmuerzo(Comida nueva) {
 
         almuerzos.add(nueva);
 
     }
 
+    //SE GENERAN ALMUERZOS POR DEFECTO Y LAS AGREGA A LA LISTA
     public void generarAlmuerzosBase() {
 
         Comida casado = new Comida("Casado con Pescado", "Almuerzo", 5000);

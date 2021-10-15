@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Interfaz {
 
+    //ATRIBUTOS
     public ArrayList<Mesero> meseros;
     public ArrayList<Mesa> mesas;
     public ArrayList<Cliente> clientes;
@@ -15,6 +16,7 @@ public class Interfaz {
     public MenuAlmuerzo menuAlmuerzo;
     public MenuCena menuCena;
 
+    //CONSTRUCTOR
     public Interfaz() {
 
         meseros = new ArrayList<Mesero>();
@@ -27,7 +29,8 @@ public class Interfaz {
         menuDesayuno = new MenuDesayuno();
         llenarListaMesa();
     }
-
+    
+    //AGREGA COMIDAS A LOS MENU DEPENDIENDO DE SU TIPO
     public void agregarComida(Comida nueva) {
 
         if (nueva.getTipo().equals("Desayuno")) {
@@ -45,6 +48,7 @@ public class Interfaz {
 
     }
 
+    //SE LLENA LA LISTA DE MESEROS POR DEFECTO
     public void llenaMeseros() {
 
         meseros.add(new Mesero("Julio", "Perez", "85878986", 15000));
@@ -54,6 +58,8 @@ public class Interfaz {
 
     }
 
+    
+    //DESOCUPA UNA MESA EN ESPECIFICO POR MEDIO DE SU INDICE
     public boolean desocuparMesas(int n) {
 
         for (Mesa mes : mesas) {
@@ -71,12 +77,14 @@ public class Interfaz {
 
     }
 
+    //SE INICIALIZA LA LISTA DE MESAS VACIA
     private void llenarListaMesa() {
         for (int i = 0; i < 12; i++) {
             mesas.add(new Mesa(i + 1, ""));
         }
     }
 
+    //SE ORDENAN LAS FACTURAS EN COMER AQUI, EXPRES Y PARA LLEVAR
     public void OrdenarFacts() {
         Factura variable;
         for (int i = 0; i < facturas.size(); i++) {

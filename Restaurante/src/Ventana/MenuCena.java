@@ -6,18 +6,21 @@ public class MenuCena {
 
     public ArrayList<Comida> cenas;
 
+    //CONSTRUCTOR
     public MenuCena() {
 
         this.cenas = new ArrayList<Comida>();
         generarCenasBase();
     }
 
+    //AGREGA UNA CENA A LA LISTA
     public void agegarCena(Comida nueva) {
 
         cenas.add(nueva);
 
     }
 
+    //GENERA CENAS POR DEFECTO Y LAS AGREGA A LA LISTA
     public void generarCenasBase() {
 
         Comida pizza = new Comida("Pizza", "Cena", 5000);

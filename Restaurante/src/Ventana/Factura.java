@@ -111,7 +111,7 @@ public class Factura {
         return totalC+totalB;
     }
 
-    //
+    //CON EL METODO ANTERIOR SE SACA EL MISMO CON IVA
     public double calcularConIva() {
         
         return calcularTotal()*1.13;

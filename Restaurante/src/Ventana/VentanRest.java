@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class VentanRest extends javax.swing.JFrame {
 
+    //UTILES DE TABLAS, DE COMBOBOX, ETC.
     private DefaultComboBoxModel comboM = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboS = new DefaultComboBoxModel();
     private DefaultComboBoxModel comboMesas = new DefaultComboBoxModel();
@@ -37,6 +38,7 @@ public class VentanRest extends javax.swing.JFrame {
     public int num = 1;
     Mesa mesa;
 
+    //CONSTRUCTOR
     public VentanRest(Interfaz nuevo) {
         agregarModeloTablaFactura();
         agregarModeloTablaMesa();
@@ -54,6 +56,7 @@ public class VentanRest extends javax.swing.JFrame {
 
     }
 
+    //INICIALIZADOR DE LOS COMBOBOX PARA CAMBIAR DE MESA
     private void iniciaComboMesasD() {
 
         for (int i = 1; i <= 12; i++) {
@@ -87,6 +90,7 @@ public class VentanRest extends javax.swing.JFrame {
 
     }
 
+    //SE INICIALIZA COMBOBOX PARA ELEGIR MESA Y REALIZAR LAS FUNCIONES EN LA MISMA
     private void llenarComboI() {
         for (int i = 1; i <= 15; i++) {
             comboM.addElement("" + i);
@@ -101,6 +105,7 @@ public class VentanRest extends javax.swing.JFrame {
 
     }
 
+    //SE LLENA EL COMBOBOX DE MESEROS DE PANEL FACTURA
     private void llenarModeloComboMesero() {
 
         int top = interfaz.meseros.size();
@@ -136,6 +141,7 @@ public class VentanRest extends javax.swing.JFrame {
         modeloTablaSubM.addColumn("Tipo");
     }
 
+    //EN LOS SIGUIENTES 4 METODOS SE LLENA LA TABLA DE PANEL SUBMENU DEPENDIENDO DEL MENU QUE SE ESCOJA
     private void llenarTablaSubMenuB() {
         int top = interfaz.menuBebida.bebidas.size();
         Comida actual;
@@ -174,6 +180,8 @@ public class VentanRest extends javax.swing.JFrame {
         }
     }
 
+    //SE VERIFICA SI EL ICONO DE LA MESA(- COPIA ES EL DE OCUPADO) ESTA EN OCUPADO
+    //Y SI ES, SE ENVIA EL MISMO ICONO 
     private Icon cambiarIcono(JLabel imagenMesa) {
         Icon me = new ImageIcon("src\\imagenes\\icono mesa - copia.png");
         if (!me.equals(imagenMesa.getIcon())) {
@@ -192,6 +200,7 @@ public class VentanRest extends javax.swing.JFrame {
 
     }
 
+    //SE LLENA LA TABLA DEL PANEL INFOMESA CON INFORMACION QUE HAY EN CADA MESA
     private void llenarTablaMesa() {
 
         Mesa m;
@@ -220,6 +229,7 @@ public class VentanRest extends javax.swing.JFrame {
         }
     }
 
+    //SE ASIGNA UNA MESA Y EL NUMERO DE OCUPANTES
     private boolean asignarMesa(String num) {
         String path = JOptionPane.showInputDialog("Digite el numero de ocupantes");
         if (Integer.parseInt(path) > 0 && Integer.parseInt(path) <= 4) {
@@ -234,6 +244,8 @@ public class VentanRest extends javax.swing.JFrame {
 
     }
 
+    //SE OBTIENE LA INFORMACION DE UNA FILA DE LA TABLA DE PANEL FACTURA PARA 
+    //PODER FRACCIONAR LA FACTURA 
     private void partirFactura(int fila) {
 
         String nombre = String.valueOf(modeloTablaFact.getValueAt(fila, 0));
@@ -996,7 +1008,7 @@ public class VentanRest extends javax.swing.JFrame {
                 .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelBotonesLayout.createSequentialGroup()
                         .addComponent(BotonSubMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BotonDivCuenta)
                             .addComponent(botonMuestraFacts))
@@ -1210,7 +1222,7 @@ public class VentanRest extends javax.swing.JFrame {
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panelFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelInfoMesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))

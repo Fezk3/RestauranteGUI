@@ -24,6 +24,7 @@ public class VentanaAdmin extends javax.swing.JFrame implements WindowListener {
     public static Interfaz interfaz;
     private ButtonGroup grupo;
 
+    //CONSTRUCTOR
     public VentanaAdmin(Interfaz nuevo) {
         initComponents();
         interfaz = nuevo;
